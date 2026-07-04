@@ -276,6 +276,59 @@
     .nh-chips { grid-template-columns: 1fr; }
   }
 
+
+  /* ===== Home page animations ===== */
+  @keyframes fx-up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fx-float { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-14px) rotate(var(--rot, 0deg)); } }
+  @keyframes fx-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes fx-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes fx-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(91,91,214,.45); } 50% { box-shadow: 0 0 0 14px rgba(91,91,214,0); } }
+  @keyframes fx-wiggle { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+  @keyframes fx-marquee { to { transform: translateX(-50%); } }
+  @keyframes fx-gradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  @keyframes fx-drift { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(40px,-30px) scale(1.15); } 66% { transform: translate(-30px,20px) scale(.95); } }
+
+  .fx-up { opacity: 0; animation: fx-up .8s cubic-bezier(.22,1,.36,1) forwards; }
+  .fx-d1 { animation-delay: .15s; }
+  .fx-d2 { animation-delay: .3s; }
+  .fx-float { animation: fx-float 6s ease-in-out infinite; }
+  .fx-float-2 { animation: fx-float 7.5s ease-in-out 1s infinite; }
+  .fx-float-3 { animation: fx-float 5.2s ease-in-out .4s infinite; }
+  .fx-bob { animation: fx-bob 3.5s ease-in-out infinite; }
+  .fx-pulse { animation: fx-pulse 2.4s ease-out infinite; }
+  .fx-cyl { transform-origin: bottom; animation: fx-grow .9s cubic-bezier(.22,1,.36,1) both, fx-bob 5s ease-in-out 1.6s infinite; }
+  .fx-wiggle-hover:hover { animation: fx-wiggle .5s ease-in-out 2; }
+
+  [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  [data-reveal].in-view { opacity: 1; transform: none; }
+  .fx-bar { transform: scaleY(0); transform-origin: bottom; transition: transform .9s cubic-bezier(.22,1,.36,1); }
+  .in-view .fx-bar { transform: scaleY(1); }
+  .fx-lift { transition: transform .3s ease, box-shadow .3s ease, opacity .7s cubic-bezier(.22,1,.36,1); }
+  .fx-lift:hover { transform: translateY(-6px); }
+
+  .fx-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); margin-top: 16px; }
+  .fx-marquee-track { display: flex; width: max-content; gap: 3rem; list-style: none; animation: fx-marquee 26s linear infinite; }
+  .fx-marquee:hover .fx-marquee-track { animation-play-state: paused; }
+  .fx-marquee-track li { font-size: 14px; font-weight: 600; color: rgba(22,22,46,.6); white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+  .fx-marquee-track li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #5b5bd6; }
+
+  .fx-gradient { background-size: 200% 200% !important; animation: fx-gradient 8s ease infinite; }
+  .nh-blob { position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; animation: fx-drift 16s ease-in-out infinite; }
+  .nh-blob-1 { left: -90px; top: 60px; width: 280px; height: 280px; background: rgba(91,91,214,.15); }
+  .nh-blob-2 { right: 0; top: 200px; width: 320px; height: 320px; background: rgba(13,115,119,.1); animation-delay: -8s; }
+  .nh-wrap { position: relative; overflow: hidden; }
+  .nh-inner { position: relative; }
+  .nh-tile { transform: rotate(var(--rot, 0deg)); }
+  .nh-pill { transition: background .15s, border-color .15s, transform .25s ease; }
+  .nh-pill:hover { transform: translateY(-2px) scale(1.04); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+    .fx-up, [data-reveal] { opacity: 1 !important; transform: none !important; animation: none !important; }
+    .fx-bar { transform: scaleY(1) !important; }
+    .fx-marquee-track { animation: none !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -326,33 +379,36 @@
   <div class="nh-wrap">
     <div class="nh-inner">
 
+      <div class="nh-blob nh-blob-1" aria-hidden="true"></div>
+      <div class="nh-blob nh-blob-2" aria-hidden="true"></div>
+
       <div class="nh-hero">
         <div>
-          <h1>Grow your research with smart data solutions</h1>
-          <p class="nh-sub">Questionnaire design, statistical analysis, dashboards, and pan-India training — delivered by expert analysts for academia and industry.</p>
-          <div class="nh-actions">
+          <h1 class="fx-up">Grow your research with smart data solutions</h1>
+          <p class="nh-sub fx-up fx-d1">Questionnaire design, statistical analysis, dashboards, and pan-India training — delivered by expert analysts for academia and industry.</p>
+          <div class="nh-actions fx-up fx-d2">
             <a class="nh-pill nh-pill-dark" href="#book">Book a Service</a>
             <a class="nh-pill nh-pill-light" href="#consultancy"><span class="nh-dot" aria-hidden="true">→</span>Explore Consultancy</a>
           </div>
         </div>
         <div class="nh-visual" aria-hidden="true">
-          <span class="nh-plus">+</span>
-          <div class="nh-tile" style="left:24px; top:24px; transform:rotate(-12deg);"><span class="nh-sq" style="background:#f472b6;"></span><span class="nh-sq" style="background:#34d399;"></span></div>
-          <div class="nh-tile" style="right:64px; top:0; transform:rotate(12deg); font-size:26px;">📊</div>
-          <div class="nh-tile" style="right:0; top:150px; transform:rotate(6deg); flex-direction:column; gap:6px;"><span class="nh-bar" style="width:40px; background:#fcd34d;"></span><span class="nh-bar" style="width:24px; background:#5b5bd6;"></span></div>
-          <div class="nh-tile nh-tile-sm" style="left:0; top:180px; transform:rotate(20deg); font-size:22px;">🔬</div>
-          <div class="nh-dish"></div>
+          <span class="nh-plus fx-pulse">+</span>
+          <div class="nh-tile fx-float" style="left:24px; top:24px; --rot:-12deg;"><span class="nh-sq" style="background:#f472b6;"></span><span class="nh-sq" style="background:#34d399;"></span></div>
+          <div class="nh-tile fx-float-2" style="right:64px; top:0; --rot:12deg; font-size:26px;">📊</div>
+          <div class="nh-tile fx-float-3" style="right:0; top:150px; --rot:6deg; flex-direction:column; gap:6px;"><span class="nh-bar" style="width:40px; background:#fcd34d;"></span><span class="nh-bar" style="width:24px; background:#5b5bd6;"></span></div>
+          <div class="nh-tile nh-tile-sm fx-float-2" style="left:0; top:180px; --rot:20deg; font-size:22px; animation-delay:2s;">🔬</div>
+          <div class="nh-dish fx-up fx-d1"></div>
           <div class="nh-cyls">
-            <span style="height:110px; width:48px; background:linear-gradient(#ffffffcc,#c7c9f4);"></span>
-            <span style="height:175px; width:56px; background:linear-gradient(#8a8ae8,#5b5bd6);"></span>
-            <span style="height:145px; width:48px; background:linear-gradient(#67d6da,#0d7377);"></span>
+            <span class="fx-cyl" style="height:110px; width:48px; background:linear-gradient(#ffffffcc,#c7c9f4); animation-delay:.4s,1.6s;"></span>
+            <span class="fx-cyl" style="height:175px; width:56px; background:linear-gradient(#8a8ae8,#5b5bd6); animation-delay:.6s,2s;"></span>
+            <span class="fx-cyl" style="height:145px; width:48px; background:linear-gradient(#67d6da,#0d7377); animation-delay:.8s,2.4s;"></span>
           </div>
         </div>
       </div>
 
-      <div class="nh-banner">
+      <div class="nh-banner" data-reveal>
         <div class="nh-banner-brand">
-          <span class="nh-logo">C</span>
+          <span class="nh-logo fx-bob">C</span>
           <div>
             <strong>CARES Training · Consultancy · Research</strong>
             <small>Center for Applied Research and Educational Services</small>
@@ -363,34 +419,34 @@
       </div>
 
       <div class="nh-chips">
-        <div class="nh-chip"><div><small>Trainings</small><strong>150+</strong></div><span>conducted</span></div>
-        <div class="nh-chip"><div><small>Participants</small><strong>20,000+</strong></div><span>trained</span></div>
-        <div class="nh-chip"><div><small>Clients</small><strong>300+</strong></div><span>happy</span></div>
-        <div class="nh-chip"><div><small>Avg. Rating</small><strong>4.77★</strong></div><span>120 reviews</span></div>
+        <div class="nh-chip fx-lift" data-reveal><div><small>Trainings</small><strong data-count="150" data-suffix="+">0+</strong></div><span>conducted</span></div>
+        <div class="nh-chip fx-lift" data-reveal style="transition-delay:.12s;"><div><small>Participants</small><strong data-count="20000" data-suffix="+">0+</strong></div><span>trained</span></div>
+        <div class="nh-chip fx-lift" data-reveal style="transition-delay:.24s;"><div><small>Clients</small><strong data-count="300" data-suffix="+">0+</strong></div><span>happy</span></div>
+        <div class="nh-chip fx-lift" data-reveal style="transition-delay:.36s;"><div><small>Avg. Rating</small><strong data-count="4.77" data-decimals="2" data-suffix="★">0★</strong></div><span>120 reviews</span></div>
       </div>
 
       <div class="nh-bento nh-bento-3">
-        <div class="nh-card nh-card-dark">
+        <div class="nh-card nh-card-dark fx-lift" data-reveal>
           <span class="nh-tag nh-tag-dark">Consultancy</span>
           <h2>Tailored research support</h2>
           <p>Questionnaire design, data analysis, reporting, and dashboards — scoped to your project, from pilot study to publication.</p>
           <a class="nh-pill nh-pill-ghost" href="#consultancy">Learn more</a>
         </div>
-        <div class="nh-card nh-card-center">
+        <div class="nh-card nh-card-center fx-lift" data-reveal style="transition-delay:.12s;">
           <span class="nh-tag">Training</span>
           <div class="nh-avatars" aria-hidden="true">
-            <span style="background:linear-gradient(135deg,#8a8ae8,#5b5bd6);">👩‍🏫</span>
-            <span style="background:linear-gradient(135deg,#67d6da,#0d7377);">👨‍💻</span>
-            <span style="background:linear-gradient(135deg,#fcd34d,#c9a227);">👩‍🔬</span>
+            <span class="fx-wiggle-hover" style="background:linear-gradient(135deg,#8a8ae8,#5b5bd6);">👩‍🏫</span>
+            <span class="fx-wiggle-hover" style="background:linear-gradient(135deg,#67d6da,#0d7377);">👨‍💻</span>
+            <span class="fx-wiggle-hover" style="background:linear-gradient(135deg,#fcd34d,#c9a227);">👩‍🔬</span>
           </div>
           <h2>My training experience</h2>
           <p>SPSS, R Studio, research methodology, and academic writing — hands-on workshops across India.</p>
           <a class="nh-pill nh-pill-dark" href="#training">View workshops</a>
         </div>
-        <div class="nh-card">
+        <div class="nh-card fx-lift" data-reveal style="transition-delay:.24s;">
           <div class="nh-row"><span class="nh-tag">Client outcomes</span><strong style="font-size:12px; color:#16162e;">★ 4.77</strong></div>
           <div class="nh-mini-chart" aria-hidden="true">
-            <span style="height:40%;"></span><span style="height:65%;"></span><span style="height:50%;"></span><span style="height:80%;"></span><span style="height:60%;"></span><span style="height:95%; background:#5b5bd6;"></span><span style="height:75%;"></span>
+            <span class="fx-bar" style="height:40%; transition-delay:.3s;"></span><span class="fx-bar" style="height:65%; transition-delay:.38s;"></span><span class="fx-bar" style="height:50%; transition-delay:.46s;"></span><span class="fx-bar" style="height:80%; transition-delay:.54s;"></span><span class="fx-bar" style="height:60%; transition-delay:.62s;"></span><span class="fx-bar" style="height:95%; background:#5b5bd6; transition-delay:.7s;"></span><span class="fx-bar" style="height:75%; transition-delay:.78s;"></span>
           </div>
           <figure class="nh-quote"><blockquote>“Thoughtful guidance and a helpful environment.”</blockquote><figcaption><strong>Santhosh Kumari</strong> · University of Jammu</figcaption></figure>
           <figure class="nh-quote"><blockquote>“An outstanding experience — great support for my research.”</blockquote><figcaption><strong>Research Scholar</strong> · R Studio Workshop</figcaption></figure>
@@ -398,34 +454,37 @@
       </div>
 
       <div class="nh-bento nh-bento-2">
-        <div class="nh-card nh-card-wide">
+        <div class="nh-card nh-card-wide fx-lift" data-reveal>
           <h2 style="max-width:380px;">Move your project forward with transparent pricing</h2>
           <p style="max-width:420px;">Fixed prices, clear turnaround times, and secure online payment via Razorpay. Institutional quotes available on request.</p>
           <div class="nh-prices">
-            <div class="nh-price"><small>Consultation</small><strong>₹999</strong><em>Expert Consultation Call</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('consultation')">Book</a></div>
-            <div class="nh-price"><small>Consultation</small><strong>₹4,999</strong><em>Questionnaire Design Review</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('questionnaire-review')">Book</a></div>
-            <div class="nh-price"><small>Data Analysis</small><strong>₹7,999</strong><em>Data Analysis — Basic</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('data-analysis-basic')">Book</a></div>
+            <div class="nh-price fx-lift" data-reveal style="transition-delay:.15s;"><small>Consultation</small><strong>₹999</strong><em>Expert Consultation Call</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('consultation')">Book</a></div>
+            <div class="nh-price fx-lift" data-reveal style="transition-delay:.27s;"><small>Consultation</small><strong>₹4,999</strong><em>Questionnaire Design Review</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('questionnaire-review')">Book</a></div>
+            <div class="nh-price fx-lift" data-reveal style="transition-delay:.39s;"><small>Data Analysis</small><strong>₹7,999</strong><em>Data Analysis — Basic</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('data-analysis-basic')">Book</a></div>
           </div>
         </div>
-        <div class="nh-card nh-card-dark nh-card-chart">
-          <span class="nh-float-chip">20,000+ trained</span>
+        <div class="nh-card nh-card-dark nh-card-chart fx-lift" data-reveal style="transition-delay:.12s;">
+          <span class="nh-float-chip fx-bob">20,000+ trained</span>
           <div class="nh-big-chart" aria-hidden="true">
-            <span style="height:35%;"></span><span style="height:55%;"></span><span style="height:75%;"></span><span style="height:60%;"></span><span style="height:90%; background:linear-gradient(#8a8ae8,#5b5bd6);"></span>
+            <span class="fx-bar" style="height:35%; transition-delay:.3s;"></span><span class="fx-bar" style="height:55%; transition-delay:.4s;"></span><span class="fx-bar" style="height:75%; transition-delay:.5s;"></span><span class="fx-bar" style="height:60%; transition-delay:.6s;"></span><span class="fx-bar" style="height:90%; background:linear-gradient(#8a8ae8,#5b5bd6); transition-delay:.7s;"></span>
           </div>
-          <p class="nh-big-num">4.77</p>
+          <p class="nh-big-num" data-count="4.77" data-decimals="2">0.00</p>
           <p>Average workshop rating from 120 reviews across universities and industry.</p>
           <a class="nh-pill nh-pill-white" href="#form" onclick="preselectService('training-workshop')">Book a seat</a>
         </div>
       </div>
 
-      <div class="nh-card nh-clients">
+      <div class="nh-card nh-clients" data-reveal>
         <p class="nh-clients-label">Trusted by leading institutions across India</p>
-        <ul>
-          <li>National Institute of Design</li><li>Central University, Kasargode</li><li>Nirma University</li><li>PES University</li><li>VIT Vellore</li><li>PDPU Gandhinagar</li>
-        </ul>
+        <div class="fx-marquee">
+          <ul class="fx-marquee-track">
+            <li>National Institute of Design</li><li>Central University, Kasargode</li><li>Nirma University</li><li>PES University</li><li>VIT Vellore</li><li>PDPU Gandhinagar</li>
+            <li>National Institute of Design</li><li>Central University, Kasargode</li><li>Nirma University</li><li>PES University</li><li>VIT Vellore</li><li>PDPU Gandhinagar</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="nh-cta">
+      <div class="nh-cta fx-gradient" data-reveal>
         <h2>Ready to start your project?</h2>
         <p>Book a consultation, submit your questionnaire for review, or order data analysis — pay securely online via Razorpay.</p>
         <div class="nh-actions" style="justify-content:center;">
@@ -986,6 +1045,44 @@ renderServices();
 populateForm();
 window.addEventListener("hashchange", route);
 route();
+
+// ---------- scroll reveals & count-up animations ----------
+var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function countUp(el) {
+  if (el.dataset.counted) return;
+  el.dataset.counted = "1";
+  var target = parseFloat(el.getAttribute("data-count") || "0");
+  var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+  var suffix = el.getAttribute("data-suffix") || "";
+  function fmt(v) {
+    return (decimals ? v.toFixed(decimals) : Math.round(v).toLocaleString("en-IN")) + suffix;
+  }
+  if (reduceMotion) { el.textContent = fmt(target); return; }
+  var duration = 1400;
+  var start = performance.now();
+  function frame(now) {
+    var p = Math.min((now - start) / duration, 1);
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt(target * eased);
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+var revealObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("in-view");
+    entry.target.querySelectorAll("[data-count]").forEach(countUp);
+    if (entry.target.hasAttribute("data-count")) countUp(entry.target);
+    revealObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll("[data-reveal]").forEach(function (el) {
+  revealObserver.observe(el);
+});
 
 // Load Razorpay checkout only if a key is configured.
 if (RAZORPAY_KEY_ID) {
