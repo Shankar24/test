@@ -185,6 +185,97 @@
 
   .success-panel { max-width: 560px; margin: 0 auto; text-align: center; }
   .success-panel .badge { width: 64px; height: 64px; border-radius: 50%; background: #d4efdf; font-size: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+
+  /* ===== New home page (SaaS bento style) ===== */
+  .nh-wrap { background: #eef0f7; padding: 48px 16px 40px; }
+  .nh-inner { max-width: 1100px; margin: 0 auto; }
+  .nh-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .nh-hero h1 { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: clamp(34px, 4.5vw, 54px); line-height: 1.08; letter-spacing: -0.02em; color: #16162e; }
+  .nh-sub { margin-top: 18px; max-width: 420px; font-size: 14px; color: rgba(22,22,46,.6); }
+  .nh-actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .nh-pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 12px 24px; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background .15s, border-color .15s; }
+  .nh-pill-dark { background: #16162e; color: #fff; } .nh-pill-dark:hover { background: #2a2a52; }
+  .nh-pill-light { background: rgba(255,255,255,.7); color: #16162e; border: 1px solid rgba(22,22,46,.15); } .nh-pill-light:hover { border-color: rgba(22,22,46,.4); }
+  .nh-pill-accent { background: #5b5bd6; color: #fff; } .nh-pill-accent:hover { background: #4a4ac2; }
+  .nh-pill-ghost { border: 1px solid rgba(255,255,255,.3); color: #fff; } .nh-pill-ghost:hover { background: rgba(255,255,255,.1); }
+  .nh-pill-white { background: #fff; color: #16162e; } .nh-pill-white:hover { background: rgba(255,255,255,.9); }
+  .nh-pill-xs { padding: 6px 16px; font-size: 12px; justify-content: center; }
+  .nh-dot { display: flex; width: 20px; height: 20px; border-radius: 50%; background: #16162e; color: #fff; font-size: 10px; align-items: center; justify-content: center; }
+  .nh-visual { position: relative; height: 380px; max-width: 440px; margin: 0 auto; width: 100%; }
+  .nh-plus { position: absolute; right: 8px; top: 8px; width: 40px; height: 40px; border-radius: 50%; background: #5b5bd6; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 10px 24px rgba(91,91,214,.4); }
+  .nh-tile { position: absolute; width: 96px; height: 96px; border-radius: 24px; background: rgba(255,255,255,.4); border: 1px solid rgba(255,255,255,.7); backdrop-filter: blur(10px); box-shadow: 0 20px 40px rgba(40,40,90,.12); display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .nh-tile-sm { width: 80px; height: 80px; }
+  .nh-sq { width: 16px; height: 16px; border-radius: 6px; display: inline-block; }
+  .nh-bar { height: 12px; border-radius: 999px; display: block; }
+  .nh-dish { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 320px; height: 96px; border-radius: 50%; background: rgba(255,255,255,.4); border: 1px solid rgba(255,255,255,.7); backdrop-filter: blur(10px); box-shadow: 0 30px 60px rgba(40,40,90,.2); }
+  .nh-cyls { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; align-items: flex-end; gap: 16px; }
+  .nh-cyls span { display: block; border-radius: 999px 999px 0 0; box-shadow: 0 10px 24px rgba(40,40,90,.25); }
+  .nh-banner { margin-top: 40px; background: #16162e; border-radius: 24px; padding: 26px 32px; color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; box-shadow: 0 20px 40px rgba(22,22,46,.25); }
+  .nh-banner-brand { display: flex; align-items: center; gap: 12px; }
+  .nh-banner-brand strong { display: block; font-size: 14px; }
+  .nh-banner-brand small { font-size: 11px; color: rgba(255,255,255,.5); }
+  .nh-logo { width: 40px; height: 40px; border-radius: 12px; background: #5b5bd6; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .nh-banner-stat { font-size: 14px; color: rgba(255,255,255,.7); }
+  .nh-banner-stat strong { color: #fff; }
+  .nh-chips { margin-top: 22px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .nh-chip { background: #fff; border-radius: 18px; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+  .nh-chip small { display: block; font-size: 12px; color: rgba(22,22,46,.5); }
+  .nh-chip strong { font-size: 24px; letter-spacing: -0.02em; color: #16162e; }
+  .nh-chip > span { background: #eef0f7; color: #5b5bd6; font-size: 11px; font-weight: 500; border-radius: 999px; padding: 4px 12px; }
+  .nh-bento { margin-top: 22px; display: grid; gap: 16px; }
+  .nh-bento-3 { grid-template-columns: repeat(3, 1fr); }
+  .nh-bento-2 { grid-template-columns: 3fr 2fr; }
+  .nh-card { background: #fff; border-radius: 24px; padding: 30px; box-shadow: 0 1px 3px rgba(0,0,0,.05); display: flex; flex-direction: column; }
+  .nh-card h2 { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 22px; letter-spacing: -0.02em; color: #16162e; margin-top: 16px; }
+  .nh-card p { margin-top: 10px; font-size: 14px; color: rgba(22,22,46,.6); flex: 1; }
+  .nh-card .nh-pill { margin-top: 20px; align-self: flex-start; }
+  .nh-card-dark { background: #16162e; box-shadow: 0 20px 40px rgba(22,22,46,.25); }
+  .nh-card-dark h2 { color: #fff; }
+  .nh-card-dark p { color: rgba(255,255,255,.6); }
+  .nh-card-center { text-align: center; align-items: center; }
+  .nh-tag { align-self: flex-start; background: #eef0f7; color: #5b5bd6; font-size: 11px; font-weight: 500; border-radius: 999px; padding: 4px 12px; }
+  .nh-card-center .nh-tag { align-self: center; }
+  .nh-tag-dark { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+  .nh-row { display: flex; justify-content: space-between; align-items: center; }
+  .nh-avatars { margin-top: 22px; display: flex; }
+  .nh-avatars span { width: 64px; height: 64px; border-radius: 50%; border: 4px solid #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 8px 16px rgba(40,40,90,.15); margin-left: -12px; }
+  .nh-avatars span:first-child { margin-left: 0; }
+  .nh-mini-chart { margin-top: 22px; height: 80px; display: flex; align-items: flex-end; gap: 8px; }
+  .nh-mini-chart span { flex: 1; border-radius: 999px; background: #eef0f7; }
+  .nh-quote { margin-top: 12px; border: 1px solid #eef0f7; border-radius: 16px; padding: 14px; }
+  .nh-quote blockquote { font-size: 12px; color: rgba(22,22,46,.6); }
+  .nh-quote figcaption { margin-top: 6px; font-size: 12px; color: rgba(22,22,46,.4); }
+  .nh-quote figcaption strong { color: #16162e; }
+  .nh-prices { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .nh-price { background: #fafbfe; border: 1px solid #eef0f7; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; }
+  .nh-price small { font-size: 11px; color: rgba(22,22,46,.5); font-weight: 500; }
+  .nh-price strong { font-size: 18px; letter-spacing: -0.02em; color: #16162e; margin-top: 4px; }
+  .nh-price em { font-style: normal; font-size: 11px; color: rgba(22,22,46,.5); margin-top: 4px; flex: 1; }
+  .nh-price .nh-pill { margin-top: 12px; align-self: stretch; }
+  .nh-card-chart { position: relative; overflow: hidden; }
+  .nh-float-chip { position: absolute; right: -8px; top: 30px; background: #5b5bd6; color: #fff; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 8px 16px; box-shadow: 0 10px 24px rgba(91,91,214,.4); }
+  .nh-big-chart { margin-top: 20px; height: 110px; display: flex; align-items: flex-end; gap: 12px; }
+  .nh-big-chart span { flex: 1; border-radius: 12px 12px 0 0; background: rgba(255,255,255,.1); }
+  .nh-card p.nh-big-num { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; color: #fff; margin-top: 20px; flex: 0; }
+  .nh-clients { margin-top: 16px; text-align: center; }
+  .nh-clients-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(22,22,46,.4) !important; }
+  .nh-clients ul { list-style: none; margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; }
+  .nh-clients li { font-size: 14px; font-weight: 600; color: rgba(22,22,46,.6); }
+  .nh-cta { margin-top: 16px; background: linear-gradient(135deg, #5b5bd6, #3d3da8); border-radius: 24px; padding: 40px; text-align: center; color: #fff; box-shadow: 0 20px 40px rgba(61,61,168,.3); }
+  .nh-cta h2 { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #fff; font-size: 28px; letter-spacing: -0.02em; }
+  .nh-cta p { margin: 12px auto 0; max-width: 520px; font-size: 14px; color: rgba(255,255,255,.75); }
+  .nh-cta .nh-actions { margin-top: 26px; }
+  @media (max-width: 900px) {
+    .nh-hero { grid-template-columns: 1fr; }
+    .nh-bento-3 { grid-template-columns: 1fr; }
+    .nh-bento-2 { grid-template-columns: 1fr; }
+    .nh-chips { grid-template-columns: repeat(2, 1fr); }
+    .nh-prices { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .nh-chips { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -232,107 +323,119 @@
 
 <!-- ============ HOME ============ -->
 <div class="page" id="page-home">
-  <section class="hero">
-    <div class="container">
-      <p class="kicker">Training · Consultancy · Research</p>
-      <h1>Research expertise you can build on</h1>
-      <p class="lead">Expert consultancy in questionnaire design, data analysis, research reporting, and pan-India training for academia and industry.</p>
-      <div class="actions">
-        <a class="btn btn-gold" href="#book">Book a Service &amp; Pay Online</a>
-        <a class="btn btn-ghost" href="#consultancy">Explore Consultancy</a>
-      </div>
-    </div>
-  </section>
+  <div class="nh-wrap">
+    <div class="nh-inner">
 
-  <section class="block">
-    <div class="container">
-      <div class="section-head">
-        <h2>What We Offer</h2>
-        <p>From training thousands of participants to delivering bespoke analysis for universities and corporations across India.</p>
+      <div class="nh-hero">
+        <div>
+          <h1>Grow your research with smart data solutions</h1>
+          <p class="nh-sub">Questionnaire design, statistical analysis, dashboards, and pan-India training — delivered by expert analysts for academia and industry.</p>
+          <div class="nh-actions">
+            <a class="nh-pill nh-pill-dark" href="#book">Book a Service</a>
+            <a class="nh-pill nh-pill-light" href="#consultancy"><span class="nh-dot" aria-hidden="true">→</span>Explore Consultancy</a>
+          </div>
+        </div>
+        <div class="nh-visual" aria-hidden="true">
+          <span class="nh-plus">+</span>
+          <div class="nh-tile" style="left:24px; top:24px; transform:rotate(-12deg);"><span class="nh-sq" style="background:#f472b6;"></span><span class="nh-sq" style="background:#34d399;"></span></div>
+          <div class="nh-tile" style="right:64px; top:0; transform:rotate(12deg); font-size:26px;">📊</div>
+          <div class="nh-tile" style="right:0; top:150px; transform:rotate(6deg); flex-direction:column; gap:6px;"><span class="nh-bar" style="width:40px; background:#fcd34d;"></span><span class="nh-bar" style="width:24px; background:#5b5bd6;"></span></div>
+          <div class="nh-tile nh-tile-sm" style="left:0; top:180px; transform:rotate(20deg); font-size:22px;">🔬</div>
+          <div class="nh-dish"></div>
+          <div class="nh-cyls">
+            <span style="height:110px; width:48px; background:linear-gradient(#ffffffcc,#c7c9f4);"></span>
+            <span style="height:175px; width:56px; background:linear-gradient(#8a8ae8,#5b5bd6);"></span>
+            <span style="height:145px; width:48px; background:linear-gradient(#67d6da,#0d7377);"></span>
+          </div>
+        </div>
       </div>
-      <div class="grid grid-3">
-        <a class="card" href="#training">
-          <span class="icon" aria-hidden="true">📚</span>
-          <h3>Training</h3>
-          <p>Pan-India workshops on research methods, SPSS, R Studio, and academic writing — built from real academic and corporate experience.</p>
-          <span class="rating">★ 4.77 rated by 99 customers</span>
-          <span class="more">Learn more →</span>
-        </a>
-        <a class="card" href="#consultancy">
-          <span class="icon" aria-hidden="true">📊</span>
-          <h3>Consultancy</h3>
-          <p>Questionnaire design, data analysis, reporting, and dashboards for industry and academic research projects.</p>
-          <span class="rating">★ 4.76 rated by 21 customers</span>
-          <span class="more">Learn more →</span>
-        </a>
-        <a class="card" href="#research">
-          <span class="icon" aria-hidden="true">🔬</span>
-          <h3>Research</h3>
-          <p>Multidisciplinary research support to address complex problems with rigorous methodology and actionable insights.</p>
-          <span class="more">Learn more →</span>
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <section class="stats">
-    <div class="container">
-      <div class="grid grid-4">
-        <div><div class="num">150+</div><div class="label">Trainings Conducted</div></div>
-        <div><div class="num">20,000+</div><div class="label">Participants Trained</div></div>
-        <div><div class="num">300+</div><div class="label">Happy Clients</div></div>
-        <div><div class="num">Pan India</div><div class="label">Service Reach</div></div>
+      <div class="nh-banner">
+        <div class="nh-banner-brand">
+          <span class="nh-logo">C</span>
+          <div>
+            <strong>CARES Training · Consultancy · Research</strong>
+            <small>Center for Applied Research and Educational Services</small>
+          </div>
+        </div>
+        <p class="nh-banner-stat"><strong>150+ trainings</strong> delivered · <strong>★ 4.77</strong> average rating</p>
+        <a class="nh-pill nh-pill-accent" href="#book">Get Started</a>
       </div>
-    </div>
-  </section>
 
-  <section class="block">
-    <div class="container">
-      <div class="section-head">
-        <h2>Our Clients &amp; Reach</h2>
-        <p>Trusted by leading universities and organizations across India.</p>
+      <div class="nh-chips">
+        <div class="nh-chip"><div><small>Trainings</small><strong>150+</strong></div><span>conducted</span></div>
+        <div class="nh-chip"><div><small>Participants</small><strong>20,000+</strong></div><span>trained</span></div>
+        <div class="nh-chip"><div><small>Clients</small><strong>300+</strong></div><span>happy</span></div>
+        <div class="nh-chip"><div><small>Avg. Rating</small><strong>4.77★</strong></div><span>120 reviews</span></div>
       </div>
-      <div class="grid grid-3">
-        <div class="card"><h3 style="font-size:16px;">National Institute of Design</h3><p>Bangalore</p></div>
-        <div class="card"><h3 style="font-size:16px;">Central University</h3><p>Kasargode</p></div>
-        <div class="card"><h3 style="font-size:16px;">Nirma University</h3><p>Ahmedabad</p></div>
-        <div class="card"><h3 style="font-size:16px;">PES University</h3><p>Bangalore</p></div>
-        <div class="card"><h3 style="font-size:16px;">VIT</h3><p>Vellore</p></div>
-        <div class="card"><h3 style="font-size:16px;">PDPU University</h3><p>Gandhinagar</p></div>
-      </div>
-    </div>
-  </section>
 
-  <section class="quote-band">
-    <div class="container">
-      <h2>What Our Clients Say</h2>
-      <div class="grid grid-3">
-        <figure class="quote">
-          <blockquote>“Taking a workshop with CARES has really jumpstarted my learning productivity. They provided thoughtful guidance and created a helpful environment for students to share their work in progress.”</blockquote>
-          <figcaption><strong>Santhosh Kumari</strong><span>Dept. of Commerce, University of Jammu</span></figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote>“Attending the workshop on R Studio delivered by CARES proved to be an outstanding experience. This workshop will provide great support in my research.”</blockquote>
-          <figcaption><strong>Research Scholar</strong><span>R Studio Workshop Participant</span></figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote>“Focused, professional, calmly delivered with a perfect balance of theory and practice. CARES is excellent at constructive feedback.”</blockquote>
-          <figcaption><strong>Workshop Participant</strong><span>Research Methodology Training</span></figcaption>
-        </figure>
+      <div class="nh-bento nh-bento-3">
+        <div class="nh-card nh-card-dark">
+          <span class="nh-tag nh-tag-dark">Consultancy</span>
+          <h2>Tailored research support</h2>
+          <p>Questionnaire design, data analysis, reporting, and dashboards — scoped to your project, from pilot study to publication.</p>
+          <a class="nh-pill nh-pill-ghost" href="#consultancy">Learn more</a>
+        </div>
+        <div class="nh-card nh-card-center">
+          <span class="nh-tag">Training</span>
+          <div class="nh-avatars" aria-hidden="true">
+            <span style="background:linear-gradient(135deg,#8a8ae8,#5b5bd6);">👩‍🏫</span>
+            <span style="background:linear-gradient(135deg,#67d6da,#0d7377);">👨‍💻</span>
+            <span style="background:linear-gradient(135deg,#fcd34d,#c9a227);">👩‍🔬</span>
+          </div>
+          <h2>My training experience</h2>
+          <p>SPSS, R Studio, research methodology, and academic writing — hands-on workshops across India.</p>
+          <a class="nh-pill nh-pill-dark" href="#training">View workshops</a>
+        </div>
+        <div class="nh-card">
+          <div class="nh-row"><span class="nh-tag">Client outcomes</span><strong style="font-size:12px; color:#16162e;">★ 4.77</strong></div>
+          <div class="nh-mini-chart" aria-hidden="true">
+            <span style="height:40%;"></span><span style="height:65%;"></span><span style="height:50%;"></span><span style="height:80%;"></span><span style="height:60%;"></span><span style="height:95%; background:#5b5bd6;"></span><span style="height:75%;"></span>
+          </div>
+          <figure class="nh-quote"><blockquote>“Thoughtful guidance and a helpful environment.”</blockquote><figcaption><strong>Santhosh Kumari</strong> · University of Jammu</figcaption></figure>
+          <figure class="nh-quote"><blockquote>“An outstanding experience — great support for my research.”</blockquote><figcaption><strong>Research Scholar</strong> · R Studio Workshop</figcaption></figure>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="block">
-    <div class="container" style="text-align:center;">
-      <h2 style="font-size:clamp(26px,3.5vw,36px);">Ready to start your project?</h2>
-      <p style="max-width:560px; margin:12px auto 0;">Book a consultation, submit your questionnaire for review, or order data analysis — pay securely online via Razorpay.</p>
-      <div style="margin-top:28px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="#book">View Services &amp; Book</a>
-        <a class="btn btn-outline" href="tel:+919901857466">Call +91 99018 57466</a>
+      <div class="nh-bento nh-bento-2">
+        <div class="nh-card nh-card-wide">
+          <h2 style="max-width:380px;">Move your project forward with transparent pricing</h2>
+          <p style="max-width:420px;">Fixed prices, clear turnaround times, and secure online payment via Razorpay. Institutional quotes available on request.</p>
+          <div class="nh-prices">
+            <div class="nh-price"><small>Consultation</small><strong>₹999</strong><em>Expert Consultation Call</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('consultation')">Book</a></div>
+            <div class="nh-price"><small>Consultation</small><strong>₹4,999</strong><em>Questionnaire Design Review</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('questionnaire-review')">Book</a></div>
+            <div class="nh-price"><small>Data Analysis</small><strong>₹7,999</strong><em>Data Analysis — Basic</em><a class="nh-pill nh-pill-dark nh-pill-xs" href="#form" onclick="preselectService('data-analysis-basic')">Book</a></div>
+          </div>
+        </div>
+        <div class="nh-card nh-card-dark nh-card-chart">
+          <span class="nh-float-chip">20,000+ trained</span>
+          <div class="nh-big-chart" aria-hidden="true">
+            <span style="height:35%;"></span><span style="height:55%;"></span><span style="height:75%;"></span><span style="height:60%;"></span><span style="height:90%; background:linear-gradient(#8a8ae8,#5b5bd6);"></span>
+          </div>
+          <p class="nh-big-num">4.77</p>
+          <p>Average workshop rating from 120 reviews across universities and industry.</p>
+          <a class="nh-pill nh-pill-white" href="#form" onclick="preselectService('training-workshop')">Book a seat</a>
+        </div>
       </div>
+
+      <div class="nh-card nh-clients">
+        <p class="nh-clients-label">Trusted by leading institutions across India</p>
+        <ul>
+          <li>National Institute of Design</li><li>Central University, Kasargode</li><li>Nirma University</li><li>PES University</li><li>VIT Vellore</li><li>PDPU Gandhinagar</li>
+        </ul>
+      </div>
+
+      <div class="nh-cta">
+        <h2>Ready to start your project?</h2>
+        <p>Book a consultation, submit your questionnaire for review, or order data analysis — pay securely online via Razorpay.</p>
+        <div class="nh-actions" style="justify-content:center;">
+          <a class="nh-pill nh-pill-white" href="#book">View Services &amp; Book</a>
+          <a class="nh-pill nh-pill-ghost" href="tel:+919901857466">Call +91 99018 57466</a>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
 </div>
 
 <!-- ============ ABOUT ============ -->
