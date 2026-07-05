@@ -3,35 +3,35 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DAVIDOFF — Freshly Ground Coffee, Roasted with Obsession</title>
-<meta name="description" content="Davidoff Coffee Ground Co. — small-batch, single-origin coffee grounds roasted daily. Find your roast, fill your cup." />
-<meta property="og:title" content="DAVIDOFF — Coffee Ground Co." />
-<meta property="og:description" content="Small-batch, single-origin coffee grounds roasted daily. Find your roast, fill your cup." />
+<title>SMIRNOFF — Vodka Coffee House · Flavoured Vodka Coffee, Poured with Intent</title>
+<meta name="description" content="Smirnoff Vodka Coffee House — flavoured vodka coffees in five intensities, crafted like cocktails, served like art. Choose your pour." />
+<meta property="og:title" content="SMIRNOFF — Vodka Coffee House" />
+<meta property="og:description" content="Flavoured vodka coffees in five intensities. Crafted like cocktails, served like art." />
 <meta property="og:type" content="website" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23201510'/%3E%3Cellipse cx='32' cy='32' rx='14' ry='19' fill='%23c08a4e' transform='rotate(24 32 32)'/%3E%3Cpath d='M25 18 Q36 32 27 47' stroke='%23201510' stroke-width='4' fill='none' transform='rotate(24 32 32)'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23100d0b'/%3E%3Cpath d='M18 16h28L34 38v12h6v4H24v-4h6V38Z' fill='%23cfa85c'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300..800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300..800&family=Pinyon+Script&display=swap" rel="stylesheet" />
 <style>
 /* ============================================================
-   DAVIDOFF Coffee Ground Co. — design tokens
+   SMIRNOFF Vodka Coffee House — design tokens
    ============================================================ */
 :root {
-  --espresso: #201510;
-  --roast:    #33221a;
-  --mocha:    #57402f;
-  --caramel:  #c08a4e;
-  --gold:     #d9a95e;
-  --crema:    #f4ead9;
-  --cream:    #faf5ec;
-  --paper:    #fffdf8;
-  --leaf:     #4c6444;
-  --berry:    #b4432f;
-  --ink:      #2c211a;
-  --muted:    #7d6c5d;
-  --shadow-lg: 0 30px 60px -20px rgba(32, 21, 16, .35);
-  --shadow-md: 0 16px 40px -18px rgba(32, 21, 16, .3);
-  --radius: 18px;
+  --noir:     #100d0b;
+  --charcoal: #1c1613;
+  --espresso: #2b201a;
+  --gold:     #cfa85c;
+  --champ:    #e8cf9a;
+  --cream:    #f5efe4;
+  --paper:    #fbf7ef;
+  --blush:    #f3cdc9;
+  --blush-d:  #b4574e;
+  --frost:    #dfe8ea;
+  --ink:      #241c16;
+  --muted:    #8a7a68;
+  --shadow-lg: 0 34px 70px -24px rgba(16, 13, 11, .45);
+  --shadow-md: 0 18px 44px -20px rgba(16, 13, 11, .35);
+  --radius: 20px;
   --ease-spring: cubic-bezier(.22, 1.2, .36, 1);
   --ease-smooth: cubic-bezier(.65, .05, .36, 1);
 }
@@ -45,128 +45,161 @@ body {
   overflow-x: hidden;
 }
 body.no-scroll { overflow: hidden; }
-h1, h2, h3, h4, .display { font-family: "Fraunces", Georgia, serif; color: var(--espresso); line-height: 1.12; }
+h1, h2, h3, h4 { font-family: "Fraunces", Georgia, serif; color: var(--noir); line-height: 1.1; }
+.script { font-family: "Pinyon Script", cursive; font-weight: 400; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
-.container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
-::selection { background: var(--caramel); color: #fff; }
+.container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+::selection { background: var(--gold); color: var(--noir); }
 
-/* Custom cursor (desktop only) */
+/* Gold shimmer utility */
+.shimmer {
+  background: linear-gradient(100deg, var(--gold) 20%, #f4e3b8 40%, var(--gold) 60%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 4.5s linear infinite;
+}
+@keyframes shimmer { to { background-position: -220% 0; } }
+
+/* Custom cursor */
 @media (hover:hover) and (pointer:fine) {
   .cursor-dot, .cursor-ring {
     position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
     border-radius: 50%; transform: translate(-50%, -50%);
   }
-  .cursor-dot { width: 8px; height: 8px; background: var(--caramel); transition: transform .15s; }
+  .cursor-dot { width: 7px; height: 7px; background: var(--gold); transition: transform .15s; }
   .cursor-ring {
-    width: 36px; height: 36px; border: 1.5px solid rgba(192, 138, 78, .65);
-    transition: width .25s var(--ease-smooth), height .25s var(--ease-smooth),
-                border-color .25s, background .25s;
+    width: 38px; height: 38px; border: 1.5px solid rgba(207,168,92,.7);
+    transition: width .25s var(--ease-smooth), height .25s var(--ease-smooth), border-color .25s, background .25s;
   }
-  body.cursor-hover .cursor-ring { width: 58px; height: 58px; background: rgba(192,138,78,.12); border-color: var(--caramel); }
+  body.cursor-hover .cursor-ring { width: 60px; height: 60px; background: rgba(207,168,92,.12); border-color: var(--gold); }
   body.cursor-hover .cursor-dot { transform: translate(-50%,-50%) scale(.4); }
 }
 @media (hover:none), (pointer:coarse) { .cursor-dot, .cursor-ring { display: none; } }
 
-/* Scroll progress */
 .scroll-progress {
   position: fixed; top: 0; left: 0; height: 3px; width: 0;
-  background: linear-gradient(90deg, var(--caramel), var(--gold));
+  background: linear-gradient(90deg, var(--gold), var(--champ));
   z-index: 1200;
 }
 
 /* ============================================================
-   Preloader
+   Preloader — martini pour
    ============================================================ */
 .preloader {
-  position: fixed; inset: 0; z-index: 2000; background: var(--espresso);
+  position: fixed; inset: 0; z-index: 2100; background: var(--noir);
   display: grid; place-items: center;
-  transition: opacity .6s var(--ease-smooth), visibility .6s;
+  transition: opacity .7s var(--ease-smooth), visibility .7s;
 }
 .preloader.done { opacity: 0; visibility: hidden; }
-.preloader .cup-wrap { text-align: center; color: var(--crema); }
-.preloader .brand-mark {
-  font-family: "Fraunces", serif; font-size: clamp(26px, 4vw, 38px); letter-spacing: .35em;
-  color: var(--crema); margin-top: 22px; animation: pulse-soft 1.6s ease-in-out infinite;
+.preloader .mark { text-align: center; }
+.preloader .brand {
+  font-family: "Fraunces", serif; font-size: clamp(24px, 4vw, 36px);
+  letter-spacing: .42em; margin-top: 20px; padding-left: .42em;
 }
-@keyframes pulse-soft { 50% { opacity: .55; } }
-.pour-cup { width: 90px; height: 90px; margin: 0 auto; position: relative; }
-.pour-cup svg { width: 100%; height: 100%; }
-.pour-fill { animation: cup-fill 1.6s var(--ease-smooth) infinite; transform-origin: 50% 100%; }
-@keyframes cup-fill { 0% { transform: scaleY(0); } 70%, 100% { transform: scaleY(1); } }
-.pour-steam { animation: steam-rise 1.6s ease-in-out infinite; opacity: 0; }
-@keyframes steam-rise { 0%, 55% { opacity: 0; transform: translateY(4px); } 80% { opacity: .8; } 100% { opacity: 0; transform: translateY(-6px); } }
+.pour-glass svg { width: 96px; height: 96px; margin: 0 auto; display: block; }
+.pl-fill { animation: pl-fill 1.7s var(--ease-smooth) infinite; transform-origin: 50% 100%; }
+@keyframes pl-fill { 0% { transform: scaleY(0); } 65%, 100% { transform: scaleY(1); } }
+.pl-drop { animation: pl-drop 1.7s ease-in infinite; }
+@keyframes pl-drop { 0% { opacity: 1; transform: translateY(-12px); } 45% { opacity: 1; transform: translateY(10px); } 55%, 100% { opacity: 0; } }
+
+/* ============================================================
+   Age gate
+   ============================================================ */
+.age-gate {
+  position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center;
+  background:
+    radial-gradient(900px 500px at 50% -10%, rgba(207,168,92,.14), transparent 60%),
+    var(--noir);
+  padding: 24px; transition: opacity .6s var(--ease-smooth), visibility .6s;
+}
+.age-gate.done { opacity: 0; visibility: hidden; }
+.age-card { text-align: center; max-width: 480px; color: var(--cream); }
+.age-card .monogram {
+  width: 76px; height: 76px; margin: 0 auto 22px; border: 1.5px solid rgba(207,168,92,.55);
+  border-radius: 50%; display: grid; place-items: center; position: relative;
+}
+.age-card .monogram::after {
+  content: ""; position: absolute; inset: -9px; border-radius: 50%;
+  border: 1px dashed rgba(207,168,92,.35); animation: spin-slow 24s linear infinite;
+}
+.age-card .kicker-line { font-size: 11.5px; letter-spacing: .44em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; padding-left: .44em; }
+.age-card h2 { color: var(--cream); font-size: clamp(28px, 5vw, 42px); font-weight: 500; margin-bottom: 12px; }
+.age-card h2 em { font-style: italic; color: var(--champ); }
+.age-card p { color: rgba(245,239,228,.65); font-size: 14.5px; margin-bottom: 30px; }
+.age-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.age-note { margin-top: 22px; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,239,228,.4); }
+.age-card.shake { animation: shake .5s; }
+@keyframes shake { 20%, 60% { transform: translateX(-9px); } 40%, 80% { transform: translateX(9px); } }
 
 /* ============================================================
    Header
    ============================================================ */
 .topbar {
-  background: var(--espresso); color: var(--crema); font-size: 12.5px;
-  letter-spacing: .12em; text-transform: uppercase; text-align: center;
-  padding: 8px 14px; position: relative; z-index: 60;
+  background: var(--noir); color: rgba(245,239,228,.85); font-size: 12px;
+  letter-spacing: .16em; text-transform: uppercase; text-align: center;
+  padding: 9px 14px; position: relative; z-index: 60;
 }
 .topbar b { color: var(--gold); }
 .site-header {
   position: sticky; top: 0; z-index: 900;
-  background: rgba(250, 245, 236, .82);
-  border-bottom: 1px solid rgba(32,21,16,.07);
+  background: rgba(245,239,228,.85);
+  border-bottom: 1px solid rgba(16,13,11,.08);
   transition: box-shadow .3s, background .3s;
 }
-/* Blur lives on a pseudo-element: backdrop-filter on the header itself would
-   create a containing block that traps the fixed-position mobile menu. */
 .site-header::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 }
-.site-header.scrolled { box-shadow: 0 10px 30px -18px rgba(32,21,16,.35); background: rgba(250,245,236,.95); }
+.site-header.scrolled { box-shadow: 0 12px 34px -20px rgba(16,13,11,.4); background: rgba(245,239,228,.96); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; transition: padding .3s; }
 .site-header.scrolled .nav-inner { padding: 10px 0; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: "Fraunces", serif; font-weight: 700; font-size: 24px; letter-spacing: .18em; color: var(--espresso); }
-.logo .bean-ico { width: 30px; height: 30px; transition: transform .6s var(--ease-spring); }
-.logo:hover .bean-ico { transform: rotate(360deg) scale(1.12); }
-.logo small { display: block; font-family: "Outfit", sans-serif; font-size: 9px; letter-spacing: .42em; color: var(--muted); font-weight: 600; margin-top: -2px; }
+.logo { display: flex; align-items: center; gap: 11px; font-family: "Fraunces", serif; font-weight: 600; font-size: 23px; letter-spacing: .22em; color: var(--noir); }
+.logo .glass-ico { width: 32px; height: 32px; transition: transform .6s var(--ease-spring); }
+.logo:hover .glass-ico { transform: rotate(-14deg) scale(1.1); }
+.logo small { display: block; font-family: "Outfit", sans-serif; font-size: 8.5px; letter-spacing: .5em; color: var(--muted); font-weight: 600; margin-top: -1px; }
 .nav-links { display: flex; gap: 26px; list-style: none; }
 .nav-links a {
-  font-size: 13.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--mocha); position: relative; padding: 6px 2px;
+  font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--espresso); position: relative; padding: 6px 2px;
 }
 .nav-links a::after {
   content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
-  background: var(--caramel); transform: scaleX(0); transform-origin: right;
+  background: var(--gold); transform: scaleX(0); transform-origin: right;
   transition: transform .35s var(--ease-smooth);
 }
 .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 .cart-btn {
-  position: relative; background: var(--espresso); color: var(--crema); border: none;
+  position: relative; background: var(--noir); color: var(--cream); border: none;
   width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
-  transition: transform .25s var(--ease-spring), background .25s;
+  transition: transform .25s var(--ease-spring), background .25s, color .25s;
 }
-.cart-btn:hover { background: var(--caramel); transform: scale(1.08); }
+.cart-btn:hover { background: var(--gold); color: var(--noir); transform: scale(1.08); }
 .cart-btn.bump { animation: cart-bump .5s var(--ease-spring); }
 @keyframes cart-bump { 30% { transform: scale(1.25) rotate(-8deg); } 60% { transform: scale(.95) rotate(6deg); } }
 .cart-count {
   position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px;
-  background: var(--berry); color: #fff; border-radius: 999px; font-size: 11px;
+  background: var(--blush-d); color: #fff; border-radius: 999px; font-size: 11px;
   font-weight: 700; display: grid; place-items: center; padding: 0 5px;
   transition: transform .3s var(--ease-spring); transform: scale(0);
 }
 .cart-count.show { transform: scale(1); }
 .menu-btn { display: none; background: none; border: none; width: 44px; height: 44px; }
-.menu-btn span { display: block; height: 2px; width: 24px; margin: 5px auto; background: var(--espresso); transition: .3s; }
-@media (max-width: 860px) {
+.menu-btn span { display: block; height: 2px; width: 24px; margin: 5px auto; background: var(--noir); transition: .3s; }
+@media (max-width: 880px) {
   .nav-links {
-    position: fixed; inset: 0; top: 0; background: var(--espresso);
+    position: fixed; inset: 0; background: var(--noir);
     flex-direction: column; align-items: center; justify-content: center; gap: 30px;
     transform: translateY(-100%); transition: transform .45s var(--ease-smooth); z-index: 950;
   }
   .nav-links.open { transform: translateY(0); }
-  .nav-links a { color: var(--crema); font-size: 18px; }
+  .nav-links a { color: var(--cream); font-size: 18px; }
   .menu-btn { display: block; z-index: 960; position: relative; }
-  .menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--crema); }
+  .menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--cream); }
   .menu-btn.open span:nth-child(2) { opacity: 0; }
-  .menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--crema); }
+  .menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--cream); }
 }
 
 /* ============================================================
@@ -174,198 +207,191 @@ button { font-family: inherit; cursor: pointer; }
    ============================================================ */
 .btn {
   display: inline-flex; align-items: center; gap: 10px; border: none;
-  padding: 15px 30px; border-radius: 999px; font-weight: 700; font-size: 13.5px;
-  letter-spacing: .14em; text-transform: uppercase; position: relative; overflow: hidden;
+  padding: 15px 32px; border-radius: 999px; font-weight: 700; font-size: 13px;
+  letter-spacing: .18em; text-transform: uppercase; position: relative; overflow: hidden;
   transition: transform .25s var(--ease-spring), box-shadow .25s, background .25s, color .25s;
 }
 .btn::before {
-  content: ""; position: absolute; inset: 0; background: rgba(255,255,255,.22);
-  transform: translateX(-101%) skewX(-16deg); transition: transform .45s var(--ease-smooth);
+  content: ""; position: absolute; inset: 0; background: rgba(255,255,255,.25);
+  transform: translateX(-101%) skewX(-16deg); transition: transform .5s var(--ease-smooth);
 }
 .btn:hover::before { transform: translateX(101%) skewX(-16deg); }
 .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .btn:active { transform: translateY(0) scale(.97); }
-.btn-dark { background: var(--espresso); color: var(--crema); }
-.btn-dark:hover { background: var(--roast); }
-.btn-gold { background: var(--caramel); color: #fff; }
-.btn-ghost { background: transparent; color: var(--espresso); box-shadow: inset 0 0 0 2px var(--espresso); }
-.btn-ghost:hover { background: var(--espresso); color: var(--crema); }
-.btn-light { background: var(--crema); color: var(--espresso); }
+.btn-noir { background: var(--noir); color: var(--cream); }
+.btn-noir:hover { background: var(--espresso); }
+.btn-gold { background: linear-gradient(115deg, var(--gold), #b98f43); color: var(--noir); }
+.btn-ghost { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1.5px rgba(245,239,228,.55); }
+.btn-ghost:hover { background: var(--cream); color: var(--noir); }
+.btn-ghost-dark { background: transparent; color: var(--noir); box-shadow: inset 0 0 0 1.5px var(--noir); }
+.btn-ghost-dark:hover { background: var(--noir); color: var(--cream); }
 
 /* ============================================================
-   Hero
+   Hero — noir editorial
    ============================================================ */
 .hero {
-  position: relative; overflow: hidden;
+  position: relative; overflow: hidden; background: var(--noir); color: var(--cream);
+  padding: clamp(64px, 8vw, 110px) 0 clamp(80px, 9vw, 130px);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(1000px 500px at 85% -10%, rgba(217,169,94,.25), transparent 60%),
-    radial-gradient(800px 600px at -10% 110%, rgba(76,100,68,.14), transparent 55%),
-    var(--cream);
-  padding: clamp(60px, 9vw, 120px) 0 clamp(70px, 9vw, 130px);
+    radial-gradient(1100px 560px at 70% -20%, rgba(207,168,92,.16), transparent 60%),
+    radial-gradient(800px 500px at 8% 110%, rgba(243,205,201,.08), transparent 55%);
 }
-.hero-inner { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; position: relative; z-index: 3; }
-@media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; text-align: center; } }
+.hero-stage { position: relative; z-index: 3; text-align: center; }
 .hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px; font-size: 12.5px; font-weight: 700;
-  letter-spacing: .3em; text-transform: uppercase; color: var(--caramel); margin-bottom: 22px;
+  display: inline-flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 700;
+  letter-spacing: .42em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px;
 }
-.hero-eyebrow::before, .hero-eyebrow::after { content: ""; width: 34px; height: 2px; background: var(--caramel); opacity: .6; }
-@media (min-width: 901px) { .hero-eyebrow::after { display: none; } }
-.hero h1 { font-size: clamp(44px, 6.6vw, 84px); font-weight: 600; margin-bottom: 24px; }
-.hero h1 .line { display: block; overflow: hidden; }
-.hero h1 .word { display: inline-block; transform: translateY(110%); animation: word-up .9s var(--ease-spring) forwards; }
-@keyframes word-up { to { transform: translateY(0); } }
-.hero h1 em { font-style: italic; color: var(--caramel); position: relative; }
-.hero h1 em::after {
-  content: ""; position: absolute; left: 0; bottom: 6px; width: 100%; height: 10px;
-  background: rgba(217,169,94,.32); z-index: -1; border-radius: 4px;
-  transform: scaleX(0); transform-origin: left; animation: underline-in .7s .9s var(--ease-smooth) forwards;
+.hero-eyebrow::before, .hero-eyebrow::after { content: ""; width: 42px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.hero-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.hero-title {
+  display: flex; align-items: center; justify-content: center; gap: clamp(16px, 3.5vw, 44px);
+  flex-wrap: nowrap;
 }
-@keyframes underline-in { to { transform: scaleX(1); } }
-.hero p.lede { font-size: clamp(16px, 1.6vw, 19px); color: var(--muted); max-width: 480px; margin-bottom: 34px; }
-@media (max-width: 900px) { .hero p.lede { margin-left: auto; margin-right: auto; } }
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-@media (max-width: 900px) { .hero-ctas { justify-content: center; } }
-.hero-badges { display: flex; gap: 26px; margin-top: 42px; flex-wrap: wrap; }
-@media (max-width: 900px) { .hero-badges { justify-content: center; } }
-.hero-badge { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--mocha); }
-.hero-badge svg { width: 22px; height: 22px; flex-shrink: 0; }
+.hero-title h1 {
+  color: var(--cream); font-size: clamp(46px, 8.6vw, 118px); font-weight: 500;
+  letter-spacing: .06em; white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .hero-title { flex-direction: column; gap: 6px; }
+  .hero-title h1 { font-size: clamp(52px, 15vw, 72px); }
+  .hero-glass-wrap { width: clamp(150px, 44vw, 200px); margin: 10px 0; }
+  .hero-welcome { right: -22%; }
+}
+.hero-title h1 .ch { display: inline-block; transform: translateY(60px) rotate(6deg); opacity: 0; animation: ch-in .9s var(--ease-spring) forwards; }
+@keyframes ch-in { to { transform: none; opacity: 1; } }
+.hero-glass-wrap { position: relative; flex-shrink: 0; width: clamp(120px, 19vw, 240px); }
+.hero-welcome {
+  position: absolute; right: -8%; bottom: 2%; z-index: 5; color: var(--champ);
+  font-size: clamp(30px, 4.6vw, 58px); transform: rotate(-8deg);
+  opacity: 0; animation: fade-up 1s 1.15s var(--ease-smooth) forwards;
+  text-shadow: 0 6px 30px rgba(0,0,0,.6); pointer-events: none;
+}
+@keyframes fade-up { from { opacity: 0; transform: rotate(-8deg) translateY(24px); } to { opacity: 1; transform: rotate(-8deg); } }
+.hero-sub { max-width: 520px; margin: 30px auto 0; color: rgba(245,239,228,.68); font-size: clamp(15px, 1.5vw, 17.5px); opacity: 0; animation: fade-up-s .9s .9s var(--ease-smooth) forwards; }
+.hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; opacity: 0; animation: fade-up-s .9s 1.1s var(--ease-smooth) forwards; }
+@keyframes fade-up-s { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.hero-meta { display: flex; gap: clamp(20px, 4vw, 54px); justify-content: center; flex-wrap: wrap; margin-top: 48px; opacity: 0; animation: fade-up-s .9s 1.3s var(--ease-smooth) forwards; }
+.hero-meta div { text-align: center; }
+.hero-meta b { display: block; font-family: "Fraunces", serif; font-size: 21px; color: var(--champ); font-weight: 600; }
+.hero-meta span { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: rgba(245,239,228,.5); }
 
-/* Hero visual: cup with steam */
-.hero-visual { position: relative; display: grid; place-items: center; min-height: 380px; }
-.cup-stage {
-  position: relative; width: min(400px, 82vw); aspect-ratio: 1;
-  display: grid; place-items: center; cursor: pointer;
+/* Hero glass artwork */
+.hero-glass { position: relative; z-index: 4; width: 100%; filter: drop-shadow(0 30px 40px rgba(0,0,0,.55)); cursor: pointer; transition: transform .4s var(--ease-spring); }
+.hero-glass:hover { transform: translateY(-8px) rotate(-1.5deg); }
+.hero-glass svg { width: 100%; height: auto; }
+.hg-swirl { animation: swirl-drift 7s ease-in-out infinite; }
+@keyframes swirl-drift { 50% { transform: translateX(4px); } }
+.hg-bubble { animation: bubble-rise 4.5s ease-in infinite; opacity: 0; }
+.hg-bubble.b2 { animation-delay: 1.4s; } .hg-bubble.b3 { animation-delay: 2.8s; }
+@keyframes bubble-rise { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: .9; } 100% { opacity: 0; transform: translateY(-58px); } }
+.hero-steam { position: absolute; top: -12%; left: 50%; z-index: 5; pointer-events: none; }
+.hero-steam span {
+  position: absolute; bottom: 0; width: 8px; height: 62px; border-radius: 50%;
+  background: linear-gradient(to top, rgba(245,239,228,0), rgba(245,239,228,.8));
+  filter: blur(5px); opacity: 0; animation: steam 3.4s ease-in-out infinite;
 }
-.cup-disc {
-  position: absolute; inset: 6%; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #3c2a1e, var(--espresso) 70%);
-  box-shadow: var(--shadow-lg), inset 0 0 0 10px rgba(217,169,94,.12);
-  animation: disc-breathe 6s ease-in-out infinite;
-}
-@keyframes disc-breathe { 50% { transform: scale(1.025); } }
-.cup-disc::after {
-  content: ""; position: absolute; inset: -14px; border-radius: 50%;
-  border: 2px dashed rgba(192,138,78,.5); animation: spin-slow 30s linear infinite;
-}
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-.cup-svg { position: relative; width: 62%; z-index: 2; filter: drop-shadow(0 24px 30px rgba(0,0,0,.4)); transition: transform .4s var(--ease-spring); }
-.cup-stage:hover .cup-svg { transform: translateY(-6px) rotate(-2deg); }
-.steam { position: absolute; top: 4%; left: 50%; z-index: 3; pointer-events: none; }
-.steam span {
-  position: absolute; bottom: 0; left: 0; width: 9px; height: 60px; border-radius: 50%;
-  background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,.85));
-  filter: blur(5px); opacity: 0; animation: steam 3.2s ease-in-out infinite;
-}
-.steam span:nth-child(1) { left: -26px; animation-delay: 0s; }
-.steam span:nth-child(2) { left: 0; animation-delay: 1.1s; height: 76px; }
-.steam span:nth-child(3) { left: 24px; animation-delay: 2.1s; }
+.hero-steam span:nth-child(1) { left: -22px; }
+.hero-steam span:nth-child(2) { left: 0; animation-delay: 1.2s; height: 80px; }
+.hero-steam span:nth-child(3) { left: 20px; animation-delay: 2.2s; }
 @keyframes steam {
-  0% { opacity: 0; transform: translateY(10px) scaleX(1); }
-  30% { opacity: .9; }
-  100% { opacity: 0; transform: translateY(-70px) scaleX(2.2) translateX(8px); }
+  0% { opacity: 0; transform: translateY(8px) scaleX(1); }
+  30% { opacity: .85; }
+  100% { opacity: 0; transform: translateY(-72px) scaleX(2.3) translateX(9px); }
 }
-.cup-stage.burst .steam span { animation-duration: 1.1s; }
-/* Floating beans (parallax layers) */
-.float-bean { position: absolute; z-index: 1; opacity: .9; will-change: transform; transition: transform .6s cubic-bezier(.2,.8,.3,1); }
-.float-bean svg { width: 100%; height: 100%; animation: bob 5s ease-in-out infinite; }
-.float-bean:nth-child(even) svg { animation-duration: 7s; animation-delay: -2s; }
-@keyframes bob { 50% { transform: translateY(-14px) rotate(8deg); } }
-.hero-orbit-word {
-  position: absolute; inset: -4%; z-index: 4; pointer-events: none;
-  animation: spin-slow 26s linear infinite reverse;
+/* floating garnish */
+.float-item { position: absolute; z-index: 2; will-change: transform; transition: transform .6s cubic-bezier(.2,.8,.3,1); }
+.float-item svg { width: 100%; height: 100%; animation: bob 5.5s ease-in-out infinite; }
+.float-item:nth-child(even) svg { animation-duration: 7.5s; animation-delay: -2.4s; }
+@keyframes bob { 50% { transform: translateY(-16px) rotate(9deg); } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.hero-ring {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  width: clamp(280px, 40vw, 520px); aspect-ratio: 1; border-radius: 50%; z-index: 1;
+  border: 1px solid rgba(207,168,92,.22); pointer-events: none;
 }
-.hero-orbit-word text { font-family: "Outfit", sans-serif; font-size: 8.4px; font-weight: 700; letter-spacing: .42em; fill: var(--mocha); text-transform: uppercase; }
+.hero-ring::after { content: ""; position: absolute; inset: 26px; border-radius: 50%; border: 1px dashed rgba(207,168,92,.18); animation: spin-slow 40s linear infinite; }
 
 /* ============================================================
    Marquee
    ============================================================ */
 .marquee {
-  background: var(--espresso); color: var(--crema); overflow: hidden;
-  padding: 16px 0; transform: rotate(-1.2deg) scale(1.02); margin: -12px 0 0;
-  position: relative; z-index: 5; box-shadow: var(--shadow-md);
+  background: linear-gradient(100deg, var(--gold), #b98f43 55%, var(--gold));
+  color: var(--noir); overflow: hidden; padding: 14px 0;
+  transform: rotate(-1.1deg) scale(1.02); position: relative; z-index: 5;
+  box-shadow: var(--shadow-md); margin-top: -10px;
 }
-.marquee-track { display: flex; gap: 46px; width: max-content; animation: marquee 26s linear infinite; }
+.marquee-track { display: flex; gap: 46px; width: max-content; animation: marquee 24s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee-track span { display: flex; align-items: center; gap: 46px; font-family: "Fraunces", serif; font-size: 19px; letter-spacing: .18em; text-transform: uppercase; color: var(--crema); white-space: nowrap; }
-.marquee-track i { font-style: normal; color: var(--gold); font-size: 14px; }
+.marquee-track span { display: flex; align-items: center; gap: 46px; font-family: "Fraunces", serif; font-size: 17.5px; letter-spacing: .22em; text-transform: uppercase; white-space: nowrap; font-weight: 600; }
+.marquee-track i { font-style: normal; font-size: 13px; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ============================================================
    Sections base + reveal
    ============================================================ */
-section { padding: clamp(66px, 8vw, 110px) 0; }
-.section-head { text-align: center; max-width: 640px; margin: 0 auto clamp(40px, 5vw, 60px); }
-.kicker { font-size: 12.5px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--caramel); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.kicker::before, .kicker::after { content: ""; width: 26px; height: 1.5px; background: var(--caramel); opacity: .55; }
-.section-head h2 { font-size: clamp(30px, 4vw, 46px); margin-bottom: 14px; }
+section { padding: clamp(66px, 8vw, 112px) 0; }
+.section-head { text-align: center; max-width: 660px; margin: 0 auto clamp(38px, 5vw, 56px); }
+.kicker { font-size: 12px; font-weight: 700; letter-spacing: .38em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.kicker::before, .kicker::after { content: ""; width: 28px; height: 1.5px; background: var(--gold); opacity: .6; }
+.section-head h2 { font-size: clamp(30px, 4.2vw, 48px); font-weight: 500; margin-bottom: 14px; }
+.section-head h2 em { font-style: italic; color: var(--gold); }
 .section-head p { color: var(--muted); }
-.reveal { opacity: 0; transform: translateY(36px); transition: opacity .8s var(--ease-smooth), transform .8s var(--ease-smooth); transition-delay: var(--d, 0s); }
+.reveal { opacity: 0; transform: translateY(38px); transition: opacity .85s var(--ease-smooth), transform .85s var(--ease-smooth); transition-delay: var(--d, 0s); }
 .reveal.in { opacity: 1; transform: none; }
 
 /* ============================================================
-   Category cards
+   Menu — filter pills + cards
    ============================================================ */
-.cats { padding-top: clamp(70px, 9vw, 120px); }
-.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-@media (max-width: 860px) { .cat-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
-.cat-card {
-  position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/4.6;
-  background: var(--roast); transform-style: preserve-3d; box-shadow: var(--shadow-md);
+.menu-section { background: var(--paper); }
+.menu-topline { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 26px; flex-wrap: wrap; }
+.menu-topline .mt-title h2 { font-size: clamp(34px, 4.6vw, 54px); font-weight: 550; }
+.menu-topline .mt-title .script { color: var(--gold); font-size: clamp(24px, 3vw, 36px); margin-left: 8px; }
+.basket-chip {
+  border: none; background: var(--noir); color: var(--cream); border-radius: 999px;
+  padding: 12px 24px; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: background .25s, color .25s, transform .25s var(--ease-spring);
 }
-.cat-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-smooth), filter .6s; }
-.cat-card:hover img { transform: scale(1.09) rotate(1deg); filter: brightness(.85); }
-.cat-card .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(24,14,9,.85) 8%, rgba(24,14,9,.05) 60%); }
-.cat-card .cat-body { position: absolute; inset: auto 0 0 0; padding: 26px; color: var(--crema); transform: translateZ(40px); }
-.cat-card h3 { color: var(--crema); font-size: 25px; margin-bottom: 4px; }
-.cat-card p { font-size: 13.5px; color: rgba(244,234,217,.8); margin-bottom: 14px; }
-.cat-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
-.cat-link .arrow { transition: transform .3s var(--ease-spring); }
-.cat-card:hover .cat-link .arrow { transform: translateX(7px); }
-.cat-card .num {
-  position: absolute; top: 18px; right: 22px; font-family: "Fraunces", serif;
-  font-size: 46px; font-style: italic; color: rgba(244,234,217,.35); transform: translateZ(30px);
+.basket-chip:hover { background: var(--gold); color: var(--noir); transform: translateY(-2px); }
+.pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
+.pill {
+  border: 1.5px solid rgba(16,13,11,.16); background: transparent; color: var(--espresso);
+  border-radius: 999px; padding: 10px 20px; font-weight: 600; font-size: 12.5px;
+  letter-spacing: .12em; text-transform: uppercase;
+  transition: background .25s, color .25s, border-color .25s, transform .2s var(--ease-spring);
 }
-
-/* ============================================================
-   Product cards / carousels
-   ============================================================ */
-.products-section { background: var(--paper); }
-.carousel-wrap { position: relative; }
-.product-row {
-  display: grid; grid-auto-flow: column; grid-auto-columns: calc(25% - 16.5px);
-  gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 4px 26px;
-  scrollbar-width: none;
-}
-.product-row::-webkit-scrollbar { display: none; }
-@media (max-width: 1020px) { .product-row { grid-auto-columns: calc(33.34% - 15px); } }
-@media (max-width: 760px)  { .product-row { grid-auto-columns: calc(50% - 11px); } }
-@media (max-width: 480px)  { .product-row { grid-auto-columns: 78%; } }
-.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-@media (max-width: 1020px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 760px)  { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+.pill:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.pill.active { background: var(--noir); border-color: var(--noir); color: var(--cream); }
+.menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+@media (max-width: 1020px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 440px)  { .menu-grid { grid-template-columns: 1fr; } }
 
 .pcard {
-  scroll-snap-align: start; background: #fff; border-radius: var(--radius);
-  border: 1px solid rgba(32,21,16,.07); overflow: hidden; position: relative;
-  transition: transform .35s var(--ease-spring), box-shadow .35s;
+  background: #fff; border-radius: var(--radius);
+  border: 1px solid rgba(16,13,11,.07); overflow: hidden; position: relative;
+  transition: transform .35s var(--ease-spring), box-shadow .35s, opacity .4s, scale .4s;
   display: flex; flex-direction: column;
 }
 .pcard:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.pcard.hide { opacity: 0; scale: .92; pointer-events: none; position: absolute; visibility: hidden; }
 .pcard .pimg {
-  position: relative; background: linear-gradient(160deg, var(--crema), #efe2cc);
-  display: grid; place-items: center; padding: 26px 20px 18px; aspect-ratio: 1/1.02;
+  position: relative; background: linear-gradient(165deg, #f7f0e2, #ecdfc8);
+  display: grid; place-items: center; padding: 26px 20px 16px; aspect-ratio: 1/1.04;
   overflow: hidden;
 }
-.pcard .pimg svg.bag { width: 62%; filter: drop-shadow(0 16px 18px rgba(32,21,16,.25)); transition: transform .5s var(--ease-spring); }
-.pcard:hover .pimg svg.bag { transform: translateY(-8px) rotate(-3deg) scale(1.05); }
+.pcard .pimg .drink { width: 52%; filter: drop-shadow(0 18px 20px rgba(16,13,11,.3)); transition: transform .5s var(--ease-spring); }
+.pcard:hover .pimg .drink { transform: translateY(-8px) rotate(-3deg) scale(1.06); }
 .pcard .badge {
-  position: absolute; top: 14px; left: 14px; z-index: 2; font-size: 10.5px; font-weight: 800;
-  letter-spacing: .16em; text-transform: uppercase; color: #fff; padding: 6px 12px; border-radius: 999px;
+  position: absolute; top: 14px; left: 14px; z-index: 2; font-size: 10px; font-weight: 800;
+  letter-spacing: .18em; text-transform: uppercase; color: #fff; padding: 6px 12px; border-radius: 999px;
 }
-.badge.sale { background: var(--berry); animation: badge-pulse 2.2s ease-in-out infinite; }
-.badge.new { background: var(--leaf); }
-@keyframes badge-pulse { 50% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(180,67,47,.15); } }
+.badge.sale { background: var(--blush-d); animation: badge-pulse 2.2s ease-in-out infinite; }
+.badge.new { background: var(--noir); color: var(--champ); }
+@keyframes badge-pulse { 50% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(180,87,78,.16); } }
 .pcard .quick-actions {
   position: absolute; top: 14px; right: 14px; display: flex; flex-direction: column; gap: 8px;
   opacity: 0; transform: translateX(12px); transition: opacity .3s, transform .3s var(--ease-spring); z-index: 2;
@@ -373,101 +399,122 @@ section { padding: clamp(66px, 8vw, 110px) 0; }
 .pcard:hover .quick-actions, .pcard:focus-within .quick-actions { opacity: 1; transform: none; }
 .icon-btn {
   width: 38px; height: 38px; border-radius: 50%; border: none; background: #fff;
-  display: grid; place-items: center; box-shadow: 0 6px 16px rgba(32,21,16,.18);
-  transition: background .2s, transform .2s var(--ease-spring), color .2s; color: var(--espresso);
+  display: grid; place-items: center; box-shadow: 0 6px 16px rgba(16,13,11,.2);
+  transition: background .2s, transform .2s var(--ease-spring), color .2s; color: var(--noir);
 }
-.icon-btn:hover { background: var(--espresso); color: var(--crema); transform: scale(1.12); }
-.icon-btn.loved { background: var(--berry); color: #fff; animation: cart-bump .5s var(--ease-spring); }
-.pbody { padding: 18px 18px 20px; text-align: center; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-.pbody .ptype { font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--caramel); }
+.icon-btn:hover { background: var(--noir); color: var(--champ); transform: scale(1.12); }
+.icon-btn.loved { background: var(--blush-d); color: #fff; animation: cart-bump .5s var(--ease-spring); }
+.pbody { padding: 18px 18px 20px; text-align: center; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+.pbody .ptype { font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
 .pbody h3 { font-size: 17.5px; font-weight: 600; }
-.pbody .stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
-.pbody .price { font-family: "Fraunces", serif; font-size: 19px; font-weight: 700; color: var(--espresso); }
-.pbody .price s { color: var(--muted); font-weight: 400; font-size: 14.5px; margin-right: 8px; }
+.intensity { display: inline-flex; gap: 5px; justify-content: center; align-items: center; }
+.intensity i {
+  width: 9px; height: 9px; border-radius: 50%; background: rgba(16,13,11,.12);
+  font-style: normal; transition: background .3s, transform .3s var(--ease-spring);
+}
+.intensity i.on { background: linear-gradient(140deg, var(--gold), #a97f37); }
+.pcard:hover .intensity i.on { transform: scale(1.25); }
+.pcard:hover .intensity i.on:nth-child(2) { transition-delay: .04s; }
+.pcard:hover .intensity i.on:nth-child(3) { transition-delay: .08s; }
+.pcard:hover .intensity i.on:nth-child(4) { transition-delay: .12s; }
+.pcard:hover .intensity i.on:nth-child(5) { transition-delay: .16s; }
+.intensity .ilabel { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-left: 6px; }
+.pbody .price { font-family: "Fraunces", serif; font-size: 19px; font-weight: 700; color: var(--noir); }
+.pbody .price s { color: var(--muted); font-weight: 400; font-size: 14px; margin-right: 8px; }
 .pcard .add-btn {
   margin: 6px 14px 0; border: none; border-radius: 999px; padding: 12px;
-  background: var(--espresso); color: var(--crema); font-weight: 700; font-size: 12px;
-  letter-spacing: .16em; text-transform: uppercase; overflow: hidden; position: relative;
-  transition: background .25s, transform .2s;
+  background: var(--noir); color: var(--cream); font-weight: 700; font-size: 11.5px;
+  letter-spacing: .2em; text-transform: uppercase; overflow: hidden; position: relative;
+  transition: background .25s, color .25s, transform .2s;
 }
-.pcard .add-btn:hover { background: var(--caramel); }
+.pcard .add-btn:hover { background: var(--gold); color: var(--noir); }
 .pcard .add-btn:active { transform: scale(.96); }
-.pcard .add-btn.added { background: var(--leaf); }
-.carousel-nav {
-  position: absolute; top: 38%; width: 48px; height: 48px; border-radius: 50%;
-  border: none; background: var(--espresso); color: var(--crema); z-index: 5;
-  display: grid; place-items: center; box-shadow: var(--shadow-md);
-  transition: background .25s, transform .25s var(--ease-spring), opacity .25s;
-}
-.carousel-nav:hover { background: var(--caramel); transform: scale(1.12); }
-.carousel-nav.prev { left: -14px; }
-.carousel-nav.next { right: -14px; }
-.carousel-nav:disabled { opacity: .25; pointer-events: none; }
-@media (max-width: 760px) { .carousel-nav.prev { left: 2px; } .carousel-nav.next { right: 2px; } }
+.pcard .add-btn.added { background: #4c6444; color: #fff; }
+.menu-more { text-align: center; margin-top: 36px; }
 
 /* ============================================================
-   Parallax banner
+   New drink — blush feature panel
    ============================================================ */
-.banner {
-  position: relative; overflow: hidden; color: var(--crema); text-align: center;
-  padding: clamp(90px, 12vw, 160px) 0; background: var(--espresso);
+.newdrink { background: var(--blush); position: relative; overflow: hidden; }
+.newdrink::before {
+  content: "NEW"; position: absolute; right: -2%; top: 4%; font-family: "Fraunces", serif;
+  font-size: clamp(120px, 22vw, 300px); font-style: italic; font-weight: 700;
+  color: rgba(255,255,255,.28); line-height: 1; pointer-events: none;
 }
-.banner .bg {
-  position: absolute; inset: -18% 0; background-size: cover; background-position: center;
-  will-change: transform; opacity: .38;
-  background-image: url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1800&q=70");
+.nd-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(30px, 5vw, 70px); align-items: center; position: relative; z-index: 2; }
+@media (max-width: 860px) { .nd-grid { grid-template-columns: 1fr; text-align: center; } }
+.nd-copy .nd-new { font-size: clamp(40px, 6vw, 74px); color: #fff; font-weight: 700; line-height: .95; }
+.nd-copy .nd-new .script { display: block; color: var(--blush-d); font-size: clamp(34px, 5vw, 62px); margin: 4px 0 0 clamp(20px, 6vw, 90px); }
+.nd-copy h3 { font-size: clamp(24px, 3vw, 34px); margin: 22px 0 10px; }
+.nd-copy > p { color: rgba(36,28,22,.75); max-width: 440px; margin-bottom: 22px; }
+@media (max-width: 860px) { .nd-copy > p { margin-left: auto; margin-right: auto; } }
+.nd-facts { display: flex; gap: clamp(18px, 3vw, 40px); flex-wrap: wrap; margin-bottom: 28px; }
+@media (max-width: 860px) { .nd-facts { justify-content: center; } }
+.nd-facts b { display: block; font-family: "Fraunces", serif; font-size: 22px; color: var(--noir); }
+.nd-facts span { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(36,28,22,.6); }
+.nd-price-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+@media (max-width: 860px) { .nd-price-row { justify-content: center; } }
+.nd-price { font-family: "Fraunces", serif; font-size: clamp(38px, 5vw, 56px); font-weight: 700; color: var(--noir); }
+.nd-price s { font-size: clamp(20px, 2.6vw, 28px); color: rgba(36,28,22,.45); font-weight: 400; margin-right: 12px; }
+.nd-visual { position: relative; display: grid; place-items: center; min-height: 320px; }
+.nd-visual .drink { width: min(250px, 56vw); filter: drop-shadow(0 34px 40px rgba(16,13,11,.4)); animation: bob 6s ease-in-out infinite; }
+.nd-visual .nd-disc {
+  position: absolute; width: min(360px, 78vw); aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.65), rgba(255,255,255,.18) 70%);
 }
-.banner::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 100% at 50% 50%, transparent, rgba(24,14,9,.6)); }
-.banner .banner-inner { position: relative; z-index: 3; }
-.banner .kicker { color: var(--gold); }
-.banner .kicker::before, .banner .kicker::after { background: var(--gold); }
-.banner h2 { color: var(--crema); font-size: clamp(34px, 5vw, 60px); max-width: 640px; margin: 0 auto 30px; }
-.banner h2 em { color: var(--gold); font-style: italic; }
-.banner-beans span { position: absolute; z-index: 2; opacity: .8; animation: bob 6s ease-in-out infinite; }
+.nd-visual .nd-disc::after { content: ""; position: absolute; inset: -16px; border-radius: 50%; border: 2px dashed rgba(16,13,11,.2); animation: spin-slow 32s linear infinite; }
 
 /* ============================================================
-   Roast finder
+   Intensity finder
    ============================================================ */
-.roast-section { background: linear-gradient(180deg, var(--cream), var(--crema)); }
-.roast-box {
-  background: #fff; border-radius: 26px; box-shadow: var(--shadow-lg);
-  padding: clamp(30px, 5vw, 56px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 60px);
-  align-items: center; border: 1px solid rgba(32,21,16,.06);
+.finder-section { background: var(--noir); color: var(--cream); position: relative; overflow: hidden; }
+.finder-section::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(900px 480px at 80% 0%, rgba(207,168,92,.12), transparent 60%);
+  pointer-events: none;
 }
-@media (max-width: 860px) { .roast-box { grid-template-columns: 1fr; } }
-.roast-bean-stage { display: grid; place-items: center; }
-.roast-bean-stage svg { width: min(240px, 60vw); filter: drop-shadow(0 20px 26px rgba(32,21,16,.3)); transition: transform .4s var(--ease-spring); }
-.roast-bean-stage.pop svg { animation: bean-pop .45s var(--ease-spring); }
-@keyframes bean-pop { 40% { transform: scale(1.12) rotate(-5deg); } }
-.roast-controls h3 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 10px; }
-.roast-controls > p { color: var(--muted); margin-bottom: 26px; }
-.roast-slider { width: 100%; appearance: none; height: 12px; border-radius: 999px; outline: none; cursor: grab;
-  background: linear-gradient(90deg, #d9b98c, #a9713d, #57402f, #241812); }
-.roast-slider:active { cursor: grabbing; }
-.roast-slider::-webkit-slider-thumb {
-  appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #fff;
-  border: 4px solid var(--espresso); box-shadow: 0 6px 14px rgba(32,21,16,.35); transition: transform .2s var(--ease-spring);
+.finder-section .section-head h2 { color: var(--cream); }
+.finder-section .section-head p { color: rgba(245,239,228,.6); }
+.finder-box {
+  position: relative; z-index: 2; background: rgba(255,255,255,.045);
+  border: 1px solid rgba(207,168,92,.25); border-radius: 26px; backdrop-filter: blur(6px);
+  padding: clamp(28px, 5vw, 54px); display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 60px); align-items: center;
 }
-.roast-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
-.roast-slider::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 4px solid var(--espresso); box-shadow: 0 6px 14px rgba(32,21,16,.35); }
-.roast-scale { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
-.roast-result {
-  margin-top: 26px; background: var(--cream); border-radius: 16px; padding: 18px 22px;
+@media (max-width: 860px) { .finder-box { grid-template-columns: 1fr; } }
+.shot-stage { display: grid; place-items: center; }
+.shot-stage svg { width: min(210px, 55vw); filter: drop-shadow(0 24px 30px rgba(0,0,0,.5)); }
+.shot-stage.pop svg { animation: glass-pop .45s var(--ease-spring); }
+@keyframes glass-pop { 40% { transform: scale(1.1) rotate(-4deg); } }
+#shotFill { transition: height .45s var(--ease-smooth), y .45s var(--ease-smooth), fill .45s; }
+.finder-controls h3 { color: var(--cream); font-size: clamp(23px, 3vw, 32px); margin-bottom: 8px; font-weight: 550; }
+.finder-controls > p { color: rgba(245,239,228,.62); margin-bottom: 26px; }
+.pour-slider { width: 100%; appearance: none; height: 10px; border-radius: 999px; outline: none; cursor: grab;
+  background: linear-gradient(90deg, #f0e2c4, var(--gold) 45%, #6d4f21); }
+.pour-slider:active { cursor: grabbing; }
+.pour-slider::-webkit-slider-thumb {
+  appearance: none; width: 30px; height: 30px; border-radius: 50%; background: var(--noir);
+  border: 3.5px solid var(--gold); box-shadow: 0 6px 16px rgba(0,0,0,.5); transition: transform .2s var(--ease-spring);
+}
+.pour-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.pour-slider::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--noir); border: 3.5px solid var(--gold); }
+.pour-scale { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,239,228,.5); margin-top: 10px; }
+.finder-result {
+  margin-top: 26px; background: rgba(16,13,11,.55); border-radius: 16px; padding: 18px 22px;
   display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
-  border: 1px dashed rgba(192,138,78,.6);
+  border: 1px dashed rgba(207,168,92,.5);
 }
-.roast-result .rr-name { font-family: "Fraunces", serif; font-weight: 700; font-size: 18px; color: var(--espresso); }
-.roast-result .rr-notes { font-size: 13px; color: var(--muted); }
-.roast-result button { flex-shrink: 0; }
+.finder-result .fr-name { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; color: var(--champ); }
+.finder-result .fr-notes { font-size: 13px; color: rgba(245,239,228,.6); }
 
 /* ============================================================
    Stats
    ============================================================ */
-.stats { background: var(--espresso); color: var(--crema); padding: clamp(50px, 6vw, 80px) 0; }
+.stats { background: var(--paper); padding: clamp(50px, 6vw, 84px) 0; border-block: 1px solid rgba(16,13,11,.07); }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; text-align: center; }
 @media (max-width: 760px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
-.stat b { display: block; font-family: "Fraunces", serif; font-size: clamp(34px, 4.4vw, 54px); color: var(--gold); font-weight: 600; }
-.stat span { font-size: 12.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,234,217,.75); }
+.stat b { display: block; font-family: "Fraunces", serif; font-size: clamp(34px, 4.4vw, 56px); color: var(--noir); font-weight: 550; }
+.stat b .count { color: var(--gold); }
+.stat span { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
 
 /* ============================================================
    About
@@ -475,52 +522,54 @@ section { padding: clamp(66px, 8vw, 110px) 0; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 70px); align-items: center; }
 @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
 .about-media { position: relative; }
-.about-media .main-img { border-radius: var(--radius); box-shadow: var(--shadow-lg); aspect-ratio: 4/4.7; object-fit: cover; width: 100%; background: var(--roast); }
+.about-media .main-img { border-radius: var(--radius); box-shadow: var(--shadow-lg); aspect-ratio: 4/4.8; object-fit: cover; width: 100%; background: var(--espresso); }
 .about-media .accent-img {
   position: absolute; right: -26px; bottom: -30px; width: 46%; aspect-ratio: 1; object-fit: cover;
-  border-radius: var(--radius); border: 8px solid var(--cream); box-shadow: var(--shadow-md); background: var(--mocha);
+  border-radius: var(--radius); border: 8px solid var(--cream); box-shadow: var(--shadow-md); background: var(--charcoal);
   animation: bob 7s ease-in-out infinite;
 }
-.about-media .exp-chip {
-  position: absolute; top: 22px; left: -20px; background: var(--caramel); color: #fff;
-  border-radius: 16px; padding: 16px 20px; text-align: center; box-shadow: var(--shadow-md);
-  animation: bob 5.4s ease-in-out infinite reverse;
+.about-media .est-chip {
+  position: absolute; top: 22px; left: -20px; background: var(--noir); color: var(--champ);
+  border-radius: 16px; padding: 16px 22px; text-align: center; box-shadow: var(--shadow-md);
+  animation: bob 5.4s ease-in-out infinite reverse; border: 1px solid rgba(207,168,92,.4);
 }
-.about-media .exp-chip b { display: block; font-family: "Fraunces", serif; font-size: 34px; line-height: 1; }
-.about-media .exp-chip span { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; }
-.about-copy h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px; }
+.about-media .est-chip b { display: block; font-family: "Fraunces", serif; font-size: 30px; line-height: 1; }
+.about-media .est-chip span { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: rgba(245,239,228,.6); }
+.about-copy h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 500; margin-bottom: 18px; }
+.about-copy h2 em { font-style: italic; color: var(--gold); }
 .about-copy p { color: var(--muted); margin-bottom: 16px; }
 .about-list { list-style: none; margin: 22px 0 30px; display: grid; gap: 12px; }
-.about-list li { display: flex; gap: 12px; align-items: flex-start; font-weight: 600; color: var(--mocha); }
+.about-list li { display: flex; gap: 12px; align-items: flex-start; font-weight: 600; color: var(--espresso); }
 .about-list svg { flex-shrink: 0; margin-top: 3px; }
 
 /* ============================================================
    Testimonials
    ============================================================ */
-.testi { background: var(--paper); position: relative; overflow: hidden; }
-.testi-quote-mark { position: absolute; top: 30px; left: 50%; transform: translateX(-50%); font-family: "Fraunces", serif; font-size: 220px; color: rgba(192,138,78,.12); line-height: 1; pointer-events: none; }
-.testi-viewport { max-width: 760px; margin: 0 auto; text-align: center; position: relative; min-height: 240px; }
+.testi { background: var(--noir); color: var(--cream); position: relative; overflow: hidden; }
+.testi .section-head h2 { color: var(--cream); }
+.testi-quote-mark { position: absolute; top: 24px; left: 50%; transform: translateX(-50%); font-family: "Fraunces", serif; font-size: 230px; color: rgba(207,168,92,.12); line-height: 1; pointer-events: none; }
+.testi-viewport { max-width: 760px; margin: 0 auto; text-align: center; position: relative; min-height: 250px; }
 .testi-slide { position: absolute; inset: 0; opacity: 0; transform: translateX(50px); transition: opacity .6s var(--ease-smooth), transform .6s var(--ease-smooth); pointer-events: none; }
 .testi-slide.active { opacity: 1; transform: none; pointer-events: auto; }
-.testi-slide blockquote { font-family: "Fraunces", serif; font-size: clamp(19px, 2.5vw, 26px); font-style: italic; color: var(--roast); margin-bottom: 24px; }
-.testi-slide .who { font-weight: 700; color: var(--espresso); }
-.testi-slide .role { font-size: 13px; color: var(--muted); }
+.testi-slide blockquote { font-family: "Fraunces", serif; font-size: clamp(19px, 2.5vw, 27px); font-style: italic; color: var(--cream); margin-bottom: 24px; font-weight: 400; }
+.testi-slide .who { font-weight: 700; color: var(--champ); }
+.testi-slide .role { font-size: 13px; color: rgba(245,239,228,.55); }
 .testi-slide .stars { color: var(--gold); letter-spacing: 3px; margin-bottom: 16px; }
 .testi-dots { display: flex; gap: 10px; justify-content: center; margin-top: 34px; }
-.testi-dots button { width: 10px; height: 10px; border-radius: 999px; border: none; background: rgba(32,21,16,.18); transition: width .3s var(--ease-smooth), background .3s; }
-.testi-dots button.active { width: 30px; background: var(--caramel); }
+.testi-dots button { width: 10px; height: 10px; border-radius: 999px; border: none; background: rgba(245,239,228,.22); transition: width .3s var(--ease-smooth), background .3s; }
+.testi-dots button.active { width: 30px; background: var(--gold); }
 
 /* ============================================================
    Gallery
    ============================================================ */
 .gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
 @media (max-width: 860px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
-.g-tile { position: relative; aspect-ratio: 1; border-radius: 14px; overflow: hidden; background: var(--roast); }
+.g-tile { position: relative; aspect-ratio: 1; border-radius: 14px; overflow: hidden; background: var(--espresso); }
 .g-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease-smooth); }
 .g-tile:hover img { transform: scale(1.14) rotate(2deg); }
 .g-tile .g-overlay {
-  position: absolute; inset: 0; display: grid; place-items: center; background: rgba(32,21,16,.55);
-  color: var(--crema); opacity: 0; transition: opacity .35s;
+  position: absolute; inset: 0; display: grid; place-items: center; background: rgba(16,13,11,.6);
+  color: var(--champ); opacity: 0; transition: opacity .35s;
 }
 .g-tile:hover .g-overlay { opacity: 1; }
 .g-overlay svg { transform: scale(.5); transition: transform .35s var(--ease-spring); }
@@ -529,91 +578,92 @@ section { padding: clamp(66px, 8vw, 110px) 0; }
 /* ============================================================
    Newsletter
    ============================================================ */
-.newsletter { background: var(--espresso); position: relative; overflow: hidden; }
-.newsletter .container { position: relative; z-index: 3; text-align: center; max-width: 620px; }
-.newsletter h2 { color: var(--crema); font-size: clamp(28px, 4vw, 42px); margin-bottom: 12px; }
-.newsletter p { color: rgba(244,234,217,.75); margin-bottom: 30px; }
-.nl-form { display: flex; gap: 10px; background: rgba(255,253,248,.08); border: 1px solid rgba(244,234,217,.22); padding: 8px; border-radius: 999px; }
+.newsletter { background: linear-gradient(180deg, var(--charcoal), var(--noir)); position: relative; overflow: hidden; }
+.newsletter .container { position: relative; z-index: 3; text-align: center; max-width: 640px; }
+.newsletter h2 { color: var(--cream); font-size: clamp(28px, 4vw, 44px); font-weight: 500; margin-bottom: 12px; }
+.newsletter h2 em { font-style: italic; color: var(--champ); }
+.newsletter p { color: rgba(245,239,228,.65); margin-bottom: 30px; }
+.nl-form { display: flex; gap: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(207,168,92,.35); padding: 8px; border-radius: 999px; }
 .nl-form input {
-  flex: 1; background: transparent; border: none; outline: none; color: var(--crema);
+  flex: 1; background: transparent; border: none; outline: none; color: var(--cream);
   font-family: inherit; font-size: 15px; padding: 10px 18px; min-width: 0;
 }
-.nl-form input::placeholder { color: rgba(244,234,217,.5); }
-.nl-msg { margin-top: 16px; font-weight: 600; color: var(--gold); min-height: 24px; }
-.nl-beans span { position: absolute; opacity: .35; animation: bob 6s ease-in-out infinite; }
+.nl-form input::placeholder { color: rgba(245,239,228,.45); }
+.nl-msg { margin-top: 16px; font-weight: 600; color: var(--champ); min-height: 24px; }
+.nl-orbs span { position: absolute; opacity: .5; animation: bob 6s ease-in-out infinite; }
 
 /* ============================================================
    Footer
    ============================================================ */
-footer { background: #170e09; color: rgba(244,234,217,.72); padding: 64px 0 30px; }
+footer { background: #0b0908; color: rgba(245,239,228,.66); padding: 64px 0 30px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 44px; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
-footer h4 { color: var(--crema); font-family: "Outfit", sans-serif; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; margin-bottom: 18px; }
+footer h4 { color: var(--champ); font-family: "Outfit", sans-serif; font-size: 12.5px; letter-spacing: .3em; text-transform: uppercase; margin-bottom: 18px; }
 footer ul { list-style: none; display: grid; gap: 10px; font-size: 14.5px; }
 footer ul a { transition: color .2s, padding-left .2s; }
 footer ul a:hover { color: var(--gold); padding-left: 6px; }
-.footer-brand .logo { color: var(--crema); margin-bottom: 14px; }
-.footer-brand p { font-size: 14px; max-width: 280px; }
+.footer-brand .logo { color: var(--cream); margin-bottom: 14px; }
+.footer-brand p { font-size: 14px; max-width: 300px; }
 .socials { display: flex; gap: 10px; margin-top: 18px; }
 .socials a {
   width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
-  border: 1px solid rgba(244,234,217,.25); transition: background .25s, transform .25s var(--ease-spring), border-color .25s;
+  border: 1px solid rgba(207,168,92,.35); transition: background .25s, transform .25s var(--ease-spring), border-color .25s, color .25s;
 }
-.socials a:hover { background: var(--caramel); border-color: var(--caramel); transform: translateY(-4px) rotate(8deg); color: #fff; }
-.footer-bottom { border-top: 1px solid rgba(244,234,217,.14); padding-top: 24px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 13px; }
+.socials a:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-4px) rotate(8deg); color: var(--noir); }
+.footer-bottom { border-top: 1px solid rgba(207,168,92,.18); padding-top: 24px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 12.5px; }
+.footer-bottom .sip { letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
 
 /* ============================================================
    Cart drawer
    ============================================================ */
 .drawer-overlay {
-  position: fixed; inset: 0; background: rgba(23,14,9,.55); backdrop-filter: blur(3px);
+  position: fixed; inset: 0; background: rgba(11,9,8,.6); backdrop-filter: blur(3px);
   opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; z-index: 1000;
 }
 .drawer-overlay.show { opacity: 1; visibility: visible; }
 .cart-drawer {
-  position: fixed; top: 0; right: 0; height: 100dvh; width: min(420px, 92vw); z-index: 1010;
+  position: fixed; top: 0; right: 0; height: 100dvh; width: min(430px, 92vw); z-index: 1010;
   background: var(--paper); display: flex; flex-direction: column;
   transform: translateX(105%); transition: transform .45s var(--ease-smooth);
-  box-shadow: -20px 0 60px rgba(23,14,9,.3);
+  box-shadow: -20px 0 60px rgba(11,9,8,.4);
 }
 .cart-drawer.open { transform: none; }
-.cart-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; border-bottom: 1px solid rgba(32,21,16,.08); }
-.cart-head h3 { font-size: 21px; }
+.cart-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; border-bottom: 1px solid rgba(16,13,11,.08); }
+.cart-head h3 { font-size: 21px; font-weight: 550; }
 .close-x { background: none; border: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; transition: background .2s, transform .3s var(--ease-spring); }
-.close-x:hover { background: rgba(32,21,16,.07); transform: rotate(90deg); }
+.close-x:hover { background: rgba(16,13,11,.08); transform: rotate(90deg); }
 .cart-items { flex: 1; overflow-y: auto; padding: 18px 24px; display: grid; gap: 16px; align-content: start; }
 .cart-empty { text-align: center; color: var(--muted); padding: 60px 10px; }
 .cart-empty svg { margin: 0 auto 16px; opacity: .35; }
 .cart-item {
-  display: grid; grid-template-columns: 66px 1fr auto; gap: 14px; align-items: center;
-  background: #fff; border: 1px solid rgba(32,21,16,.07); border-radius: 14px; padding: 12px;
+  display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center;
+  background: #fff; border: 1px solid rgba(16,13,11,.07); border-radius: 14px; padding: 12px;
   animation: item-in .4s var(--ease-spring);
 }
 @keyframes item-in { from { opacity: 0; transform: translateY(14px) scale(.96); } }
 .cart-item.removing { transition: .3s; opacity: 0; transform: translateX(30px) scale(.94); }
-.cart-item .ci-img { width: 66px; height: 66px; border-radius: 10px; background: linear-gradient(160deg, var(--crema), #efe2cc); display: grid; place-items: center; }
-.cart-item .ci-img svg { width: 60%; }
+.cart-item .ci-img { width: 64px; height: 64px; border-radius: 10px; background: linear-gradient(165deg, #f7f0e2, #ecdfc8); display: grid; place-items: center; }
+.cart-item .ci-img svg { width: 46%; }
 .cart-item h4 { font-size: 14.5px; font-family: "Outfit", sans-serif; font-weight: 700; }
-.cart-item .ci-price { font-size: 13px; color: var(--caramel); font-weight: 700; }
+.cart-item .ci-price { font-size: 13px; color: var(--gold); font-weight: 700; }
 .qty { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; }
 .qty button {
-  width: 26px; height: 26px; border-radius: 8px; border: 1px solid rgba(32,21,16,.15);
+  width: 26px; height: 26px; border-radius: 8px; border: 1px solid rgba(16,13,11,.15);
   background: #fff; font-weight: 700; transition: background .2s, color .2s;
 }
-.qty button:hover { background: var(--espresso); color: var(--crema); }
+.qty button:hover { background: var(--noir); color: var(--champ); }
 .qty b { min-width: 26px; text-align: center; font-size: 14px; }
 .ci-remove { background: none; border: none; color: var(--muted); font-size: 12px; text-decoration: underline; justify-self: end; align-self: start; }
-.ci-remove:hover { color: var(--berry); }
-.cart-foot { border-top: 1px solid rgba(32,21,16,.08); padding: 20px 24px 26px; background: #fff; }
+.ci-remove:hover { color: var(--blush-d); }
+.cart-foot { border-top: 1px solid rgba(16,13,11,.08); padding: 20px 24px 26px; background: #fff; }
 .cart-total-row { display: flex; justify-content: space-between; font-family: "Fraunces", serif; font-size: 21px; font-weight: 700; margin-bottom: 6px; }
 .cart-foot .ship-note { font-size: 12.5px; color: var(--muted); margin-bottom: 16px; }
-.ship-bar { height: 6px; border-radius: 999px; background: rgba(32,21,16,.08); overflow: hidden; margin-bottom: 6px; }
-.ship-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--caramel), var(--gold)); transition: width .6s var(--ease-smooth); }
+.ship-bar { height: 6px; border-radius: 999px; background: rgba(16,13,11,.08); overflow: hidden; margin-bottom: 6px; }
+.ship-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--gold), var(--champ)); transition: width .6s var(--ease-smooth); }
 .cart-foot .btn { width: 100%; justify-content: center; }
 
-/* Fly-to-cart bean */
-.fly-bean { position: fixed; z-index: 1500; width: 30px; height: 30px; pointer-events: none; }
+.fly-drop { position: fixed; z-index: 1500; width: 26px; height: 26px; pointer-events: none; }
 
 /* ============================================================
    Quick-view modal
@@ -623,107 +673,122 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s;
 }
 .modal.show { opacity: 1; visibility: visible; }
-.modal .modal-bg { position: absolute; inset: 0; background: rgba(23,14,9,.6); backdrop-filter: blur(4px); }
+.modal .modal-bg { position: absolute; inset: 0; background: rgba(11,9,8,.66); backdrop-filter: blur(4px); }
 .modal-card {
-  position: relative; background: var(--paper); border-radius: 24px; width: min(760px, 100%);
-  display: grid; grid-template-columns: 1fr 1.1fr; overflow: hidden; box-shadow: var(--shadow-lg);
+  position: relative; background: var(--paper); border-radius: 24px; width: min(780px, 100%);
+  display: grid; grid-template-columns: 1fr 1.15fr; overflow: hidden; box-shadow: var(--shadow-lg);
   transform: translateY(40px) scale(.95); transition: transform .4s var(--ease-spring);
-  max-height: min(600px, 90dvh);
+  max-height: min(620px, 90dvh);
 }
 .modal.show .modal-card { transform: none; }
 @media (max-width: 700px) { .modal-card { grid-template-columns: 1fr; overflow-y: auto; } }
-.modal-media { background: linear-gradient(160deg, var(--crema), #ecdcc2); display: grid; place-items: center; padding: 40px; }
-.modal-media svg { width: 70%; max-width: 220px; filter: drop-shadow(0 20px 24px rgba(32,21,16,.3)); animation: bob 5s ease-in-out infinite; }
+.modal-media { background: linear-gradient(165deg, #f7f0e2, #e8d9bd); display: grid; place-items: center; padding: 40px; }
+.modal-media svg { width: 58%; max-width: 190px; filter: drop-shadow(0 22px 26px rgba(16,13,11,.35)); animation: bob 5s ease-in-out infinite; }
 .modal-body { padding: clamp(24px, 4vw, 40px); overflow-y: auto; }
-.modal-body .ptype { font-size: 11px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--caramel); }
-.modal-body h3 { font-size: 27px; margin: 8px 0 10px; }
-.modal-body .stars { color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 12px; }
+.modal-body .ptype { font-size: 10.5px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.modal-body h3 { font-size: 27px; margin: 8px 0 8px; font-weight: 550; }
+.modal-body .stars { color: var(--gold); letter-spacing: 2px; font-size: 13px; margin-bottom: 8px; }
+.modal-body .m-int { margin-bottom: 12px; }
 .modal-body .desc { color: var(--muted); font-size: 14.5px; margin-bottom: 16px; }
 .modal-body .notes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
-.modal-body .notes span { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: var(--crema); border: 1px solid rgba(192,138,78,.4); color: var(--mocha); padding: 6px 12px; border-radius: 999px; }
+.modal-body .notes span { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: var(--cream); border: 1px solid rgba(207,168,92,.5); color: var(--espresso); padding: 6px 12px; border-radius: 999px; }
 .modal-body .price { font-family: "Fraunces", serif; font-size: 27px; font-weight: 700; margin-bottom: 20px; }
 .modal-body .price s { font-size: 18px; color: var(--muted); font-weight: 400; margin-right: 10px; }
 .modal-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .modal .close-x { position: absolute; top: 14px; right: 14px; background: #fff; box-shadow: var(--shadow-md); z-index: 3; }
 
 /* ============================================================
-   Toasts, back-to-top, confetti
+   Toasts, to-top, confetti
    ============================================================ */
-.toast-zone { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 1600; display: grid; gap: 10px; justify-items: center; width: min(420px, calc(100vw - 32px)); }
+.toast-zone { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 1600; display: grid; gap: 10px; justify-items: center; width: min(440px, calc(100vw - 32px)); }
 .toast {
-  background: var(--espresso); color: var(--crema); padding: 13px 22px; border-radius: 999px;
+  background: var(--noir); color: var(--cream); padding: 13px 22px; border-radius: 999px;
   font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 10px;
   box-shadow: var(--shadow-lg); animation: toast-in .45s var(--ease-spring);
+  border: 1px solid rgba(207,168,92,.4);
 }
 .toast.out { transition: .35s; opacity: 0; transform: translateY(16px) scale(.92); }
 .toast svg { color: var(--gold); flex-shrink: 0; }
 @keyframes toast-in { from { opacity: 0; transform: translateY(24px) scale(.9); } }
 .to-top {
   position: fixed; right: 22px; bottom: 22px; z-index: 800; width: 50px; height: 50px;
-  border-radius: 50%; border: none; background: var(--caramel); color: #fff;
+  border-radius: 50%; border: none; background: var(--gold); color: var(--noir);
   display: grid; place-items: center; box-shadow: var(--shadow-md);
   opacity: 0; visibility: hidden; transform: translateY(16px);
-  transition: opacity .3s, transform .3s var(--ease-spring), visibility .3s, background .25s;
+  transition: opacity .3s, transform .3s var(--ease-spring), visibility .3s, background .25s, color .25s;
 }
 .to-top.show { opacity: 1; visibility: visible; transform: none; }
-.to-top:hover { background: var(--espresso); }
-.confetti-bean { position: fixed; z-index: 1700; pointer-events: none; will-change: transform, opacity; }
+.to-top:hover { background: var(--noir); color: var(--champ); }
+.confetti-p { position: fixed; z-index: 1700; pointer-events: none; will-change: transform, opacity; border-radius: 50%; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
+  .hero-title h1 .ch, .hero-sub, .hero-ctas, .hero-meta, .hero-welcome { opacity: 1; transform: none; animation: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- Cursor -->
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 <div class="scroll-progress" aria-hidden="true"></div>
 
 <!-- Preloader -->
 <div class="preloader" id="preloader" aria-hidden="true">
-  <div class="cup-wrap">
-    <div class="pour-cup">
-      <svg viewBox="0 0 90 90" fill="none">
-        <g class="pour-steam">
-          <path d="M38 12c-3 4 3 6 0 10" stroke="#f4ead9" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M50 8c-3 4 3 6 0 10" stroke="#f4ead9" stroke-width="2.5" stroke-linecap="round"/>
-        </g>
-        <path d="M22 34h44v18a22 22 0 0 1-44 0V34Z" stroke="#f4ead9" stroke-width="3.5"/>
-        <path d="M66 38h6a8 8 0 0 1 0 16h-7" stroke="#f4ead9" stroke-width="3.5"/>
-        <clipPath id="cupclip"><path d="M25 37h38v15a19 19 0 0 1-38 0V37Z"/></clipPath>
-        <rect class="pour-fill" x="25" y="37" width="38" height="34" fill="#c08a4e" clip-path="url(#cupclip)"/>
+  <div class="mark">
+    <div class="pour-glass">
+      <svg viewBox="0 0 96 96" fill="none">
+        <circle class="pl-drop" cx="48" cy="16" r="3.5" fill="#cfa85c"/>
+        <path d="M20 24h56L52 54v22h12v6H32v-6h12V54Z" stroke="#e8cf9a" stroke-width="2.6" stroke-linejoin="round"/>
+        <clipPath id="plclip"><path d="M24 28h48L50 52v2H46v-2Z"/></clipPath>
+        <rect class="pl-fill" x="24" y="28" width="48" height="28" fill="#cfa85c" clip-path="url(#plclip)"/>
       </svg>
     </div>
-    <div class="brand-mark">DAVIDOFF</div>
+    <div class="brand shimmer">SMIRNOFF</div>
+  </div>
+</div>
+
+<!-- Age gate -->
+<div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-label="Age verification">
+  <div class="age-card" id="ageCard">
+    <div class="monogram">
+      <svg width="34" height="34" viewBox="0 0 64 64" fill="none"><path d="M18 12h28L36 36v14h8v6H20v-6h8V36Z" stroke="#cfa85c" stroke-width="2.6" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="kicker-line">Smirnoff · Vodka Coffee House</div>
+    <h2>Old enough to <em>sip slowly?</em></h2>
+    <p>Our coffee carries a kick. Please confirm you're of legal drinking age in your country to step inside.</p>
+    <div class="age-actions">
+      <button class="btn btn-gold" id="ageYes" data-hover>I am — pour me in</button>
+      <button class="btn btn-ghost" id="ageNo" data-hover>Not yet</button>
+    </div>
+    <div class="age-note" id="ageNote">Please sip responsibly.</div>
   </div>
 </div>
 
 <!-- Topbar -->
-<div class="topbar">Freshly roasted every morning — <b>free shipping</b> on orders over $40 ☕</div>
+<div class="topbar">Espresso meets spirit — <b>complimentary delivery</b> on orders over $45 🥂</div>
 
 <!-- Header -->
 <header class="site-header" id="siteHeader">
   <div class="container nav-inner">
     <a class="logo" href="#top" data-hover>
-      <svg class="bean-ico" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#201510"/><ellipse cx="32" cy="32" rx="14" ry="19" fill="#c08a4e" transform="rotate(24 32 32)"/><path d="M25 18 Q36 32 27 47" stroke="#201510" stroke-width="4" fill="none" transform="rotate(24 32 32)"/></svg>
-      <span>DAVIDOFF<small>COFFEE GROUND CO.</small></span>
+      <svg class="glass-ico" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#100d0b"/><path d="M18 14h28L36 36v12h7v5H21v-5h7V36Z" fill="#cfa85c"/><circle cx="32" cy="24" r="3" fill="#100d0b"/></svg>
+      <span>SMIRNOFF<small>VODKA COFFEE HOUSE</small></span>
     </a>
     <nav aria-label="Main">
       <ul class="nav-links" id="navLinks">
         <li><a href="#top" class="active" data-hover>Home</a></li>
-        <li><a href="#shop" data-hover>Shop</a></li>
-        <li><a href="#roast" data-hover>Find your roast</a></li>
-        <li><a href="#about" data-hover>Our story</a></li>
+        <li><a href="#menu" data-hover>Menu</a></li>
+        <li><a href="#finder" data-hover>Intensity</a></li>
+        <li><a href="#about" data-hover>The House</a></li>
         <li><a href="#gallery" data-hover>Gallery</a></li>
         <li><a href="#contact" data-hover>Contact</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
-      <button class="cart-btn" id="cartBtn" aria-label="Open cart" data-hover>
+      <button class="cart-btn" id="cartBtn" aria-label="Open basket" data-hover>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l1.2 12.2a1.6 1.6 0 0 1-1.6 1.8H6.4a1.6 1.6 0 0 1-1.6-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </button>
@@ -736,67 +801,63 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero" aria-label="Intro">
-    <div class="container hero-inner">
-      <div>
-        <span class="hero-eyebrow">Small-batch · Single origin · Ground fresh</span>
-        <h1 aria-label="Wake up to the perfect grind.">
-          <span class="line"><span class="word" style="animation-delay:.05s">Wake&nbsp;up</span> <span class="word" style="animation-delay:.15s">to&nbsp;the</span></span>
-          <span class="line"><span class="word" style="animation-delay:.3s"><em>perfect</em></span> <span class="word" style="animation-delay:.42s">grind.</span></span>
-        </h1>
-        <p class="lede">Davidoff sources rare beans from family farms, roasts them in small batches, and grinds them to order — so every bag hits your door at peak flavour.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-dark" href="#shop" data-hover>Shop the grounds
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="#roast" data-hover>Find your roast</a>
-        </div>
-        <div class="hero-badges">
-          <span class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#4c6444" stroke-width="1.8"><path d="M12 21C7 17 3.5 13.6 3.5 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8.5 2.6c0 4-3.5 7.4-8.5 11.4Z"/></svg>
-            Roasted daily
-          </span>
-          <span class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#c08a4e" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
-            Ships in 24h
-          </span>
-          <span class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#b4432f" stroke-width="1.8"><path d="M12 3 4 6.5v5.2c0 4.6 3.4 7.6 8 9.3 4.6-1.7 8-4.7 8-9.3V6.5L12 3Z"/></svg>
-            100% arabica
-          </span>
-        </div>
-      </div>
+    <span class="hero-ring" aria-hidden="true"></span>
+    <!-- floating garnish -->
+    <div class="float-item" data-depth="34" style="top:12%; left:7%; width:40px; height:40px;" aria-hidden="true"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="10" ry="15" fill="#57402f" transform="rotate(-24 20 20)"/><path d="M15 9 Q24 20 16 32" stroke="#2c1c12" stroke-width="3" fill="none" transform="rotate(-24 20 20)"/></svg></div>
+    <div class="float-item" data-depth="60" style="top:24%; right:6%; width:34px; height:34px;" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="7" fill="rgba(223,232,234,.5)" stroke="rgba(245,239,228,.8)" stroke-width="1.6" transform="rotate(14 20 20)"/></svg></div>
+    <div class="float-item" data-depth="46" style="bottom:16%; left:11%; width:30px; height:30px;" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="7" fill="rgba(223,232,234,.4)" stroke="rgba(245,239,228,.7)" stroke-width="1.6" transform="rotate(-18 20 20)"/></svg></div>
+    <div class="float-item" data-depth="26" style="bottom:10%; right:12%; width:38px; height:38px;" aria-hidden="true"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="10" ry="15" fill="#cfa85c" transform="rotate(38 20 20)"/><path d="M15 9 Q24 20 16 32" stroke="#8a6a2e" stroke-width="3" fill="none" transform="rotate(38 20 20)"/></svg></div>
 
-      <div class="hero-visual">
-        <div class="cup-stage" id="cupStage" title="Psst — click the cup!">
-          <div class="cup-disc"></div>
-          <svg class="hero-orbit-word" viewBox="0 0 200 200" aria-hidden="true">
-            <defs><path id="circlePath" d="M100,100 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/></defs>
-            <text><textPath href="#circlePath">DAVIDOFF COFFEE GROUND CO. · EST. 1994 · FRESHLY GROUND ·&nbsp;</textPath></text>
-          </svg>
-          <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
-          <svg class="cup-svg" viewBox="0 0 220 200" fill="none" aria-hidden="true">
-            <ellipse cx="104" cy="182" rx="72" ry="10" fill="rgba(0,0,0,.28)"/>
-            <path d="M34 62h140v52a70 62 0 0 1-140 0V62Z" fill="#f4ead9"/>
-            <path d="M34 62h140v14a70 20 0 0 1-140 0V62Z" fill="#e5d4ba"/>
-            <ellipse cx="104" cy="62" rx="70" ry="16" fill="#fffdf8"/>
-            <ellipse cx="104" cy="62" rx="58" ry="12" fill="#5a3a22"/>
-            <ellipse cx="104" cy="62" rx="58" ry="12" fill="url(#crema)" opacity=".85"/>
-            <defs>
-              <radialGradient id="crema" cx=".5" cy=".45" r=".7">
-                <stop offset="0" stop-color="#c9955c"/><stop offset=".65" stop-color="#8a5a33"/><stop offset="1" stop-color="#5a3a22"/>
-              </radialGradient>
-            </defs>
-            <path d="M96 56c4-3 12-3 16 0-4 3-4 6 0 9-4 3-12 3-16 0 4-3 4-6 0-9Z" fill="#e9d8bd" opacity=".9"/>
-            <path d="M174 78h10a22 22 0 0 1 0 44h-12" stroke="#f4ead9" stroke-width="12" stroke-linecap="round"/>
-            <path d="M64 130c10 10 70 10 80 0" stroke="#dcc5a4" stroke-width="3" stroke-linecap="round" opacity=".7"/>
-          </svg>
+    <div class="container hero-stage">
+      <span class="hero-eyebrow">Est. 1864 · Espresso &amp; Spirit</span>
+      <div class="hero-title">
+        <h1 aria-label="VODKA"><span class="ch" style="animation-delay:.1s">V</span><span class="ch" style="animation-delay:.16s">O</span><span class="ch" style="animation-delay:.22s">D</span><span class="ch" style="animation-delay:.28s">K</span><span class="ch" style="animation-delay:.34s">A</span></h1>
+        <div class="hero-glass-wrap">
+          <div class="hero-steam" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="hero-glass" id="heroGlass" title="Psst — click the glass">
+            <svg viewBox="0 0 220 300" fill="none" aria-hidden="true">
+              <ellipse cx="110" cy="286" rx="64" ry="9" fill="rgba(0,0,0,.5)"/>
+              <path d="M62 30h96l-4 196c0 22-20 34-44 34s-44-12-44-34L62 30Z" fill="rgba(223,232,234,.16)" stroke="rgba(245,239,228,.55)" stroke-width="2.5"/>
+              <path d="M67 96l3.4 128c0 18 17 28 39.6 28s39.6-10 39.6-28L153 96Z" fill="#2b1a10"/>
+              <path class="hg-swirl" d="M67 96l3.4 128c0 18 17 28 39.6 28s39.6-10 39.6-28L153 96Z" fill="url(#swirl)" opacity=".85"/>
+              <path d="M66 74h88l-1 22H67Z" fill="#e9dcc3"/>
+              <ellipse cx="110" cy="74" rx="44" ry="8" fill="#f5efe4"/>
+              <g opacity=".92">
+                <rect x="80" y="120" width="26" height="26" rx="7" fill="rgba(223,232,234,.4)" stroke="rgba(245,239,228,.75)" stroke-width="1.6" transform="rotate(12 93 133)"/>
+                <rect x="114" y="150" width="24" height="24" rx="7" fill="rgba(223,232,234,.34)" stroke="rgba(245,239,228,.65)" stroke-width="1.6" transform="rotate(-16 126 162)"/>
+                <rect x="86" y="186" width="22" height="22" rx="6" fill="rgba(223,232,234,.3)" stroke="rgba(245,239,228,.55)" stroke-width="1.5" transform="rotate(24 97 197)"/>
+              </g>
+              <circle class="hg-bubble" cx="96" cy="230" r="3.2" fill="rgba(245,239,228,.75)"/>
+              <circle class="hg-bubble b2" cx="120" cy="238" r="2.4" fill="rgba(245,239,228,.65)"/>
+              <circle class="hg-bubble b3" cx="108" cy="244" r="2.8" fill="rgba(245,239,228,.7)"/>
+              <rect x="128" y="-6" width="9" height="150" rx="4.5" fill="#cfa85c" transform="rotate(8 132 40)"/>
+              <rect x="84" y="106" width="52" height="30" rx="6" fill="#f5efe4"/>
+              <text x="110" y="119" text-anchor="middle" font-family="Outfit, sans-serif" font-size="8.5" font-weight="800" letter-spacing="2" fill="#100d0b">SMIRNOFF</text>
+              <text x="110" y="130" text-anchor="middle" font-family="Outfit, sans-serif" font-size="5.6" font-weight="700" letter-spacing="1.4" fill="#8a7a68">VODKA COFFEE</text>
+              <ellipse cx="86" cy="150" rx="7" ry="34" fill="rgba(255,255,255,.14)"/>
+              <defs>
+                <linearGradient id="swirl" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#4a2d17"/><stop offset=".5" stop-color="#2b1a10"/><stop offset="1" stop-color="#5a3a20"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="hero-welcome script" aria-hidden="true">Welcome</span>
         </div>
-        <!-- floating beans, parallax with mouse -->
-        <div class="float-bean" data-depth="30" style="top:2%; left:6%; width:44px; height:44px;"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#57402f" transform="rotate(-24 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#2c1c12" stroke-width="3" fill="none" transform="rotate(-24 20 20)"/></svg></div>
-        <div class="float-bean" data-depth="55" style="top:14%; right:2%; width:34px; height:34px;"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#c08a4e" transform="rotate(30 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#7c5327" stroke-width="3" fill="none" transform="rotate(30 20 20)"/></svg></div>
-        <div class="float-bean" data-depth="40" style="bottom:8%; left:0%; width:38px; height:38px;"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#33221a" transform="rotate(64 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#170e09" stroke-width="3" fill="none" transform="rotate(64 20 20)"/></svg></div>
-        <div class="float-bean" data-depth="70" style="bottom:0%; right:12%; width:28px; height:28px;"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#8a5a33" transform="rotate(-52 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#4a2f18" stroke-width="3" fill="none" transform="rotate(-52 20 20)"/></svg></div>
-        <div class="float-bean" data-depth="22" style="top:44%; left:-4%; width:26px; height:26px;"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#d9a95e" transform="rotate(10 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#9a6c33" stroke-width="3" fill="none" transform="rotate(10 20 20)"/></svg></div>
+        <h1 aria-label="COFFEE"><span class="ch" style="animation-delay:.4s">C</span><span class="ch" style="animation-delay:.46s">O</span><span class="ch" style="animation-delay:.52s">F</span><span class="ch" style="animation-delay:.58s">F</span><span class="ch" style="animation-delay:.64s">E</span><span class="ch" style="animation-delay:.7s">E</span></h1>
+      </div>
+      <p class="hero-sub">Nine flavoured vodka coffees. Five intensities. One rule of the house: crafted like a cocktail, finished like a work of art.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#menu" data-hover>Order coffee
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#finder" data-hover>Choose intensity</a>
+      </div>
+      <div class="hero-meta">
+        <div><b>°1–°5</b><span>Intensities</span></div>
+        <div><b>9</b><span>Signature pours</span></div>
+        <div><b>21+</b><span>House rule</span></div>
+        <div><b>4.9★</b><span>Guest rating</span></div>
       </div>
     </div>
   </section>
@@ -804,163 +865,147 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   <!-- ============ MARQUEE ============ -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Freshly ground <i>✦</i> Single origin <i>✦</i> Roasted daily <i>✦</i> Direct trade <i>✦</i> Davidoff <i>✦</i></span>
-      <span>Freshly ground <i>✦</i> Single origin <i>✦</i> Roasted daily <i>✦</i> Direct trade <i>✦</i> Davidoff <i>✦</i></span>
+      <span>Espresso martini <i>✦</i> Flavoured vodka coffee <i>✦</i> Five intensities <i>✦</i> Sip responsibly <i>✦</i> Smirnoff <i>✦</i></span>
+      <span>Espresso martini <i>✦</i> Flavoured vodka coffee <i>✦</i> Five intensities <i>✦</i> Sip responsibly <i>✦</i> Smirnoff <i>✦</i></span>
     </div>
   </div>
 
-  <!-- ============ CATEGORIES ============ -->
-  <section class="cats" aria-label="Categories">
+  <!-- ============ MENU ============ -->
+  <section class="menu-section" id="menu" aria-label="Menu">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">The collection</span>
-        <h2>Ground for the way <em style="color:var(--caramel); font-style:italic;">you</em> brew</h2>
-        <p>Every bag is ground to order for your brewer of choice — espresso-fine, filter-medium, or coarse for the slow crowd.</p>
-      </div>
-      <div class="cat-grid">
-        <a href="#shop" class="cat-card tilt reveal" style="--d:.05s" data-hover>
-          <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=800&q=70" alt="Espresso grind" loading="lazy" onerror="this.remove()" />
-          <span class="veil"></span><span class="num">01</span>
-          <div class="cat-body">
-            <h3>Espresso Grind</h3>
-            <p>Fine &amp; punchy — built for pressure.</p>
-            <span class="cat-link">Shop now <span class="arrow">→</span></span>
-          </div>
-        </a>
-        <a href="#shop" class="cat-card tilt reveal" style="--d:.15s" data-hover>
-          <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=70" alt="Filter grind" loading="lazy" onerror="this.remove()" />
-          <span class="veil"></span><span class="num">02</span>
-          <div class="cat-body">
-            <h3>Filter Grind</h3>
-            <p>Sweet, clear cups for drip &amp; pour-over.</p>
-            <span class="cat-link">Shop now <span class="arrow">→</span></span>
-          </div>
-        </a>
-        <a href="#shop" class="cat-card tilt reveal" style="--d:.25s" data-hover>
-          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=70" alt="French press grind" loading="lazy" onerror="this.remove()" />
-          <span class="veil"></span><span class="num">03</span>
-          <div class="cat-body">
-            <h3>French Press</h3>
-            <p>Coarse &amp; bold for the slow brewers.</p>
-            <span class="cat-link">Shop now <span class="arrow">→</span></span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ NEW ARRIVALS ============ -->
-  <section class="products-section" id="shop" aria-label="New arrivals">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Just roasted</span>
-        <h2>New arrivals</h2>
-        <p>Fresh off this week's roast log. Grab them before the batch is gone.</p>
-      </div>
-      <div class="carousel-wrap reveal">
-        <button class="carousel-nav prev" id="arrPrev" aria-label="Previous products" data-hover>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg>
+      <div class="menu-topline reveal">
+        <div class="mt-title">
+          <h2>Menu<span class="script">drinks</span></h2>
+        </div>
+        <button class="basket-chip" id="basketChip" data-hover>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 7h12l1.2 12.2a1.6 1.6 0 0 1-1.6 1.8H6.4a1.6 1.6 0 0 1-1.6-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+          My basket <span id="basketChipCount"></span>
         </button>
-        <div class="product-row" id="arrivalsRow"></div>
-        <button class="carousel-nav next" id="arrNext" aria-label="Next products" data-hover>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg>
+      </div>
+      <div class="pills reveal" id="pills" role="tablist" aria-label="Menu categories">
+        <button class="pill active" data-cat="all" data-hover>All pours</button>
+        <button class="pill" data-cat="classic" data-hover>Classics</button>
+        <button class="pill" data-cat="flavored" data-hover>Flavoured</button>
+        <button class="pill" data-cat="dessert" data-hover>Dessert</button>
+        <button class="pill" data-cat="strong" data-hover>Full strength</button>
+        <button class="pill" data-cat="zero" data-hover>Zero proof</button>
+      </div>
+      <div class="menu-grid reveal" id="menuGrid"></div>
+      <div class="menu-more reveal">
+        <button class="btn btn-ghost-dark" id="surpriseBtn" data-hover>Surprise me
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- ============ PARALLAX BANNER ============ -->
-  <section class="banner" aria-label="Shop the collection">
-    <div class="bg" id="bannerBg"></div>
-    <div class="banner-beans" aria-hidden="true">
-      <span style="top:14%; left:8%; animation-delay:-1s;"><svg width="34" height="34" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#c08a4e" transform="rotate(22 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#7c5327" stroke-width="3" fill="none" transform="rotate(22 20 20)"/></svg></span>
-      <span style="top:64%; left:14%; animation-delay:-3s;"><svg width="24" height="24" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#d9a95e" transform="rotate(-40 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#9a6c33" stroke-width="3" fill="none" transform="rotate(-40 20 20)"/></svg></span>
-      <span style="top:20%; right:10%; animation-delay:-2s;"><svg width="30" height="30" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#d9a95e" transform="rotate(60 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#9a6c33" stroke-width="3" fill="none" transform="rotate(60 20 20)"/></svg></span>
-      <span style="bottom:12%; right:16%; animation-delay:-4.4s;"><svg width="26" height="26" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#c08a4e" transform="rotate(-12 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#7c5327" stroke-width="3" fill="none" transform="rotate(-12 20 20)"/></svg></span>
-    </div>
-    <div class="container banner-inner reveal">
-      <span class="kicker">The best world grounds</span>
-      <h2>Get <em>all</em> your coffee here — ground the morning it ships</h2>
-      <a class="btn btn-gold" href="#featured" data-hover>Shop collection
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+  <!-- ============ NEW DRINK ============ -->
+  <section class="newdrink" id="newdrink" aria-label="New drink">
+    <div class="container nd-grid">
+      <div class="nd-copy reveal">
+        <div class="nd-new">New<span class="script">this season</span></div>
+        <h3>Iced Coconut Espresso Martini</h3>
+        <p>Cold-brew espresso shaken over Smirnoff vanilla vodka, coconut cream, and a whisper of toasted sugar. Served glacier-cold with a triple-bean garnish.</p>
+        <div class="nd-facts">
+          <div><b>°3</b><span>Intensity</span></div>
+          <div><b>3</b><span>Syrup options</span></div>
+          <div><b>With</b><span>espresso + cold milk + ice</span></div>
+        </div>
+        <div class="nd-price-row">
+          <div class="nd-price"><s>$8.00</s>$6.50</div>
+          <button class="btn btn-noir" id="ndAddBtn" data-hover>Add the new pour</button>
+        </div>
+      </div>
+      <div class="nd-visual reveal" style="--d:.15s">
+        <span class="nd-disc" aria-hidden="true"></span>
+        <svg class="drink" viewBox="0 0 220 300" fill="none" aria-hidden="true" id="ndGlass">
+          <ellipse cx="110" cy="286" rx="60" ry="9" fill="rgba(16,13,11,.25)"/>
+          <path d="M66 34h88l-4 190c0 20-18 32-40 32s-40-12-40-32L66 34Z" fill="rgba(255,255,255,.4)" stroke="rgba(16,13,11,.35)" stroke-width="2.5"/>
+          <path d="M70.5 120l2.8 102c0 16 15 26 36.7 26s36.7-10 36.7-26l2.8-102Z" fill="#3a2513"/>
+          <path d="M70 94h80l-.8 26H70.8Z" fill="#f7f2e8"/>
+          <ellipse cx="110" cy="94" rx="40" ry="7.5" fill="#fffdf8"/>
+          <g opacity=".95">
+            <rect x="82" y="140" width="24" height="24" rx="7" fill="rgba(255,255,255,.45)" stroke="rgba(255,255,255,.9)" stroke-width="1.6" transform="rotate(10 94 152)"/>
+            <rect x="112" y="170" width="22" height="22" rx="6" fill="rgba(255,255,255,.4)" stroke="rgba(255,255,255,.8)" stroke-width="1.5" transform="rotate(-18 123 181)"/>
+          </g>
+          <rect x="126" y="0" width="9" height="140" rx="4.5" fill="#b4574e" transform="rotate(7 130 40)"/>
+          <ellipse cx="88" cy="170" rx="6" ry="30" fill="rgba(255,255,255,.22)"/>
+          <ellipse cx="110" cy="66" rx="14" ry="6" fill="#f3cdc9"/>
+          <ellipse cx="97" cy="92" rx="5" ry="7" fill="#57402f" transform="rotate(-18 97 92)"/>
+          <ellipse cx="112" cy="90" rx="5" ry="7" fill="#57402f" transform="rotate(14 112 90)"/>
+          <ellipse cx="124" cy="93" rx="5" ry="7" fill="#57402f" transform="rotate(40 124 93)"/>
+        </svg>
+      </div>
     </div>
   </section>
 
-  <!-- ============ ROAST FINDER ============ -->
-  <section class="roast-section" id="roast" aria-label="Find your roast">
+  <!-- ============ INTENSITY FINDER ============ -->
+  <section class="finder-section" id="finder" aria-label="Choose your intensity">
     <div class="container">
       <div class="section-head reveal">
         <span class="kicker">Interactive</span>
-        <h2>Find your roast</h2>
-        <p>Slide the bean from bright &amp; fruity to dark &amp; smoky — we'll match you with your bag.</p>
+        <h2>Choose your <em>intensity</em></h2>
+        <p>From a polite whisper of vodka to a full-strength midnight pour — slide, watch the glass fill, and meet your match.</p>
       </div>
-      <div class="roast-box reveal">
-        <div class="roast-bean-stage" id="roastStage" aria-hidden="true">
-          <svg viewBox="0 0 200 200">
-            <ellipse id="roastBeanBody" cx="100" cy="100" rx="52" ry="76" fill="#a9713d" transform="rotate(18 100 100)"/>
-            <path id="roastBeanCrack" d="M78 40 Q118 100 82 162" stroke="#3a2312" stroke-width="10" fill="none" stroke-linecap="round" transform="rotate(18 100 100)"/>
-            <ellipse cx="82" cy="66" rx="10" ry="20" fill="rgba(255,255,255,.28)" transform="rotate(18 100 100)"/>
+      <div class="finder-box reveal">
+        <div class="shot-stage" id="shotStage" aria-hidden="true">
+          <svg viewBox="0 0 200 240" fill="none">
+            <path d="M56 18h88l-8 168c0 18-16 30-36 30s-36-12-36-30L56 18Z" stroke="#e8cf9a" stroke-width="2.5" fill="rgba(255,255,255,.05)"/>
+            <clipPath id="shotClip"><path d="M60 22h80l-7.6 162c0 16-14.5 26-32.4 26s-32.4-10-32.4-26Z"/></clipPath>
+            <rect id="shotFill" x="60" y="130" width="80" height="90" fill="#8a5a33" clip-path="url(#shotClip)"/>
+            <g clip-path="url(#shotClip)">
+              <rect x="74" y="150" width="20" height="20" rx="6" fill="rgba(223,232,234,.35)" stroke="rgba(245,239,228,.6)" stroke-width="1.4" transform="rotate(12 84 160)"/>
+              <rect x="102" y="176" width="18" height="18" rx="5" fill="rgba(223,232,234,.3)" stroke="rgba(245,239,228,.5)" stroke-width="1.3" transform="rotate(-20 111 185)"/>
+            </g>
+            <text id="shotDeg" x="100" y="118" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="30" font-weight="600" fill="#e8cf9a">°2</text>
           </svg>
         </div>
-        <div class="roast-controls">
-          <h3 id="roastTitle">Medium roast — the crowd-pleaser</h3>
-          <p id="roastDesc">Caramel sweetness, toasted nuts, silky body. Great black or with milk.</p>
-          <input class="roast-slider" id="roastSlider" type="range" min="0" max="100" value="45" aria-label="Roast level" data-hover />
-          <div class="roast-scale"><span>Light</span><span>Medium</span><span>Dark</span></div>
-          <div class="roast-result">
+        <div class="finder-controls">
+          <h3 id="finderTitle">°2 — Softly spirited</h3>
+          <p id="finderDesc">A gentle measure of vodka under a sweet crema. You'll taste it, you won't feel rushed by it.</p>
+          <input class="pour-slider" id="pourSlider" type="range" min="0" max="100" value="30" aria-label="Vodka intensity" data-hover />
+          <div class="pour-scale"><span>°1 Whisper</span><span>°3 Balanced</span><span>°5 Midnight</span></div>
+          <div class="finder-result">
             <div>
-              <div class="rr-name" id="roastMatchName">Morning Ritual Blend</div>
-              <div class="rr-notes" id="roastMatchNotes">Caramel · Hazelnut · Cocoa</div>
+              <div class="fr-name" id="finderMatchName">Vanilla Velvet</div>
+              <div class="fr-notes" id="finderMatchNotes">Vanilla bean · Soft crema · Silk</div>
             </div>
-            <button class="btn btn-dark" id="roastAddBtn" data-hover style="padding:12px 22px;">Add — <span id="roastMatchPrice">$12.49</span></button>
+            <button class="btn btn-gold" id="finderAddBtn" data-hover style="padding:12px 22px;">Add — <span id="finderMatchPrice">$12.00</span></button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ FEATURED ============ -->
-  <section class="products-section" id="featured" aria-label="Featured products" style="background:var(--cream);">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Customer favourites</span>
-        <h2>Featured grounds</h2>
-        <p>The bags our regulars re-order on repeat. Tried, tested, and brewed thousands of times.</p>
-      </div>
-      <div class="product-grid reveal" id="featuredGrid"></div>
     </div>
   </section>
 
   <!-- ============ STATS ============ -->
   <section class="stats" aria-label="Numbers">
     <div class="container stats-grid">
-      <div class="stat reveal"><b><span class="count" data-target="32">0</span></b><span>Years roasting</span></div>
-      <div class="stat reveal" style="--d:.1s"><b><span class="count" data-target="18">0</span></b><span>Origin farms</span></div>
-      <div class="stat reveal" style="--d:.2s"><b><span class="count" data-target="240" data-suffix="k">0</span></b><span>Bags shipped</span></div>
-      <div class="stat reveal" style="--d:.3s"><b><span class="count" data-target="4.9" data-decimal="1">0</span>★</b><span>Average rating</span></div>
+      <div class="stat reveal"><b><span class="count" data-target="9">0</span></b><span>Signature pours</span></div>
+      <div class="stat reveal" style="--d:.1s"><b><span class="count" data-target="5">0</span></b><span>Intensity levels</span></div>
+      <div class="stat reveal" style="--d:.2s"><b><span class="count" data-target="120" data-suffix="k">0</span></b><span>Glasses served</span></div>
+      <div class="stat reveal" style="--d:.3s"><b><span class="count" data-target="4.9" data-decimal="1">0</span>★</b><span>Guest rating</span></div>
     </div>
   </section>
 
   <!-- ============ ABOUT ============ -->
-  <section id="about" aria-label="Our story">
+  <section id="about" aria-label="The house">
     <div class="container about-grid">
       <div class="about-media reveal">
-        <img class="main-img" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=70" alt="Barista brewing pour-over coffee" loading="lazy" onerror="this.style.visibility='hidden'" />
-        <img class="accent-img" src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?auto=format&fit=crop&w=500&q=70" alt="Roasted coffee beans" loading="lazy" onerror="this.style.visibility='hidden'" />
-        <div class="exp-chip"><b>32</b><span>years of roast</span></div>
+        <img class="main-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=70" alt="Moody bar interior with warm lighting" loading="lazy" onerror="this.style.visibility='hidden'" />
+        <img class="accent-img" src="https://images.unsplash.com/photo-1545438102-799c3991ffb2?auto=format&fit=crop&w=500&q=70" alt="Espresso martini being poured" loading="lazy" onerror="this.style.visibility='hidden'" />
+        <div class="est-chip"><b>1864</b><span>House est.</span></div>
       </div>
       <div class="about-copy reveal" style="--d:.15s">
-        <span class="kicker" style="margin-bottom:14px;">Who we are</span>
-        <h2>About Davidoff Coffee Ground Co.</h2>
-        <p>It started in 1994 with a secondhand drum roaster, a bicycle, and one stubborn belief: coffee should be ground <b>hours</b> before you brew it, not months. Today we roast for cafés and kitchens across the country — but every bag still gets the small-batch treatment.</p>
-        <p>We buy directly from eighteen family farms, pay above fair-trade rates, and print the roast date on every single pouch.</p>
+        <span class="kicker" style="margin-bottom:14px;">The house</span>
+        <h2>Where the bar meets <em>the bean</em></h2>
+        <p>The Smirnoff Vodka Coffee House began with one late-night question: why should the espresso martini live only after dinner? We built a house where coffee is treated like a spirit — measured, flavoured, and poured with intent.</p>
+        <p>Every drink is built on slow-extracted cold brew, infused with our flavour library, and finished at the intensity you choose — from °1 whisper to °5 midnight.</p>
         <ul class="about-list">
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4c6444" stroke-width="2.4"><path d="M4 12.5 10 18 20 6.5"/></svg> Ground to order for your exact brewer</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4c6444" stroke-width="2.4"><path d="M4 12.5 10 18 20 6.5"/></svg> Roast date printed on every bag</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4c6444" stroke-width="2.4"><path d="M4 12.5 10 18 20 6.5"/></svg> Direct trade with 18 origin farms</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cfa85c" stroke-width="2.4"><path d="M4 12.5 10 18 20 6.5"/></svg> Nine flavours, from vanilla velvet to citrus noir</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cfa85c" stroke-width="2.4"><path d="M4 12.5 10 18 20 6.5"/></svg> Five intensities — you set the strength of the pour</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cfa85c" stroke-width="2.4"><path d="M4 12.5 10 18 20 6.5"/></svg> Zero-proof pours with all the theatre, none of the vodka</li>
         </ul>
-        <a class="btn btn-dark" href="#gallery" data-hover>See the craft</a>
+        <a class="btn btn-noir" href="#gallery" data-hover>Step inside</a>
       </div>
     </div>
   </section>
@@ -970,24 +1015,24 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     <span class="testi-quote-mark" aria-hidden="true">“</span>
     <div class="container">
       <div class="section-head reveal">
-        <span class="kicker">Word on the street</span>
-        <h2>Brewed &amp; reviewed</h2>
+        <span class="kicker">Guest book</span>
+        <h2>Poured &amp; adored</h2>
       </div>
       <div class="testi-viewport reveal" id="testiViewport">
         <figure class="testi-slide active">
           <div class="stars">★★★★★</div>
-          <blockquote>“The Ethiopia ground arrived two days after roasting and my whole kitchen smelled like a florist's. I've cancelled every other subscription.”</blockquote>
-          <figcaption><div class="who">Amara J.</div><div class="role">Pour-over devotee, Portland</div></figcaption>
+          <blockquote>“The Citrus Noir at °3 is the most sophisticated thing I've drunk all year. It arrives like a cocktail and finishes like a flat white. Absurd. Perfect.”</blockquote>
+          <figcaption><div class="who">Elena V.</div><div class="role">Regular, Friday evenings</div></figcaption>
         </figure>
         <figure class="testi-slide">
           <div class="stars">★★★★★</div>
-          <blockquote>“Espresso No. 54 pulls the thickest crema I've ever gotten at home. My café-owner friend asked what machine I upgraded to. It was the grounds.”</blockquote>
-          <figcaption><div class="who">Tomás R.</div><div class="role">Home barista, Austin</div></figcaption>
+          <blockquote>“I ordered the Midnight Black Label at °5 exactly once. I have enormous respect for it. I now drink the °2 and I'm happier for knowing my limits.”</blockquote>
+          <figcaption><div class="who">Marcus T.</div><div class="role">Recovering espresso purist</div></figcaption>
         </figure>
         <figure class="testi-slide">
           <div class="stars">★★★★★</div>
-          <blockquote>“I run a 40-seat brunch spot and Davidoff keeps up with us, batch after batch. The consistency is unreal.”</blockquote>
-          <figcaption><div class="who">Priya M.</div><div class="role">Café owner, Chicago</div></figcaption>
+          <blockquote>“Zero Proof Espresso for me, Salted Caramel Gold for my wife, and the same marble table every Sunday. The theatre of the pour never gets old.”</blockquote>
+          <figcaption><div class="who">Dev &amp; Anya</div><div class="role">Sunday regulars</div></figcaption>
         </figure>
       </div>
       <div class="testi-dots" id="testiDots" role="tablist" aria-label="Reviews navigation"></div>
@@ -998,9 +1043,9 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   <section id="gallery" aria-label="Gallery" style="background:var(--paper);">
     <div class="container">
       <div class="section-head reveal">
-        <span class="kicker">#davidoffcoffee</span>
-        <h2>From our roastery</h2>
-        <p>Daily life between the drum roaster and the grinder. Tag us to get featured.</p>
+        <span class="kicker">#smirnoffcoffeehouse</span>
+        <h2>Inside the house</h2>
+        <p>Low light, gold rims, slow pours. Tag us and earn your place on the wall.</p>
       </div>
       <div class="gallery-grid reveal" id="galleryGrid"></div>
     </div>
@@ -1008,19 +1053,19 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
 
   <!-- ============ NEWSLETTER ============ -->
   <section class="newsletter" id="contact" aria-label="Newsletter">
-    <div class="nl-beans" aria-hidden="true">
-      <span style="top:16%; left:6%; animation-delay:-2s;"><svg width="40" height="40" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#c08a4e" transform="rotate(24 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#7c5327" stroke-width="3" fill="none" transform="rotate(24 20 20)"/></svg></span>
-      <span style="bottom:18%; left:16%; animation-delay:-4s;"><svg width="26" height="26" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#d9a95e" transform="rotate(-30 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#9a6c33" stroke-width="3" fill="none" transform="rotate(-30 20 20)"/></svg></span>
-      <span style="top:24%; right:9%; animation-delay:-1s;"><svg width="32" height="32" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#d9a95e" transform="rotate(52 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#9a6c33" stroke-width="3" fill="none" transform="rotate(52 20 20)"/></svg></span>
-      <span style="bottom:14%; right:18%; animation-delay:-3s;"><svg width="24" height="24" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#c08a4e" transform="rotate(-8 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#7c5327" stroke-width="3" fill="none" transform="rotate(-8 20 20)"/></svg></span>
+    <div class="nl-orbs" aria-hidden="true">
+      <span style="top:18%; left:7%; animation-delay:-2s;"><svg width="36" height="36" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="10" ry="15" fill="#cfa85c" transform="rotate(24 20 20)"/><path d="M15 9 Q24 20 16 32" stroke="#8a6a2e" stroke-width="3" fill="none" transform="rotate(24 20 20)"/></svg></span>
+      <span style="bottom:20%; left:15%; animation-delay:-4s;"><svg width="24" height="24" viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="7" fill="rgba(223,232,234,.28)" stroke="rgba(245,239,228,.5)" stroke-width="1.6" transform="rotate(14 20 20)"/></svg></span>
+      <span style="top:26%; right:8%; animation-delay:-1s;"><svg width="30" height="30" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="10" ry="15" fill="#e8cf9a" transform="rotate(52 20 20)"/><path d="M15 9 Q24 20 16 32" stroke="#a98a4e" stroke-width="3" fill="none" transform="rotate(52 20 20)"/></svg></span>
+      <span style="bottom:16%; right:17%; animation-delay:-3s;"><svg width="22" height="22" viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="7" fill="rgba(223,232,234,.24)" stroke="rgba(245,239,228,.45)" stroke-width="1.6" transform="rotate(-18 20 20)"/></svg></span>
     </div>
     <div class="container reveal">
-      <span class="kicker" style="color:var(--gold);">Stay caffeinated</span>
-      <h2>10% off your first bag</h2>
-      <p>Join the roast log. One email a week: what's fresh, what's rare, what's brewing.</p>
+      <span class="kicker">The reserve list</span>
+      <h2>First pour, <em>on the house</em></h2>
+      <p>Join the reserve list for seasonal flavours, members-only intensities, and a complimentary first pour.</p>
       <form class="nl-form" id="nlForm" novalidate>
         <input type="email" id="nlEmail" placeholder="you@example.com" aria-label="Email address" required />
-        <button class="btn btn-gold" type="submit" data-hover>Subscribe</button>
+        <button class="btn btn-gold" type="submit" data-hover>Join the list</button>
       </form>
       <div class="nl-msg" id="nlMsg" role="status" aria-live="polite"></div>
     </div>
@@ -1033,10 +1078,10 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="logo" href="#top" data-hover>
-          <svg class="bean-ico" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#c08a4e"/><ellipse cx="32" cy="32" rx="14" ry="19" fill="#201510" transform="rotate(24 32 32)"/><path d="M25 18 Q36 32 27 47" stroke="#c08a4e" stroke-width="4" fill="none" transform="rotate(24 32 32)"/></svg>
-          <span>DAVIDOFF<small style="color:rgba(244,234,217,.6);">COFFEE GROUND CO.</small></span>
+          <svg class="glass-ico" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#cfa85c"/><path d="M18 14h28L36 36v12h7v5H21v-5h7V36Z" fill="#100d0b"/></svg>
+          <span>SMIRNOFF<small style="color:rgba(245,239,228,.5);">VODKA COFFEE HOUSE</small></span>
         </a>
-        <p>Small-batch coffee grounds, roasted with obsession since 1994. Ground the morning it ships, at your door in days.</p>
+        <p>Flavoured vodka coffee in five intensities, crafted like cocktails and served like art. Members of the reserve list drink first.</p>
         <div class="socials">
           <a href="#" aria-label="Instagram" data-hover><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" aria-label="Twitter / X" data-hover><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
@@ -1045,55 +1090,55 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
         </div>
       </div>
       <div>
-        <h4>Shop</h4>
+        <h4>Menu</h4>
         <ul>
-          <li><a href="#shop" data-hover>New arrivals</a></li>
-          <li><a href="#featured" data-hover>Featured grounds</a></li>
-          <li><a href="#roast" data-hover>Find your roast</a></li>
-          <li><a href="#shop" data-hover>Gift cards</a></li>
+          <li><a href="#menu" data-hover>All pours</a></li>
+          <li><a href="#newdrink" data-hover>New this season</a></li>
+          <li><a href="#finder" data-hover>Choose intensity</a></li>
+          <li><a href="#menu" data-hover>Zero proof</a></li>
         </ul>
       </div>
       <div>
-        <h4>Company</h4>
+        <h4>The house</h4>
         <ul>
           <li><a href="#about" data-hover>Our story</a></li>
-          <li><a href="#gallery" data-hover>Roastery</a></li>
-          <li><a href="#" data-hover>Wholesale</a></li>
+          <li><a href="#gallery" data-hover>Gallery</a></li>
+          <li><a href="#" data-hover>Private events</a></li>
           <li><a href="#" data-hover>Careers</a></li>
         </ul>
       </div>
       <div>
-        <h4>Visit us</h4>
+        <h4>Find us</h4>
         <ul>
-          <li>14 Roastery Lane<br/>Bean District, Brewtown</li>
-          <li><a href="tel:+15550142033" data-hover>+1 (555) 014-2033</a></li>
-          <li><a href="mailto:hello@davidoff.coffee" data-hover>hello@davidoff.coffee</a></li>
-          <li>Mon–Sat · 7am–6pm</li>
+          <li>21 Gilded Row<br/>The Noir Quarter</li>
+          <li><a href="tel:+15550211864" data-hover>+1 (555) 021-1864</a></li>
+          <li><a href="mailto:reserve@smirnoff.coffee" data-hover>reserve@smirnoff.coffee</a></li>
+          <li>Tue–Sun · 4pm–1am</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> Davidoff Coffee Ground Co. All beans reserved.</span>
-      <span>Brewed with ❤ and a lot of caffeine.</span>
+      <span>© <span id="year"></span> Smirnoff Vodka Coffee House. All pours reserved.</span>
+      <span class="sip">Please sip responsibly · 21+</span>
     </div>
   </div>
 </footer>
 
 <!-- ============ CART DRAWER ============ -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+<aside class="cart-drawer" id="cartDrawer" aria-label="Basket" aria-hidden="true">
   <div class="cart-head">
-    <h3>Your cart <span id="cartHeadCount" style="color:var(--caramel);"></span></h3>
-    <button class="close-x" id="cartClose" aria-label="Close cart" data-hover>
+    <h3>Your basket <span id="cartHeadCount" style="color:var(--gold);"></span></h3>
+    <button class="close-x" id="cartClose" aria-label="Close basket" data-hover>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </button>
   </div>
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-foot">
     <div class="ship-bar" aria-hidden="true"><i id="shipBar"></i></div>
-    <div class="ship-note" id="shipNote">Add $40.00 for free shipping</div>
+    <div class="ship-note" id="shipNote">Add $45.00 for complimentary delivery</div>
     <div class="cart-total-row"><span>Total</span><span id="cartTotal">$0.00</span></div>
-    <button class="btn btn-dark" id="checkoutBtn" data-hover>Checkout
+    <button class="btn btn-noir" id="checkoutBtn" data-hover>To the till
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
   </div>
@@ -1111,6 +1156,7 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
       <span class="ptype" id="qvType"></span>
       <h3 id="qvName"></h3>
       <div class="stars" id="qvStars"></div>
+      <div class="intensity m-int" id="qvIntensity"></div>
       <p class="desc" id="qvDesc"></p>
       <div class="notes" id="qvNotes"></div>
       <div class="price" id="qvPrice"></div>
@@ -1120,7 +1166,7 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
           <b id="qvQty">1</b>
           <button id="qvPlus" data-hover aria-label="Increase quantity">+</button>
         </span>
-        <button class="btn btn-dark" id="qvAdd" data-hover>Add to cart</button>
+        <button class="btn btn-noir" id="qvAdd" data-hover>Add to basket</button>
       </div>
     </div>
   </div>
@@ -1133,7 +1179,7 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
 
 <script>
 /* ============================================================
-   DAVIDOFF — interactions
+   SMIRNOFF Vodka Coffee House — interactions
    ============================================================ */
 (function () {
   "use strict";
@@ -1142,52 +1188,78 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   const money = n => "$" + n.toFixed(2);
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Catalogue ---------- */
+  /* ---------- Catalogue ----------
+     intensity: 0 (zero proof) … 5 (full-strength midnight) */
   const PRODUCTS = [
-    { id: "esp54",   name: "Espresso No. 54",         type: "Espresso grind",  price: 16.99, was: 19.99, roast: 78, colors: ["#201510", "#c08a4e"], notes: ["Dark chocolate", "Molasses", "Smoke"],   desc: "Our flagship espresso ground. A syrupy, chocolate-forward blend engineered to pull a thick tiger-striped crema on any machine.", rating: 5,   badge: "sale", featured: true,  arrival: true },
-    { id: "ritual",  name: "Morning Ritual Blend",    type: "Filter grind",    price: 12.49, was: null,  roast: 45, colors: ["#a9713d", "#f4ead9"], notes: ["Caramel", "Hazelnut", "Cocoa"],          desc: "The everyday crowd-pleaser. Caramel sweetness and toasted nuts with a silky body — great black, unbeatable with milk.", rating: 5,   badge: "new",  featured: true,  arrival: true },
-    { id: "yirga",   name: "Ethiopia Yirgacheffe",    type: "Pour-over grind", price: 18.99, was: null,  roast: 22, colors: ["#8a5a33", "#d9a95e"], notes: ["Jasmine", "Bergamot", "Peach"],          desc: "A washed lot from the Gedeo zone, roasted light to keep the florals loud. Tastes like a tea garden in a cup.", rating: 5,   badge: "new",  featured: true,  arrival: true },
-    { id: "colomb",  name: "Colombia Single-Origin",  type: "Filter grind",    price: 14.99, was: 17.99, roast: 55, colors: ["#57402f", "#e8c98f"], notes: ["Red apple", "Panela", "Almond"],         desc: "From the hills of Huila — balanced, juicy, and impossibly easy to drink. Our best seller three years running.", rating: 4.5, badge: "sale", featured: true,  arrival: true },
-    { id: "midnight",name: "Midnight Oil Dark Roast", type: "French press",    price: 17.49, was: null,  roast: 92, colors: ["#170e09", "#b4432f"], notes: ["Bittersweet cocoa", "Cedar", "Ember"],   desc: "Roasted right to the edge. Heavy, smoky, unapologetic — for people who like their coffee to fight back.", rating: 4.5, badge: null,   featured: true,  arrival: false },
-    { id: "brazil",  name: "Brazil Santos",           type: "Espresso grind",  price: 15.99, was: null,  roast: 66, colors: ["#33221a", "#d9a95e"], notes: ["Peanut butter", "Milk chocolate"],       desc: "Low acidity, huge body. The base of a thousand great flat whites — smooth enough to drink by the litre.", rating: 4.5, badge: null,   featured: true,  arrival: true },
-    { id: "decaf",   name: "Slow Sunday Decaf",       type: "Filter grind",    price: 13.99, was: 15.99, roast: 50, colors: ["#57402f", "#4c6444"], notes: ["Toffee", "Baked apple"],                 desc: "Sugarcane-process decaf that actually tastes like coffee. All the ritual, none of the jitters.", rating: 4.5, badge: "sale", featured: true,  arrival: true },
-    { id: "kenya",   name: "Kenya AA Kirinyaga",      type: "Pour-over grind", price: 19.49, was: null,  roast: 30, colors: ["#8a5a33", "#b4432f"], notes: ["Blackcurrant", "Grapefruit", "Brown sugar"], desc: "Screaming-bright AA lot with that classic Kenyan blackcurrant bite. A limited seasonal drop.", rating: 5,   badge: "new",  featured: true,  arrival: true },
+    { id: "martini",  name: "Espresso Martini No. 1", type: "Classic",        cat: "classic",  price: 14.50, was: null,  intensity: 4, glass: "martini", colors: ["#2b1a10", "#e9dcc3", "#cfa85c"], notes: ["Cold brew", "Vanilla vodka", "Crema"],        desc: "The house original. Slow cold brew shaken hard over vanilla-kissed vodka until the crema stands in peaks. Three beans, always.", rating: 5,   badge: "new" },
+    { id: "velvet",   name: "Vanilla Velvet",          type: "Flavoured",      cat: "flavored", price: 12.00, was: null,  intensity: 2, glass: "tall",    colors: ["#4a2d17", "#f2e7d2", "#d9b98c"], notes: ["Vanilla bean", "Soft crema", "Silk"],        desc: "Madagascar vanilla folded through a gentle °2 pour. The drink equivalent of cashmere.", rating: 5,   badge: null },
+    { id: "caramel",  name: "Salted Caramel Gold",     type: "Flavoured",      cat: "flavored", price: 12.50, was: 14.00, intensity: 3, glass: "tall",    colors: ["#5a3a1a", "#e8c98f", "#cfa85c"], notes: ["Burnt caramel", "Sea salt", "Cream"],        desc: "Burnt-sugar caramel with a salted rim and a balanced °3 measure. Our most re-ordered flavour.", rating: 4.5, badge: "sale" },
+    { id: "citrus",   name: "Citrus Noir",             type: "Flavoured",      cat: "flavored", price: 13.00, was: null,  intensity: 3, glass: "martini", colors: ["#241505", "#e5d3a8", "#c7b458"], notes: ["Orange zest", "Dark roast", "Bitters"],      desc: "Cold brew with charred orange zest and citrus vodka. Arrives like a cocktail, finishes like a flat white.", rating: 5,   badge: "new" },
+    { id: "coconut",  name: "White Russian Frost",     type: "Dessert",        cat: "dessert",  price: 13.50, was: null,  intensity: 2, glass: "tall",    colors: ["#6b4a2a", "#fbf7ef", "#dfe8ea"], notes: ["Coconut cream", "Cold foam", "Snow"],        desc: "Our coconut-cream take on the White Russian, layered over ice like a winter storm in slow motion.", rating: 4.5, badge: null },
+    { id: "midnight", name: "Midnight Black Label",    type: "Full strength",  cat: "strong",   price: 15.00, was: null,  intensity: 5, glass: "martini", colors: ["#0d0704", "#3a2513", "#8a6a2e"], notes: ["Double shot", "Black vodka", "Ember"],       desc: "A °5 pour: double espresso, double measure, zero apologies. Respect it and it will respect you back.", rating: 4.5, badge: null },
+    { id: "berry",    name: "Wild Berry Crème",        type: "Dessert",        cat: "dessert",  price: 12.00, was: 13.50, intensity: 2, glass: "tall",    colors: ["#4a1f24", "#f3cdc9", "#b4574e"], notes: ["Blackberry", "Crème", "Rose dust"],          desc: "Blackberry vodka under a blushing crème layer, dusted with rose sugar. Dessert that drinks like silk.", rating: 4.5, badge: "sale" },
+    { id: "hazel",    name: "Hazelnut Reserve",        type: "Flavoured",      cat: "flavored", price: 14.00, was: null,  intensity: 4, glass: "tall",    colors: ["#3a2513", "#e0c9a4", "#a97f37"], notes: ["Roasted hazelnut", "Oak", "Demerara"],       desc: "Toasted hazelnut and demerara over a °4 pour, aged briefly on oak chips. For slow evenings.", rating: 5,   badge: null },
+    { id: "zero",     name: "Zero Proof Espresso",     type: "Zero proof",     cat: "zero",     price: 9.50,  was: null,  intensity: 0, glass: "martini", colors: ["#2b1a10", "#e9dcc3", "#8a7a68"], notes: ["All theatre", "No vodka", "Full crema"],     desc: "Every ritual of the espresso martini — the shake, the peaks, the three beans — with none of the vodka.", rating: 5,   badge: null },
   ];
+  const ND_PRODUCT = { id: "ndcoconut", name: "Iced Coconut Espresso Martini", type: "New this season", cat: "flavored", price: 6.50, was: 8.00, intensity: 3, glass: "tall", colors: ["#3a2513", "#f7f2e8", "#f3cdc9"], notes: ["Coconut cream", "Cold brew", "Toasted sugar"], desc: "Cold-brew espresso shaken over vanilla vodka, coconut cream, and toasted sugar. Glacier-cold, triple-bean garnish.", rating: 5, badge: "new" };
+  const ALL = PRODUCTS.concat([ND_PRODUCT]);
 
-  /* ---------- SVG bag artwork ---------- */
-  function bagSVG(p, cls) {
-    const [dark, accent] = p.colors;
-    const initials = p.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+  /* ---------- Drink artwork ---------- */
+  function drinkSVG(p, cls) {
+    const [body, foam, accent] = p.colors;
+    if (p.glass === "martini") {
+      return `
+      <svg class="${cls || "drink"}" viewBox="0 0 180 210" fill="none" aria-hidden="true">
+        <ellipse cx="90" cy="200" rx="44" ry="6" fill="rgba(16,13,11,.25)"/>
+        <path d="M18 18h144l-64 74v76h-16V92Z" fill="rgba(223,232,234,.25)" stroke="rgba(16,13,11,.4)" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M32 28h116l-52 60h-12Z" fill="${body}"/>
+        <path d="M32 28h116l-9 10.4H41Z" fill="${foam}"/>
+        <ellipse cx="72" cy="42" rx="4" ry="5.6" fill="${accent}" transform="rotate(-18 72 42)"/>
+        <ellipse cx="88" cy="38" rx="4" ry="5.6" fill="${accent}" transform="rotate(10 88 38)"/>
+        <ellipse cx="103" cy="42" rx="4" ry="5.6" fill="${accent}" transform="rotate(36 103 42)"/>
+        <rect x="82" y="168" width="16" height="30" rx="4" fill="rgba(16,13,11,.5)"/>
+        <path d="M60 178h60" stroke="rgba(16,13,11,.4)" stroke-width="7" stroke-linecap="round"/>
+        <rect x="60" y="98" width="60" height="24" rx="5" fill="#f5efe4"/>
+        <text x="90" y="109" text-anchor="middle" font-family="Outfit, sans-serif" font-size="7.6" font-weight="800" letter-spacing="1.8" fill="#100d0b">SMIRNOFF</text>
+        <text x="90" y="117.6" text-anchor="middle" font-family="Outfit, sans-serif" font-size="5" font-weight="700" letter-spacing="1.2" fill="#8a7a68">${(p.type || "").toUpperCase()}</text>
+      </svg>`;
+    }
     return `
-    <svg class="${cls || "bag"}" viewBox="0 0 160 210" fill="none" aria-hidden="true">
-      <path d="M28 34 L132 34 L142 190 Q142 202 130 202 L30 202 Q18 202 18 190 Z" fill="${dark}"/>
-      <path d="M28 34 L132 34 L134 60 L26 60 Z" fill="rgba(255,255,255,.08)"/>
-      <rect x="24" y="20" width="112" height="18" rx="4" fill="${dark}" />
-      <rect x="24" y="20" width="112" height="6" rx="3" fill="rgba(255,255,255,.18)"/>
-      <rect x="34" y="86" width="92" height="74" rx="8" fill="#faf5ec"/>
-      <rect x="34" y="86" width="92" height="20" rx="8" fill="${accent}"/>
-      <text x="80" y="101" text-anchor="middle" font-family="Outfit, sans-serif" font-size="9.5" font-weight="800" letter-spacing="2.5" fill="${dark}">DAVIDOFF</text>
-      <text x="80" y="132" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="700" fill="${dark}">${initials}</text>
-      <text x="80" y="150" text-anchor="middle" font-family="Outfit, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1.6" fill="#7d6c5d">${p.type.toUpperCase()}</text>
-      ${[0,1,2,3,4].map(i => `<circle cx="${56 + i*12}" cy="171" r="3.4" fill="${i < Math.round(p.roast/25)+1 ? dark : "rgba(32,21,16,.15)"}"/>`).join("")}
-      <ellipse cx="52" cy="52" rx="7" ry="10" fill="${accent}" transform="rotate(-24 52 52)" opacity=".9"/>
-      <path d="M49 45 Q55 52 50 60" stroke="${dark}" stroke-width="2" fill="none" transform="rotate(-24 52 52)"/>
-      <ellipse cx="110" cy="70" rx="6" ry="8.6" fill="${accent}" transform="rotate(30 110 70)" opacity=".9"/>
-      <path d="M107 64 Q112 70 108 77" stroke="${dark}" stroke-width="2" fill="none" transform="rotate(30 110 70)"/>
+    <svg class="${cls || "drink"}" viewBox="0 0 160 220" fill="none" aria-hidden="true">
+      <ellipse cx="80" cy="212" rx="42" ry="6" fill="rgba(16,13,11,.25)"/>
+      <path d="M44 18h72l-3.4 158c0 16-14 26-32.6 26s-32.6-10-32.6-26L44 18Z" fill="rgba(223,232,234,.25)" stroke="rgba(16,13,11,.4)" stroke-width="2.4"/>
+      <path d="M48 76l2.6 98c0 13 12 21 29.4 21s29.4-8 29.4-21L112 76Z" fill="${body}"/>
+      <path d="M47 52h66l-.8 24H47.8Z" fill="${foam}"/>
+      <ellipse cx="80" cy="52" rx="33" ry="6" fill="${foam}"/>
+      <g opacity=".9">
+        <rect x="58" y="96" width="19" height="19" rx="6" fill="rgba(255,255,255,.35)" stroke="rgba(255,255,255,.75)" stroke-width="1.4" transform="rotate(10 67 105)"/>
+        <rect x="82" y="122" width="17" height="17" rx="5" fill="rgba(255,255,255,.3)" stroke="rgba(255,255,255,.65)" stroke-width="1.3" transform="rotate(-18 90 130)"/>
+      </g>
+      <rect x="92" y="-2" width="7" height="108" rx="3.5" fill="${accent}" transform="rotate(7 95 30)"/>
+      <ellipse cx="62" cy="130" rx="5" ry="24" fill="rgba(255,255,255,.2)"/>
+      <rect x="52" y="150" width="56" height="24" rx="5" fill="#f5efe4"/>
+      <text x="80" y="161" text-anchor="middle" font-family="Outfit, sans-serif" font-size="7.4" font-weight="800" letter-spacing="1.8" fill="#100d0b">SMIRNOFF</text>
+      <text x="80" y="169.6" text-anchor="middle" font-family="Outfit, sans-serif" font-size="4.8" font-weight="700" letter-spacing="1.1" fill="#8a7a68">${(p.type || "").toUpperCase()}</text>
     </svg>`;
   }
   function starsFor(r) {
     const full = Math.floor(r);
     return "★".repeat(full) + (r % 1 ? "½" : "") + "☆".repeat(5 - Math.ceil(r));
   }
+  function intensityHTML(p) {
+    const label = p.intensity === 0 ? "zero proof" : "°" + p.intensity;
+    return `<span class="intensity" aria-label="Intensity ${label}">` +
+      [1,2,3,4,5].map(i => `<i class="${i <= p.intensity ? "on" : ""}"></i>`).join("") +
+      `<span class="ilabel">${label}</span></span>`;
+  }
 
-  /* ---------- Render product cards ---------- */
+  /* ---------- Render menu ---------- */
   function cardHTML(p) {
     return `
-    <article class="pcard" data-id="${p.id}">
+    <article class="pcard" data-id="${p.id}" data-cat="${p.cat}">
       <div class="pimg">
-        ${p.badge ? `<span class="badge ${p.badge}">${p.badge === "sale" ? "On sale" : "New roast"}</span>` : ""}
-        ${bagSVG(p)}
+        ${p.badge ? `<span class="badge ${p.badge}">${p.badge === "sale" ? "On sale" : "New pour"}</span>` : ""}
+        ${drinkSVG(p)}
         <div class="quick-actions">
           <button class="icon-btn qv-btn" aria-label="Quick view ${p.name}" data-hover>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -1200,32 +1272,80 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
       <div class="pbody">
         <span class="ptype">${p.type}</span>
         <h3>${p.name}</h3>
+        ${intensityHTML(p)}
         <span class="stars" aria-label="${p.rating} out of 5 stars">${starsFor(p.rating)}</span>
         <span class="price">${p.was ? `<s>${money(p.was)}</s>` : ""}${money(p.price)}</span>
       </div>
-      <button class="add-btn" data-hover>Add to cart</button>
+      <button class="add-btn" data-hover>Add to basket</button>
     </article>`;
   }
-  $("#arrivalsRow").innerHTML  = PRODUCTS.filter(p => p.arrival).map(cardHTML).join("");
-  $("#featuredGrid").innerHTML = PRODUCTS.filter(p => p.featured).map(cardHTML).join("");
+  $("#menuGrid").innerHTML = PRODUCTS.map(cardHTML).join("");
 
-  /* ---------- Gallery tiles ---------- */
+  /* ---------- Category filter ---------- */
+  $("#pills").addEventListener("click", e => {
+    const pill = e.target.closest(".pill");
+    if (!pill) return;
+    $$(".pill").forEach(p => p.classList.remove("active"));
+    pill.classList.add("active");
+    const cat = pill.dataset.cat;
+    $$("#menuGrid .pcard").forEach((card, i) => {
+      const show = cat === "all" || card.dataset.cat === cat;
+      if (show) {
+        card.classList.remove("hide");
+        if (!reduceMotion) {
+          card.style.transition = "none";
+          card.style.opacity = "0"; card.style.scale = ".94";
+          setTimeout(() => {
+            card.style.transition = "";
+            card.style.opacity = ""; card.style.scale = "";
+          }, 40 + i * 45);
+        }
+      } else {
+        card.classList.add("hide");
+      }
+    });
+  });
+
+  /* ---------- Surprise me ---------- */
+  $("#surpriseBtn").addEventListener("click", () => {
+    const visible = $$("#menuGrid .pcard").filter(c => !c.classList.contains("hide"));
+    const pick = visible[Math.floor(Math.random() * visible.length)];
+    if (pick) openQuickView(pick.dataset.id);
+  });
+
+  /* ---------- Gallery ---------- */
   const GALLERY = [
-    "photo-1447933601403-0c6688de566e", "photo-1509042239860-f550ce710b93",
-    "photo-1495474472287-4d71bcdd2085", "photo-1461023058943-07fcbe16d735",
-    "photo-1524350876685-274059332603", "photo-1541167760496-1628856ab772",
+    "photo-1545438102-799c3991ffb2", "photo-1514933651103-005eec06c04b",
+    "photo-1470337458703-46ad1756a187", "photo-1551024709-8f23befc6f87",
+    "photo-1509042239860-f550ce710b93", "photo-1572116469696-31de0f17cc34",
   ];
   $("#galleryGrid").innerHTML = GALLERY.map((id, i) => `
-    <a class="g-tile" href="#gallery" aria-label="Roastery photo ${i + 1}" data-hover>
-      <img src="https://images.unsplash.com/${id}?auto=format&fit=crop&w=420&q=60" alt="Coffee at the Davidoff roastery" loading="lazy" onerror="this.remove()" />
+    <a class="g-tile" href="#gallery" aria-label="House photo ${i + 1}" data-hover>
+      <img src="https://images.unsplash.com/${id}?auto=format&fit=crop&w=420&q=60" alt="Inside the Smirnoff vodka coffee house" loading="lazy" onerror="this.remove()" />
       <span class="g-overlay"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20.5C6.5 16.5 3 13.2 3 9.4A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 9 2.4c0 3.8-3.5 7.1-9 11.1Z"/></svg></span>
     </a>`).join("");
 
-  /* ---------- Preloader ---------- */
+  /* ---------- Preloader + age gate ---------- */
+  const gate = $("#ageGate");
+  const gateOK = localStorage.getItem("smirnoff-age-ok") === "1";
+  if (gateOK) gate.classList.add("done");
+  else document.body.classList.add("no-scroll");
   window.addEventListener("load", () => {
     setTimeout(() => $("#preloader").classList.add("done"), reduceMotion ? 0 : 900);
   });
   setTimeout(() => $("#preloader").classList.add("done"), 3200); // safety net
+  $("#ageYes").addEventListener("click", () => {
+    localStorage.setItem("smirnoff-age-ok", "1");
+    gate.classList.add("done");
+    document.body.classList.remove("no-scroll");
+    confetti($("#ageYes"), 20);
+    toast("Welcome in. First rule of the house: sip slowly.", true);
+  });
+  $("#ageNo").addEventListener("click", () => {
+    const card = $("#ageCard");
+    card.classList.remove("shake"); void card.offsetWidth; card.classList.add("shake");
+    $("#ageNote").textContent = "No hurry — the espresso will wait for you. ☕";
+  });
 
   /* ---------- Custom cursor ---------- */
   const dot = $(".cursor-dot"), ring = $(".cursor-ring");
@@ -1245,7 +1365,7 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     });
   }
 
-  /* ---------- Header, progress, back-to-top ---------- */
+  /* ---------- Header, progress, to-top ---------- */
   const header = $("#siteHeader"), progress = $(".scroll-progress"), toTop = $("#toTop");
   window.addEventListener("scroll", () => {
     const y = window.scrollY;
@@ -1253,12 +1373,6 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     toTop.classList.toggle("show", y > 700);
     const h = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.width = (h ? (y / h) * 100 : 0) + "%";
-    // parallax banner
-    const bg = $("#bannerBg");
-    const r = bg.parentElement.getBoundingClientRect();
-    if (r.top < window.innerHeight && r.bottom > 0) {
-      bg.style.transform = `translateY(${(r.top - window.innerHeight / 2) * -0.12}px)`;
-    }
   }, { passive: true });
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
 
@@ -1275,8 +1389,8 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     menuBtn.setAttribute("aria-expanded", "false"); document.body.classList.remove("no-scroll");
   }));
 
-  /* ---------- Active nav link on scroll ---------- */
-  const sections = ["hero", "shop", "roast", "about", "gallery", "contact"];
+  /* ---------- Active nav link ---------- */
+  const sections = ["hero", "menu", "finder", "about", "gallery", "contact"];
   const navMap = {};
   $$("#navLinks a").forEach(a => { navMap[a.getAttribute("href").slice(1)] = a; });
   const sectionSpy = new IntersectionObserver(entries => {
@@ -1295,7 +1409,7 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   }, { threshold: 0.12 });
   $$(".reveal").forEach(el => revealer.observe(el));
 
-  /* ---------- Animated counters ---------- */
+  /* ---------- Counters ---------- */
   const counter = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
@@ -1304,67 +1418,42 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
       const dec = parseInt(el.dataset.decimal || "0", 10), suffix = el.dataset.suffix || "";
       const t0 = performance.now(), dur = reduceMotion ? 1 : 1600;
       (function tick(t) {
-        const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+        const pgs = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - pgs, 3);
         el.textContent = (target * eased).toFixed(dec) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
+        if (pgs < 1) requestAnimationFrame(tick);
       })(t0);
     });
   }, { threshold: 0.5 });
   $$(".count").forEach(el => counter.observe(el));
 
-  /* ---------- Hero mouse parallax + cup easter egg ---------- */
+  /* ---------- Hero parallax + glass easter egg ---------- */
   const heroEl = $("#hero");
   if (!reduceMotion) {
     heroEl.addEventListener("mousemove", e => {
       const r = heroEl.getBoundingClientRect();
       const mx = (e.clientX - r.left) / r.width - 0.5, my = (e.clientY - r.top) / r.height - 0.5;
-      $$(".float-bean").forEach(b => {
+      $$(".float-item").forEach(b => {
         const d = parseFloat(b.dataset.depth || "30");
         b.style.transform = `translate(${mx * d}px, ${my * d}px)`;
       });
     });
   }
-  const cupStage = $("#cupStage");
-  cupStage.addEventListener("click", () => {
-    cupStage.classList.add("burst");
-    toast("Ahh… smell that? Fresh roast. ☕");
-    setTimeout(() => cupStage.classList.remove("burst"), 2400);
+  $("#heroGlass").addEventListener("click", () => {
+    confetti($("#heroGlass"), 18);
+    toast("Shaken, not stirred. Obviously. 🍸");
   });
-
-  /* ---------- 3D tilt cards ---------- */
-  if (!reduceMotion) {
-    $$(".tilt").forEach(card => {
-      card.addEventListener("mousemove", e => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
-      });
-      card.addEventListener("mouseleave", () => { card.style.transform = ""; });
-    });
-  }
-
-  /* ---------- Arrivals carousel ---------- */
-  const row = $("#arrivalsRow");
-  const step = () => row.querySelector(".pcard").offsetWidth + 22;
-  $("#arrPrev").addEventListener("click", () => row.scrollBy({ left: -step(), behavior: "smooth" }));
-  $("#arrNext").addEventListener("click", () => row.scrollBy({ left: step(), behavior: "smooth" }));
-  function syncNav() {
-    $("#arrPrev").disabled = row.scrollLeft < 10;
-    $("#arrNext").disabled = row.scrollLeft > row.scrollWidth - row.clientWidth - 10;
-  }
-  row.addEventListener("scroll", syncNav, { passive: true });
-  window.addEventListener("resize", syncNav);
-  syncNav();
 
   /* ---------- Cart ---------- */
   let cart = [];
-  try { cart = JSON.parse(localStorage.getItem("davidoff-cart") || "[]"); } catch (e) { cart = []; }
+  try { cart = JSON.parse(localStorage.getItem("smirnoff-cart") || "[]"); } catch (e) { cart = []; }
+  cart = cart.filter(i => ALL.some(p => p.id === i.id));
   const drawer = $("#cartDrawer"), overlay = $("#drawerOverlay");
-  const FREE_SHIP = 40;
+  const FREE_SHIP = 45;
+  const findP = id => ALL.find(p => p.id === id);
 
-  function saveCart() { localStorage.setItem("davidoff-cart", JSON.stringify(cart)); }
+  function saveCart() { localStorage.setItem("smirnoff-cart", JSON.stringify(cart)); }
   function cartQty() { return cart.reduce((s, i) => s + i.qty, 0); }
-  function cartSum() { return cart.reduce((s, i) => s + i.qty * PRODUCTS.find(p => p.id === i.id).price, 0); }
+  function cartSum() { return cart.reduce((s, i) => s + i.qty * findP(i.id).price, 0); }
 
   function renderCart() {
     const count = $("#cartCount");
@@ -1372,19 +1461,20 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     count.textContent = n;
     count.classList.toggle("show", n > 0);
     $("#cartHeadCount").textContent = n ? `(${n})` : "";
+    $("#basketChipCount").textContent = n ? `· ${n}` : "";
     const box = $("#cartItems");
     if (!cart.length) {
       box.innerHTML = `<div class="cart-empty">
         <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 7h12l1.2 12.2a1.6 1.6 0 0 1-1.6 1.8H6.4a1.6 1.6 0 0 1-1.6-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
-        <p><b>Your cart is empty.</b><br/>Let's fix that — the grounds are waiting.</p></div>`;
+        <p><b>Your basket is empty.</b><br/>The pours are patient, but not that patient.</p></div>`;
     } else {
       box.innerHTML = cart.map(item => {
-        const p = PRODUCTS.find(x => x.id === item.id);
+        const p = findP(item.id);
         return `<div class="cart-item" data-id="${p.id}">
-          <span class="ci-img">${bagSVG(p, "mini")}</span>
+          <span class="ci-img">${drinkSVG(p, "mini")}</span>
           <div>
             <h4>${p.name}</h4>
-            <span class="ci-price">${money(p.price)}</span>
+            <span class="ci-price">${money(p.price)} · °${p.intensity}</span>
             <div class="qty">
               <button class="q-minus" data-hover aria-label="Decrease">−</button><b>${item.qty}</b><button class="q-plus" data-hover aria-label="Increase">+</button>
             </div>
@@ -1397,8 +1487,8 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     $("#cartTotal").textContent = money(total);
     $("#shipBar").style.width = Math.min(total / FREE_SHIP * 100, 100) + "%";
     $("#shipNote").textContent = total >= FREE_SHIP
-      ? "You've unlocked free shipping! 🎉"
-      : `Add ${money(FREE_SHIP - total)} for free shipping`;
+      ? "Complimentary delivery unlocked. Very classy. 🥂"
+      : `Add ${money(FREE_SHIP - total)} for complimentary delivery`;
     saveCart();
   }
 
@@ -1411,6 +1501,7 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     drawer.setAttribute("aria-hidden", "true"); document.body.classList.remove("no-scroll");
   }
   $("#cartBtn").addEventListener("click", openCart);
+  $("#basketChip").addEventListener("click", openCart);
   $("#cartClose").addEventListener("click", closeCart);
   overlay.addEventListener("click", closeCart);
 
@@ -1422,48 +1513,48 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   function flyToCart(fromEl) {
     if (reduceMotion || !fromEl) return;
     const from = fromEl.getBoundingClientRect(), to = $("#cartBtn").getBoundingClientRect();
-    const bean = document.createElement("div");
-    bean.className = "fly-bean";
-    bean.innerHTML = `<svg viewBox="0 0 40 40" width="30" height="30"><ellipse cx="20" cy="20" rx="11" ry="16" fill="#57402f" transform="rotate(24 20 20)"/><path d="M15 8 Q24 20 16 33" stroke="#2c1c12" stroke-width="3" fill="none" transform="rotate(24 20 20)"/></svg>`;
-    bean.style.left = from.left + from.width / 2 + "px";
-    bean.style.top = from.top + from.height / 2 + "px";
-    document.body.appendChild(bean);
+    const drop = document.createElement("div");
+    drop.className = "fly-drop";
+    drop.innerHTML = `<svg viewBox="0 0 40 40" width="26" height="26"><path d="M20 4C13 14 9 20 9 26a11 11 0 0 0 22 0c0-6-4-12-11-22Z" fill="#cfa85c"/></svg>`;
+    drop.style.left = from.left + from.width / 2 + "px";
+    drop.style.top = from.top + from.height / 2 + "px";
+    document.body.appendChild(drop);
     const dx = to.left + to.width / 2 - (from.left + from.width / 2);
     const dy = to.top + to.height / 2 - (from.top + from.height / 2);
-    bean.animate([
+    drop.animate([
       { transform: "translate(0,0) scale(1) rotate(0)", opacity: 1 },
-      { transform: `translate(${dx * 0.5}px, ${dy * 0.5 - 90}px) scale(.85) rotate(180deg)`, opacity: 1, offset: 0.55 },
-      { transform: `translate(${dx}px, ${dy}px) scale(.25) rotate(360deg)`, opacity: .6 },
-    ], { duration: 700, easing: "cubic-bezier(.5,-.2,.6,1)" }).onfinish = () => { bean.remove(); bumpCartIcon(); };
+      { transform: `translate(${dx * 0.5}px, ${dy * 0.5 - 90}px) scale(.85) rotate(160deg)`, opacity: 1, offset: 0.55 },
+      { transform: `translate(${dx}px, ${dy}px) scale(.25) rotate(340deg)`, opacity: .6 },
+    ], { duration: 700, easing: "cubic-bezier(.5,-.2,.6,1)" }).onfinish = () => { drop.remove(); bumpCartIcon(); };
   }
 
   function addToCart(id, qty, fromEl) {
     qty = qty || 1;
     const line = cart.find(i => i.id === id);
     if (line) line.qty += qty; else cart.push({ id, qty });
-    const p = PRODUCTS.find(x => x.id === id);
+    const p = findP(id);
     flyToCart(fromEl);
     renderCart();
-    toast(`${p.name} added to cart`, true);
+    toast(`${p.name} added to your basket`, true);
     if (reduceMotion) bumpCartIcon();
   }
 
-  /* Card interactions (delegated) */
+  /* Delegated interactions */
   document.addEventListener("click", e => {
     const card = e.target.closest(".pcard");
     if (card) {
       const id = card.dataset.id;
       if (e.target.closest(".add-btn")) {
         const btn = e.target.closest(".add-btn");
-        addToCart(id, 1, card.querySelector(".bag"));
+        addToCart(id, 1, card.querySelector(".drink"));
         btn.classList.add("added"); btn.textContent = "Added ✓";
-        setTimeout(() => { btn.classList.remove("added"); btn.textContent = "Add to cart"; }, 1400);
+        setTimeout(() => { btn.classList.remove("added"); btn.textContent = "Add to basket"; }, 1400);
       } else if (e.target.closest(".qv-btn")) {
         openQuickView(id);
       } else if (e.target.closest(".love-btn")) {
         const lb = e.target.closest(".love-btn");
         lb.classList.toggle("loved");
-        toast(lb.classList.contains("loved") ? "Saved to wishlist ♥" : "Removed from wishlist");
+        toast(lb.classList.contains("loved") ? "Saved to your list ♥" : "Removed from your list");
       }
       return;
     }
@@ -1483,24 +1574,31 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
     setTimeout(() => { cart = cart.filter(i => i.id !== id); renderCart(); }, 280);
   }
   $("#checkoutBtn").addEventListener("click", () => {
-    if (!cart.length) { toast("Your cart is empty — add some grounds first!"); return; }
-    confettiBeans($("#checkoutBtn"));
-    toast("This is a demo checkout — but your taste is impeccable. ☕", true);
+    if (!cart.length) { toast("Your basket is empty — choose a pour first."); return; }
+    confetti($("#checkoutBtn"), 30);
+    toast("A demo till — but your taste is exquisite. 🥂", true);
+  });
+
+  /* ---------- New drink ---------- */
+  $("#ndAddBtn").addEventListener("click", () => {
+    addToCart(ND_PRODUCT.id, 1, $("#ndGlass"));
+    confetti($("#ndAddBtn"), 16);
   });
 
   /* ---------- Quick view ---------- */
   const qv = $("#qvModal");
-  let qvProduct = null, qvQty = 1;
+  let qvProduct = null, qvN = 1;
   function openQuickView(id) {
-    qvProduct = PRODUCTS.find(p => p.id === id); qvQty = 1;
-    $("#qvMedia").innerHTML = bagSVG(qvProduct, "qv-bag");
+    qvProduct = findP(id); qvN = 1;
+    $("#qvMedia").innerHTML = drinkSVG(qvProduct, "qv-drink");
     $("#qvType").textContent = qvProduct.type;
     $("#qvName").textContent = qvProduct.name;
     $("#qvStars").textContent = starsFor(qvProduct.rating) + `  (${qvProduct.rating})`;
+    $("#qvIntensity").innerHTML = intensityHTML(qvProduct);
     $("#qvDesc").textContent = qvProduct.desc;
     $("#qvNotes").innerHTML = qvProduct.notes.map(n => `<span>${n}</span>`).join("");
     $("#qvPrice").innerHTML = (qvProduct.was ? `<s>${money(qvProduct.was)}</s>` : "") + money(qvProduct.price);
-    $("#qvQty").textContent = qvQty;
+    $("#qvQty").textContent = qvN;
     qv.classList.add("show"); qv.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
   }
@@ -1510,47 +1608,52 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   }
   $("#qvClose").addEventListener("click", closeQuickView);
   $("#qvBg").addEventListener("click", closeQuickView);
-  $("#qvPlus").addEventListener("click", () => { qvQty++; $("#qvQty").textContent = qvQty; });
-  $("#qvMinus").addEventListener("click", () => { if (qvQty > 1) { qvQty--; $("#qvQty").textContent = qvQty; } });
+  $("#qvPlus").addEventListener("click", () => { qvN++; $("#qvQty").textContent = qvN; });
+  $("#qvMinus").addEventListener("click", () => { if (qvN > 1) { qvN--; $("#qvQty").textContent = qvN; } });
   $("#qvAdd").addEventListener("click", () => {
-    addToCart(qvProduct.id, qvQty, $("#qvMedia").firstElementChild);
+    addToCart(qvProduct.id, qvN, $("#qvMedia").firstElementChild);
     closeQuickView();
   });
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") { closeQuickView(); closeCart(); }
   });
 
-  /* ---------- Roast finder ---------- */
-  const ROAST_STOPS = [
-    { max: 33,  title: "Light roast — bright & alive",    desc: "Florals, citrus, tea-like clarity. For people who taste in colours.", color: "#c99a63", crack: "#6b4a2a" },
-    { max: 66,  title: "Medium roast — the crowd-pleaser", desc: "Caramel sweetness, toasted nuts, silky body. Great black or with milk.", color: "#8a5a33", crack: "#3a2312" },
-    { max: 101, title: "Dark roast — bold & smoky",        desc: "Bittersweet cocoa, ember, zero subtlety. Cuts through anything.", color: "#3a2417", crack: "#170e09" },
+  /* ---------- Intensity finder ---------- */
+  const STOPS = [
+    { max: 20,  deg: 1, title: "°1 — A polite whisper",   desc: "The faintest trace of vodka under the crema. Coffee first, spirit as a rumour.", fill: "#d9b98c", h: 34 },
+    { max: 40,  deg: 2, title: "°2 — Softly spirited",     desc: "A gentle measure under a sweet crema. You'll taste it, you won't feel rushed by it.", fill: "#b98f43", h: 66 },
+    { max: 60,  deg: 3, title: "°3 — The balanced pour",   desc: "Equal billing for the bean and the bottle. The house's most-ordered strength.", fill: "#8a5a33", h: 104 },
+    { max: 80,  deg: 4, title: "°4 — Evening strength",    desc: "A confident double note of vodka. For slow evenings and good decisions made slowly.", fill: "#5a3a1a", h: 140 },
+    { max: 101, deg: 5, title: "°5 — The midnight pour",   desc: "Full strength, full stop. Respect it and it will respect you back.", fill: "#241505", h: 178 },
   ];
-  const slider = $("#roastSlider"), stage = $("#roastStage");
-  function matchProduct(v) {
-    return PRODUCTS.reduce((best, p) => Math.abs(p.roast - v) < Math.abs(best.roast - v) ? p : best, PRODUCTS[0]);
+  const slider = $("#pourSlider"), stage = $("#shotStage"), shotFill = $("#shotFill");
+  function matchByIntensity(deg) {
+    return PRODUCTS.reduce((best, p) =>
+      Math.abs(p.intensity - deg) < Math.abs(best.intensity - deg) ? p : best, PRODUCTS[0]);
   }
   let lastStop = null;
-  function updateRoast() {
+  function updateFinder() {
     const v = +slider.value;
-    const stop = ROAST_STOPS.find(s => v < s.max);
-    $("#roastBeanBody").setAttribute("fill", stop.color);
-    $("#roastBeanCrack").setAttribute("stroke", stop.crack);
-    $("#roastTitle").textContent = stop.title;
-    $("#roastDesc").textContent = stop.desc;
-    const m = matchProduct(v);
-    $("#roastMatchName").textContent = m.name;
-    $("#roastMatchNotes").textContent = m.notes.join(" · ");
-    $("#roastMatchPrice").textContent = money(m.price);
-    $("#roastAddBtn").dataset.id = m.id;
+    const stop = STOPS.find(s => v < s.max);
+    shotFill.setAttribute("fill", stop.fill);
+    shotFill.setAttribute("y", String(220 - stop.h));
+    shotFill.setAttribute("height", String(stop.h));
+    $("#shotDeg").textContent = "°" + stop.deg;
+    $("#finderTitle").textContent = stop.title;
+    $("#finderDesc").textContent = stop.desc;
+    const m = matchByIntensity(stop.deg);
+    $("#finderMatchName").textContent = m.name;
+    $("#finderMatchNotes").textContent = m.notes.join(" · ");
+    $("#finderMatchPrice").textContent = money(m.price);
+    $("#finderAddBtn").dataset.id = m.id;
     if (stop !== lastStop && lastStop !== null && !reduceMotion) {
       stage.classList.remove("pop"); void stage.offsetWidth; stage.classList.add("pop");
     }
     lastStop = stop;
   }
-  slider.addEventListener("input", updateRoast);
-  updateRoast();
-  $("#roastAddBtn").addEventListener("click", function () { addToCart(this.dataset.id, 1, stage.querySelector("svg")); });
+  slider.addEventListener("input", updateFinder);
+  updateFinder();
+  $("#finderAddBtn").addEventListener("click", function () { addToCart(this.dataset.id, 1, stage.querySelector("svg")); });
 
   /* ---------- Testimonials ---------- */
   const slides = $$(".testi-slide"), dotsBox = $("#testiDots");
@@ -1574,40 +1677,43 @@ footer ul a:hover { color: var(--gold); padding-left: 6px; }
   }
   restartTesti();
 
-  /* ---------- Newsletter + bean confetti ---------- */
+  /* ---------- Newsletter ---------- */
   $("#nlForm").addEventListener("submit", e => {
     e.preventDefault();
     const input = $("#nlEmail"), msg = $("#nlMsg");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
-      msg.textContent = "Hmm, that email doesn't look right — try again?";
-      msg.style.color = "#e98973";
+      msg.textContent = "That email looks a touch under-poured — try again?";
+      msg.style.color = "#e99a8f";
       input.focus();
       return;
     }
-    msg.textContent = "You're in! Check your inbox for 10% off. ☕";
+    msg.textContent = "You're on the reserve list. First pour's on us. 🥂";
     msg.style.color = "";
-    confettiBeans($("#nlForm"));
+    confetti($("#nlForm"), 26);
     input.value = "";
   });
 
-  function confettiBeans(originEl) {
-    if (reduceMotion) return;
+  /* ---------- Confetti (gold flecks + droplets) ---------- */
+  function confetti(originEl, n) {
+    if (reduceMotion || !originEl) return;
     const r = originEl.getBoundingClientRect();
     const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-    const palette = ["#c08a4e", "#d9a95e", "#57402f", "#8a5a33", "#b4432f"];
-    for (let i = 0; i < 26; i++) {
+    const palette = ["#cfa85c", "#e8cf9a", "#f5efe4", "#b98f43", "#f3cdc9"];
+    for (let i = 0; i < (n || 24); i++) {
       const el = document.createElement("div");
-      el.className = "confetti-bean";
-      const size = 10 + Math.random() * 14, col = palette[i % palette.length];
-      el.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="11" ry="16" fill="${col}" transform="rotate(${Math.random()*360} 20 20)"/></svg>`;
+      el.className = "confetti-p";
+      const size = 5 + Math.random() * 9, col = palette[i % palette.length];
+      el.style.width = size + "px"; el.style.height = size + "px";
+      el.style.background = col;
+      if (i % 3 === 0) el.style.borderRadius = "2px";
       el.style.left = cx + "px"; el.style.top = cy + "px";
       document.body.appendChild(el);
-      const ang = Math.random() * Math.PI * 2, dist = 90 + Math.random() * 200;
+      const ang = Math.random() * Math.PI * 2, dist = 80 + Math.random() * 190;
       el.animate([
         { transform: "translate(0,0) rotate(0)", opacity: 1 },
-        { transform: `translate(${Math.cos(ang) * dist}px, ${Math.sin(ang) * dist - 120}px) rotate(${Math.random() * 540 - 270}deg)`, opacity: 1, offset: .6 },
-        { transform: `translate(${Math.cos(ang) * dist * 1.2}px, ${Math.sin(ang) * dist + 260}px) rotate(${Math.random() * 720 - 360}deg)`, opacity: 0 },
-      ], { duration: 1400 + Math.random() * 700, easing: "cubic-bezier(.2,.7,.4,1)" }).onfinish = () => el.remove();
+        { transform: `translate(${Math.cos(ang) * dist}px, ${Math.sin(ang) * dist - 110}px) rotate(${Math.random() * 540 - 270}deg)`, opacity: 1, offset: .6 },
+        { transform: `translate(${Math.cos(ang) * dist * 1.2}px, ${Math.sin(ang) * dist + 240}px) rotate(${Math.random() * 720 - 360}deg)`, opacity: 0 },
+      ], { duration: 1300 + Math.random() * 700, easing: "cubic-bezier(.2,.7,.4,1)" }).onfinish = () => el.remove();
     }
   }
 
