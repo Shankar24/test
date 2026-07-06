@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 const variants = {
   primary: "bg-cares-teal text-white hover:bg-cares-blue",
-  secondary: "bg-cares-gold text-cares-navy hover:bg-yellow-500",
+  secondary: "bg-cares-gold text-cares-navy hover:bg-cares-cream",
   outline:
     "border-2 border-cares-teal text-cares-teal hover:bg-cares-teal hover:text-white",
   ghost: "text-white border-2 border-white/40 hover:border-white hover:bg-white/10",

@@ -59,9 +59,9 @@ export default function Header() {
               href={l.href}
               className={linkCls(
                 l.href,
-                "focus-ring rounded text-sm font-medium transition",
-                "text-cares-teal underline decoration-2 underline-offset-8",
-                "text-cares-slate hover:text-cares-teal"
+                "focus-ring rounded-full px-3 py-1.5 text-sm font-medium transition",
+                "bg-cares-cream text-cares-navy",
+                "text-cares-slate hover:text-cares-navy"
               )}
             >
               {l.label}
@@ -72,7 +72,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/book"
-            className="focus-ring rounded-lg bg-cares-teal px-4 py-2 text-sm font-semibold text-white transition hover:bg-cares-blue"
+            className="focus-ring rounded-full bg-cares-teal px-5 py-2 text-sm font-semibold text-white transition hover:bg-cares-blue"
           >
             Book &amp; Pay
           </Link>
