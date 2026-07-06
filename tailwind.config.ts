@@ -6,11 +6,11 @@ const config: Config = {
     extend: {
       colors: {
         cares: {
-          navy: "#0f2b4a",
-          teal: "#0d7377",
-          blue: "#14508c",
-          gold: "#c9a227",
-          cream: "#f8f6f1",
+          navy: "#0d1330",
+          teal: "#2b59f5",
+          blue: "#1e40d8",
+          gold: "#93b4ff",
+          cream: "#eef1f8",
           slate: "#4a5568",
         },
       },

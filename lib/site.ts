@@ -3,7 +3,7 @@ export const site = {
   fullName: "Center for Applied Research and Educational Services",
   tagline: "Training · Consultancy · Research",
   description:
-    "Expert consultancy in questionnaire design, data analysis, research reporting, and pan-India training for academia and industry.",
+    "CARES helps scholars, faculty, and institutions design stronger studies, analyse data correctly, and communicate findings with confidence.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cares-platform-blue.vercel.app",
   phone: "+91 99018 57466",
   phoneHref: "+919901857466",
