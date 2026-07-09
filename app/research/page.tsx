@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Button from "@/components/Button";
+import ModelShowcase from "@/components/ModelShowcase";
 import PageHero from "@/components/PageHero";
+import { listAssetImages, titleFromFilename } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Research",
@@ -31,7 +33,67 @@ const areas = [
   },
 ];
 
+// Titles and descriptions for known research-model images. Any image dropped
+// into public/assets/research-models/ that isn't listed here still appears,
+// with a title derived from its filename.
+const modelMeta: Record<string, { title: string; description: string }> = {
+  "pls-sem-path-model": {
+    title: "PLS-SEM Path Model",
+    description:
+      "Partial least squares structural equation model with latent constructs, indicator loadings, and path coefficients.",
+  },
+  "structural-model-output": {
+    title: "Structural Model Output",
+    description:
+      "Estimated structural model with standardised estimates and model fit indices ready for publication.",
+  },
+  "mediation-moderation-model": {
+    title: "Mediation & Moderation Model",
+    description:
+      "Conditional process model showing direct, indirect, and moderated pathways between study variables.",
+  },
+  "dashboard-analytics-view": {
+    title: "Dashboard Analytics View",
+    description:
+      "Interactive dashboard translating survey data into KPIs, trends, and drill-down visualisations.",
+  },
+  "factor-analysis-visualization": {
+    title: "Factor Analysis Visualization",
+    description:
+      "Scree plot and rotated factor loadings used to establish construct dimensionality and reliability.",
+  },
+  "research-framework-model": {
+    title: "Research Framework Model",
+    description:
+      "Conceptual framework mapping hypothesised relationships between independent, mediating, and outcome variables.",
+  },
+  "data-interpretation-output": {
+    title: "Data Interpretation Output",
+    description:
+      "Regression results with coefficient plots and confidence intervals, interpreted for defensible conclusions.",
+  },
+  "business-analytics-dashboard": {
+    title: "Business Analytics Dashboard",
+    description:
+      "Executive analytics view combining performance metrics, segment comparisons, and forecast trends.",
+  },
+};
+
+function modelItems() {
+  return listAssetImages("research-models").map((src) => {
+    const stem = (src.split("/").pop() ?? "").replace(/\.[^.]+$/, "");
+    const meta = modelMeta[stem];
+    return {
+      src,
+      title: meta?.title ?? titleFromFilename(src),
+      description: meta?.description,
+    };
+  });
+}
+
 export default function ResearchPage() {
+  const models = modelItems();
+
   return (
     <>
       <PageHero title="Research">
@@ -55,8 +117,38 @@ export default function ResearchPage() {
             </div>
           ))}
         </div>
+      </section>
 
-        <div className="mt-12 rounded-2xl bg-cares-cream p-8 text-center">
+      {models.length > 0 && (
+        <section
+          aria-labelledby="models-heading"
+          className="border-y border-gray-100 bg-cares-cream/60"
+        >
+          <div className="mx-auto max-w-6xl px-4 py-16">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-widest text-cares-gold">
+                Sample outputs
+              </p>
+              <h2
+                id="models-heading"
+                className="mt-2 font-display text-3xl font-bold text-cares-navy sm:text-4xl"
+              >
+                Research &amp; Data Visualization Models
+              </h2>
+              <p className="mt-3 text-sm text-cares-slate">
+                The kind of models, dashboards, and visualisations we build —
+                click any card to preview it in detail.
+              </p>
+            </div>
+            <div className="mt-10">
+              <ModelShowcase items={models} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="rounded-2xl bg-cares-cream p-8 text-center">
           <h2 className="font-display text-2xl font-bold text-cares-navy">
             Have a research problem in mind?
           </h2>
@@ -65,7 +157,9 @@ export default function ResearchPage() {
             methodology, data needs, and deliverables.
           </p>
           <div className="mt-6">
-            <Button href="/book/consultation">Book a Consultation</Button>
+            <Button href="/book/?service=consultation#enquiry">
+              Book a Consultation
+            </Button>
           </div>
         </div>
       </section>

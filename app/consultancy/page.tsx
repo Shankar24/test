@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/Button";
 import PageHero from "@/components/PageHero";
-import { formatINR, services } from "@/lib/services";
+import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Consultancy",
@@ -44,14 +44,11 @@ export default function ConsultancyPage() {
                 <p className="mt-1 text-xs text-cares-slate">⏱ {s.turnaround}</p>
               </div>
               <div className="flex shrink-0 items-center gap-4">
-                <span className="font-display text-xl font-bold text-cares-teal">
-                  {formatINR(s.price)}
-                </span>
                 <Link
-                  href={`/book/${s.id}`}
+                  href={`/book/?service=${s.id}#enquiry`}
                   className="focus-ring rounded-lg bg-cares-teal px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-cares-blue"
                 >
-                  Book
+                  Book Now
                 </Link>
               </div>
             </div>

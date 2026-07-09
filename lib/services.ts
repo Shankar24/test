@@ -2,7 +2,6 @@ export type Service = {
   id: string;
   name: string;
   category: "Consultation" | "Data Analysis" | "Reporting" | "Training";
-  price: number;
   turnaround: string;
   description: string;
   features: string[];
@@ -13,7 +12,6 @@ export const services: Service[] = [
     id: "consultation",
     name: "Expert Consultation Call",
     category: "Consultation",
-    price: 999,
     turnaround: "45 minutes",
     description:
       "One-on-one session with a CARES analyst to discuss your research design, questionnaire, or data challenges.",
@@ -27,7 +25,6 @@ export const services: Service[] = [
     id: "questionnaire-review",
     name: "Questionnaire Design Review",
     category: "Consultation",
-    price: 4999,
     turnaround: "3–5 business days",
     description:
       "Professional review of your survey instrument for clarity, bias, scale reliability, and academic standards.",
@@ -41,7 +38,6 @@ export const services: Service[] = [
     id: "data-analysis-basic",
     name: "Data Analysis — Basic",
     category: "Data Analysis",
-    price: 7999,
     turnaround: "5–7 business days",
     description:
       "Descriptive statistics, reliability analysis (Cronbach's alpha), and basic visualizations for one dataset.",
@@ -55,7 +51,6 @@ export const services: Service[] = [
     id: "data-analysis-advanced",
     name: "Data Analysis — Advanced",
     category: "Data Analysis",
-    price: 14999,
     turnaround: "7–10 business days",
     description:
       "Inferential statistics, regression, factor analysis, group comparisons, and hypothesis testing.",
@@ -69,7 +64,6 @@ export const services: Service[] = [
     id: "dashboard-reporting",
     name: "Dashboard & Reporting",
     category: "Reporting",
-    price: 9999,
     turnaround: "7–10 business days",
     description:
       "Interactive dashboard and publication-ready reports from your questionnaire data.",
@@ -77,9 +71,8 @@ export const services: Service[] = [
   },
   {
     id: "training-workshop",
-    name: "Training Workshop (Per Seat)",
+    name: "Training Workshop",
     category: "Training",
-    price: 2999,
     turnaround: "1–3 days",
     description:
       "Pan-India workshops on research methods, SPSS, R Studio, data analysis, and academic writing.",
@@ -93,12 +86,4 @@ export const services: Service[] = [
 
 export function getService(id: string): Service | undefined {
   return services.find((s) => s.id === id);
-}
-
-export function formatINR(amount: number): string {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(amount);
 }

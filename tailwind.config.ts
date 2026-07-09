@@ -9,7 +9,7 @@ const config: Config = {
           navy: "#0d1330",
           teal: "#2b59f5",
           blue: "#1e40d8",
-          gold: "#93b4ff",
+          gold: "#c9a227",
           cream: "#eef1f8",
           slate: "#4a5568",
         },

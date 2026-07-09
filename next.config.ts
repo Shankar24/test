@@ -1,19 +1,16 @@
 import type { NextConfig } from "next";
 
+// The site is statically exported and served by GitHub Pages at
+// https://shankar24.github.io/test/ — the CI workflow sets GITHUB_PAGES=true
+// so the /test base path is only applied for the deployed build.
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
+  basePath: isGitHubPages ? "/test" : "",
+  images: { unoptimized: true },
   poweredByHeader: false,
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-        ],
-      },
-    ];
-  },
 };
 
 export default nextConfig;

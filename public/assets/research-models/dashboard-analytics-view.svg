@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="800" height="600" fill="#eef1f8"/>
+  <!-- window chrome -->
+  <rect x="30" y="30" width="740" height="540" rx="16" fill="#ffffff"/>
+  <circle cx="60" cy="58" r="6" fill="#f87171"/>
+  <circle cx="82" cy="58" r="6" fill="#fbbf24"/>
+  <circle cx="104" cy="58" r="6" fill="#34d399"/>
+  <text x="130" y="63" font-size="13" fill="#4a5568">Survey Analytics Dashboard</text>
+
+  <!-- KPI cards -->
+  <g>
+    <rect x="55" y="90" width="160" height="86" rx="10" fill="#0d1330"/>
+    <text x="70" y="118" font-size="11" fill="#93b4ff">Responses</text>
+    <text x="70" y="150" font-size="26" font-weight="700" fill="#ffffff">1,248</text>
+    <rect x="232" y="90" width="160" height="86" rx="10" fill="#2b59f5"/>
+    <text x="247" y="118" font-size="11" fill="#dbe4fb">Completion Rate</text>
+    <text x="247" y="150" font-size="26" font-weight="700" fill="#ffffff">92.4%</text>
+    <rect x="409" y="90" width="160" height="86" rx="10" fill="#eef1f8"/>
+    <text x="424" y="118" font-size="11" fill="#4a5568">Avg. Score</text>
+    <text x="424" y="150" font-size="26" font-weight="700" fill="#0d1330">4.21</text>
+    <rect x="586" y="90" width="160" height="86" rx="10" fill="#eef1f8"/>
+    <text x="601" y="118" font-size="11" fill="#4a5568">Reliability &#945;</text>
+    <text x="601" y="150" font-size="26" font-weight="700" fill="#c9a227">0.89</text>
+  </g>
+
+  <!-- bar chart -->
+  <rect x="55" y="200" width="420" height="240" rx="10" fill="#ffffff" stroke="#eef1f8" stroke-width="2"/>
+  <text x="75" y="230" font-size="13" font-weight="700" fill="#0d1330">Responses by Dimension</text>
+  <g>
+    <rect x="90" y="330" width="44" height="80" rx="4" fill="#93b4ff"/>
+    <rect x="152" y="300" width="44" height="110" rx="4" fill="#2b59f5"/>
+    <rect x="214" y="272" width="44" height="138" rx="4" fill="#0d1330"/>
+    <rect x="276" y="316" width="44" height="94" rx="4" fill="#93b4ff"/>
+    <rect x="338" y="256" width="44" height="154" rx="4" fill="#c9a227"/>
+    <rect x="400" y="288" width="44" height="122" rx="4" fill="#2b59f5"/>
+  </g>
+  <line x1="80" y1="410" x2="460" y2="410" stroke="#dbe4fb" stroke-width="2"/>
+
+  <!-- donut -->
+  <rect x="495" y="200" width="251" height="240" rx="10" fill="#ffffff" stroke="#eef1f8" stroke-width="2"/>
+  <text x="515" y="230" font-size="13" font-weight="700" fill="#0d1330">Segment Split</text>
+  <g transform="translate(620 330)">
+    <circle r="62" fill="none" stroke="#eef1f8" stroke-width="24"/>
+    <circle r="62" fill="none" stroke="#2b59f5" stroke-width="24" stroke-dasharray="195 390" transform="rotate(-90)"/>
+    <circle r="62" fill="none" stroke="#0d1330" stroke-width="24" stroke-dasharray="98 390" transform="rotate(90)"/>
+    <circle r="62" fill="none" stroke="#c9a227" stroke-width="24" stroke-dasharray="58 390" transform="rotate(180)"/>
+    <text y="6" font-size="20" font-weight="700" fill="#0d1330" text-anchor="middle">100%</text>
+  </g>
+
+  <!-- trend line -->
+  <rect x="55" y="462" width="691" height="84" rx="10" fill="#ffffff" stroke="#eef1f8" stroke-width="2"/>
+  <text x="75" y="490" font-size="13" font-weight="700" fill="#0d1330">Weekly Trend</text>
+  <polyline points="90,530 170,522 250,526 330,512 410,516 490,504 570,508 650,494 726,486"
+    fill="none" stroke="#2b59f5" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="726" cy="486" r="5" fill="#c9a227"/>
+</svg>

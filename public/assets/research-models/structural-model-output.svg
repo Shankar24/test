@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="800" height="600" fill="#ffffff"/>
+  <text x="40" y="52" font-size="22" font-weight="700" fill="#0d1330">Structural Model Output</text>
+  <text x="40" y="76" font-size="13" fill="#4a5568">Standardised estimates with model fit summary</text>
+
+  <defs>
+    <marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#2b59f5"/>
+    </marker>
+  </defs>
+
+  <!-- exogenous constructs -->
+  <g>
+    <ellipse cx="150" cy="170" rx="78" ry="38" fill="#eef1f8" stroke="#2b59f5" stroke-width="2"/>
+    <text x="150" y="176" font-size="13" font-weight="600" fill="#0d1330" text-anchor="middle">Perceived Value</text>
+    <ellipse cx="150" cy="300" rx="78" ry="38" fill="#eef1f8" stroke="#2b59f5" stroke-width="2"/>
+    <text x="150" y="306" font-size="13" font-weight="600" fill="#0d1330" text-anchor="middle">Trust</text>
+    <ellipse cx="150" cy="430" rx="78" ry="38" fill="#eef1f8" stroke="#2b59f5" stroke-width="2"/>
+    <text x="150" y="436" font-size="13" font-weight="600" fill="#0d1330" text-anchor="middle">Commitment</text>
+  </g>
+
+  <!-- endogenous -->
+  <ellipse cx="450" cy="300" rx="85" ry="45" fill="#2b59f5"/>
+  <text x="450" y="295" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Engagement</text>
+  <text x="450" y="315" font-size="11" fill="#dbe4fb" text-anchor="middle">R&#178; = 0.58</text>
+
+  <ellipse cx="690" cy="300" rx="80" ry="45" fill="#0d1330"/>
+  <text x="690" y="295" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Retention</text>
+  <text x="690" y="315" font-size="11" fill="#93b4ff" text-anchor="middle">R&#178; = 0.49</text>
+
+  <g stroke="#2b59f5" stroke-width="2.2" fill="none" marker-end="url(#arr2)">
+    <line x1="225" y1="185" x2="368" y2="272"/>
+    <line x1="228" y1="300" x2="358" y2="300"/>
+    <line x1="225" y1="415" x2="368" y2="328"/>
+    <line x1="535" y1="300" x2="604" y2="300"/>
+  </g>
+  <g font-size="12.5" font-weight="700" fill="#0d1330">
+    <text x="268" y="218">0.42***</text>
+    <text x="272" y="290">0.31***</text>
+    <text x="268" y="398">0.18**</text>
+    <text x="546" y="288">0.70***</text>
+  </g>
+
+  <!-- fit panel -->
+  <rect x="480" y="60" width="280" height="150" rx="12" fill="#eef1f8"/>
+  <text x="500" y="90" font-size="13" font-weight="700" fill="#0d1330">Model Fit Indices</text>
+  <g font-size="12.5" fill="#4a5568">
+    <text x="500" y="116">&#967;&#178;/df = 2.14</text>
+    <text x="500" y="138">CFI = 0.962 &#183; TLI = 0.955</text>
+    <text x="500" y="160">RMSEA = 0.048 [0.041, 0.056]</text>
+    <text x="500" y="182">SRMR = 0.039</text>
+  </g>
+  <rect x="500" y="192" width="90" height="4" rx="2" fill="#c9a227"/>
+
+  <text x="40" y="545" font-size="11" fill="#4a5568">*** p &lt; 0.001 &#183; ** p &lt; 0.01 &#183; Maximum likelihood estimation, N = 412</text>
+</svg>

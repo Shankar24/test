@@ -110,6 +110,12 @@
   animation: fx-gradient 8s ease infinite;
 }
 
+@keyframes fx-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fx-fade { animation: fx-fade 0.25s ease-out both; }
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

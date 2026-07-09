@@ -20,12 +20,13 @@ export default function TermsPage() {
 
         <div>
           <h2 className="font-display text-xl font-bold text-cares-navy">
-            Bookings and payment
+            Bookings and enquiries
           </h2>
           <p className="mt-2">
-            All services must be paid for in advance through our online payment
-            partner, Razorpay. A booking is confirmed once payment is verified and
-            our team contacts you, normally within 1 business day.
+            Bookings are made by sending an enquiry through this website, by
+            email, or by phone. A booking is confirmed once our team contacts
+            you and both sides agree on scope, timelines, and fees — normally
+            within 1 business day of your enquiry.
           </p>
         </div>
 
@@ -54,14 +55,14 @@ export default function TermsPage() {
 
         <div>
           <h2 className="font-display text-xl font-bold text-cares-navy">
-            Refunds and cancellations
+            Cancellations and rescheduling
           </h2>
           <p className="mt-2">
-            See our{" "}
-            <a href="/refunds" className="font-semibold text-cares-teal">
-              Refund &amp; Cancellation Policy
-            </a>{" "}
-            for details.
+            Consultation calls can be rescheduled up to 24 hours before the
+            agreed time at no cost. Workshop seats can be transferred to a
+            future workshop or another participant with at least 7 days&apos;
+            notice. For project work, cancellation terms are agreed as part of
+            the project scope before work begins.
           </p>
         </div>
 

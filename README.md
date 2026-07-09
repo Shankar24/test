@@ -1,49 +1,46 @@
 # CARES Platform
 
-Website and online booking platform for CARES (Center for Applied Research and
-Educational Services) — training, consultancy, and research services with
-Razorpay payments.
+Website for CARES (Center for Applied Research and Educational Services) —
+training, consultancy, and research services with an online booking enquiry
+form.
 
-Built with Next.js (App Router), TypeScript, and Tailwind CSS.
+Built with Next.js (App Router), TypeScript, and Tailwind CSS. The site is
+**statically exported** (no backend, no payment gateway) and deployed to
+GitHub Pages by the workflow in `.github/workflows/deploy-pages.yml`.
 
 ## Getting started
 
 ```bash
 npm install
-cp .env.example .env.local   # fill in your Razorpay keys
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Environment variables
+To produce the static site locally, run `npm run build` — the output is
+written to `out/`.
 
-| Variable | Description |
-|----------|-------------|
-| `NEXT_PUBLIC_RAZORPAY_KEY_ID` | Razorpay key ID (public, used by the checkout widget) |
-| `RAZORPAY_KEY_SECRET` | Razorpay key secret (server-side only, never exposed) |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata/sitemap |
+## Managing images
 
-Without Razorpay keys the site runs fine; the booking API returns a friendly
-"call us to book" message instead of opening checkout.
+- **Gallery** — drop workshop/event photos into `public/assets/gallery/`.
+  Every image there appears automatically on the Gallery page after the next
+  deployment. File names become captions (`spss-workshop.jpg` → "Spss
+  Workshop").
+- **Research models** — images in `public/assets/research-models/` appear in
+  the "Research & Data Visualization Models" section of the Research page.
+  Sample SVG diagrams are included; replace them with real (anonymised)
+  screenshots keeping the same file names to retain the curated titles.
 
-## Project structure
+## Booking flow
 
-- `app/` — pages (home, about, training, consultancy, research, contact,
-  book & pay, legal pages), API routes, sitemap/robots
-- `app/api/payments/` — Razorpay order creation and signature verification
-- `components/` — header, footer, booking form, shared UI
-- `lib/` — service catalogue, site config, shared zod validation schemas
+There is no online payment. The **Book Now** page (`/book`) shows an enquiry
+form (name, email, phone, institution, service, requirement, deadline).
+Submitting validates the fields, opens the visitor's email app with a
+pre-filled message to info@caresindia.co.in, and shows a confirmation message.
 
-## Payments flow
+## Deployment
 
-1. Customer fills the booking form (`/book/[serviceId]`); zod validates
-   client-side for inline errors.
-2. `POST /api/payments/create-order` re-validates, looks the price up
-   server-side (client never sends an amount), and creates a Razorpay order.
-3. Razorpay Checkout opens; on completion `POST /api/payments/verify` checks
-   the HMAC-SHA256 signature (timing-safe) before redirecting to the success
-   page.
-
-See [ANALYSIS.md](./ANALYSIS.md) for the audit of the previous deployment and
-the rationale behind this rebuild.
+Pushing to `main` triggers the GitHub Actions workflow, which builds the
+static export with the `/test` base path and publishes it to GitHub Pages.
+In the repository settings, **Pages → Build and deployment → Source** must be
+set to **GitHub Actions**.
