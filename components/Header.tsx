@@ -7,10 +7,11 @@ import { site } from "@/lib/site";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
+  { href: "/about", label: "About" },
   { href: "/training", label: "Training" },
   { href: "/consultancy", label: "Consultancy" },
   { href: "/research", label: "Research" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -74,7 +75,7 @@ export default function Header() {
             href="/book"
             className="focus-ring rounded-full bg-cares-teal px-5 py-2 text-sm font-semibold text-white transition hover:bg-cares-blue"
           >
-            Book &amp; Pay
+            Book Now
           </Link>
           <button
             type="button"
@@ -131,7 +132,7 @@ export default function Header() {
                 href="/book"
                 className="focus-ring block rounded-lg bg-cares-teal px-3 py-2.5 text-center text-sm font-semibold text-white"
               >
-                Book &amp; Pay
+                Book Now
               </Link>
             </li>
           </ul>

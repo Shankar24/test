@@ -57,11 +57,11 @@ export default function ContactPage() {
             Ready to book?
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-cares-slate">
-            Browse our services and pay securely online — we&apos;ll confirm your
-            booking within 1 business day.
+            Tell us about your requirement and we&apos;ll confirm your booking
+            within 1 business day.
           </p>
           <div className="mt-6">
-            <Button href="/book">View Services &amp; Book</Button>
+            <Button href="/book">Book Now</Button>
           </div>
         </div>
       </section>

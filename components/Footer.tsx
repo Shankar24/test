@@ -3,18 +3,18 @@ import { site } from "@/lib/site";
 
 const quickLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
+  { href: "/about", label: "About" },
   { href: "/training", label: "Training" },
   { href: "/consultancy", label: "Consultancy" },
   { href: "/research", label: "Research" },
-  { href: "/book", label: "Book & Pay" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/book", label: "Book Now" },
 ];
 
 const legalLinks = [
   { href: "/contact", label: "Contact Us" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Service" },
-  { href: "/refunds", label: "Refund & Cancellation Policy" },
 ];
 
 export default function Footer() {

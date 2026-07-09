@@ -59,11 +59,11 @@ export default function TrainingPage() {
             Book a Training Seat
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-sm text-cares-slate">
-            Individual seats available at ₹2,999. For institutional workshops (10+
-            participants), contact us for a custom quote.
+            Individual seats and institutional workshops (10+ participants) —
+            tell us your requirement and we&apos;ll get back to you.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <Button href="/book/training-workshop">Book Online</Button>
+            <Button href="/book/?service=training-workshop#enquiry">Book Now</Button>
             <Button variant="outline" href={`tel:${site.phoneHref}`}>
               Call for Institutional Quote
             </Button>

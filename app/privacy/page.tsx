@@ -23,10 +23,9 @@ export default function PrivacyPage() {
             Information we collect
           </h2>
           <p className="mt-2">
-            When you book a service we collect your name, email address, phone
-            number, institution, and the project details you provide. Payment card
-            and banking details are processed directly by Razorpay and are never
-            stored on our servers.
+            When you send a booking enquiry we collect your name, email address,
+            phone number, institution, and the project details you provide, so
+            that our team can respond to your requirement.
           </p>
         </div>
 
@@ -35,10 +34,10 @@ export default function PrivacyPage() {
             How we use your information
           </h2>
           <p className="mt-2">
-            We use your details to deliver the service you booked, to communicate
-            about your project, and to issue receipts. We do not sell or share
-            your personal information with third parties except as required to
-            process payments (Razorpay) or comply with the law.
+            We use your details to respond to your enquiry, deliver the service
+            you book, and communicate about your project. We do not sell or
+            share your personal information with third parties except as
+            required to comply with the law.
           </p>
         </div>
 

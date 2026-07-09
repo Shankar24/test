@@ -1,6 +1,6 @@
 import Link from "next/link";
 import HomeFx from "@/components/HomeFx";
-import { formatINR, getService } from "@/lib/services";
+import { getService } from "@/lib/services";
 import { site } from "@/lib/site";
 
 const stats = [
@@ -14,7 +14,7 @@ const serviceCards = [
   {
     title: "Research Design & Methodology",
     body: "Formulate the research problem, select the correct methodology, and leave with a clear research roadmap.",
-    href: "/book/consultation",
+    href: "/book/?service=consultation#enquiry",
     cta: "Book a call",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-6 w-6">
@@ -25,7 +25,7 @@ const serviceCards = [
   {
     title: "Questionnaire Design & Review",
     body: "Better-designed instruments — item-by-item feedback on clarity, bias, scales, and reliability.",
-    href: "/book/questionnaire-review",
+    href: "/book/?service=questionnaire-review#enquiry",
     cta: "Get a review",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-6 w-6">
@@ -36,7 +36,7 @@ const serviceCards = [
   {
     title: "Statistical Analysis",
     body: "Correctly selected techniques, analysis in R, SPSS, AMOS, SmartPLS or Python — and results you can defend.",
-    href: "/book/data-analysis-basic",
+    href: "/book/?service=data-analysis-basic#enquiry",
     cta: "Order analysis",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-6 w-6">
@@ -88,7 +88,7 @@ const testimonials = [
   },
 ];
 
-const pricedServices = ["consultation", "questionnaire-review", "data-analysis-basic"]
+const featuredServices = ["consultation", "questionnaire-review", "data-analysis-basic"]
   .map(getService)
   .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
@@ -120,7 +120,7 @@ export default function HomePage() {
               </p>
               <div className="fx-up fx-d3 mt-8 flex flex-wrap items-center gap-3">
                 <Link
-                  href="/book/consultation"
+                  href="/book/?service=consultation#enquiry"
                   className="focus-ring inline-flex items-center gap-2 rounded-full bg-cares-teal px-6 py-3 text-sm font-semibold text-white transition hover:scale-105 hover:bg-cares-blue"
                 >
                   Book a Research Clarity Call
@@ -396,20 +396,20 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ============ PRICING ============ */}
-        <section aria-labelledby="pricing-heading" className="mt-10">
+        {/* ============ FEATURED SERVICES ============ */}
+        <section aria-labelledby="featured-heading" className="mt-10">
           <div data-reveal className="fx-lift rounded-3xl bg-white p-8 shadow-sm">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <h2
-                  id="pricing-heading"
+                  id="featured-heading"
                   className="text-2xl font-bold tracking-tight text-cares-navy"
                 >
-                  Transparent pricing, secure payment
+                  Popular services, clear turnaround times
                 </h2>
                 <p className="mt-2 max-w-md text-sm text-cares-slate">
-                  Fixed prices and clear turnaround times, paid securely online
-                  via Razorpay. Institutional quotes on request.
+                  Send an enquiry and our team gets back to you within 1
+                  business day. Institutional programmes scoped on request.
                 </p>
               </div>
               <Link
@@ -420,7 +420,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {pricedServices.map((s, i) => (
+              {featuredServices.map((s, i) => (
                 <div
                   key={s.id}
                   data-reveal
@@ -428,15 +428,17 @@ export default function HomePage() {
                   className="fx-lift flex flex-col rounded-2xl border border-cares-cream bg-[#fafbfe] p-5"
                 >
                   <p className="text-[11px] font-medium text-cares-slate">{s.category}</p>
-                  <p className="mt-1 text-xl font-bold tracking-tight text-cares-navy">
-                    {formatINR(s.price)}
+                  <p className="mt-1 text-base font-bold tracking-tight text-cares-navy">
+                    {s.name}
                   </p>
-                  <p className="mt-1 flex-1 text-xs leading-snug text-cares-slate">{s.name}</p>
+                  <p className="mt-1 flex-1 text-xs leading-snug text-cares-slate">
+                    ⏱ {s.turnaround}
+                  </p>
                   <Link
-                    href={`/book/${s.id}`}
+                    href={`/book/?service=${s.id}#enquiry`}
                     className="focus-ring mt-4 rounded-full bg-cares-teal px-4 py-2 text-center text-xs font-semibold text-white transition hover:scale-105 hover:bg-cares-blue"
                   >
-                    Book now
+                    Book Now
                   </Link>
                 </div>
               ))}
@@ -554,7 +556,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col gap-3">
                 <Link
-                  href="/book/consultation"
+                  href="/book/?service=consultation#enquiry"
                   className="focus-ring rounded-full bg-white px-6 py-3.5 text-center text-sm font-semibold text-cares-navy transition hover:scale-105"
                 >
                   Book a Research Clarity Call

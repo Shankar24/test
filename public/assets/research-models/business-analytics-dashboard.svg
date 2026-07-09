@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="800" height="600" fill="#0d1330"/>
+  <text x="40" y="56" font-size="22" font-weight="700" fill="#ffffff">Business Analytics Dashboard</text>
+  <text x="40" y="80" font-size="13" fill="#93b4ff">Quarterly performance overview</text>
+
+  <!-- KPI row -->
+  <g>
+    <rect x="40" y="104" width="168" height="92" rx="12" fill="#1a2350"/>
+    <text x="60" y="134" font-size="11" fill="#93b4ff">Revenue</text>
+    <text x="60" y="166" font-size="24" font-weight="700" fill="#ffffff">4.2 Cr</text>
+    <text x="60" y="186" font-size="11" fill="#34d399">+12.4% QoQ</text>
+
+    <rect x="224" y="104" width="168" height="92" rx="12" fill="#1a2350"/>
+    <text x="244" y="134" font-size="11" fill="#93b4ff">New Clients</text>
+    <text x="244" y="166" font-size="24" font-weight="700" fill="#ffffff">86</text>
+    <text x="244" y="186" font-size="11" fill="#34d399">+8.1% QoQ</text>
+
+    <rect x="408" y="104" width="168" height="92" rx="12" fill="#1a2350"/>
+    <text x="428" y="134" font-size="11" fill="#93b4ff">Retention</text>
+    <text x="428" y="166" font-size="24" font-weight="700" fill="#ffffff">94.2%</text>
+    <text x="428" y="186" font-size="11" fill="#c9a227">stable</text>
+
+    <rect x="592" y="104" width="168" height="92" rx="12" fill="#2b59f5"/>
+    <text x="612" y="134" font-size="11" fill="#dbe4fb">NPS</text>
+    <text x="612" y="166" font-size="24" font-weight="700" fill="#ffffff">+62</text>
+    <text x="612" y="186" font-size="11" fill="#dbe4fb">+5 pts</text>
+  </g>
+
+  <!-- revenue trend -->
+  <rect x="40" y="220" width="440" height="230" rx="12" fill="#1a2350"/>
+  <text x="60" y="250" font-size="13" font-weight="700" fill="#ffffff">Revenue Trend</text>
+  <g stroke="#2b3768" stroke-width="1">
+    <line x1="60" y1="300" x2="460" y2="300"/>
+    <line x1="60" y1="350" x2="460" y2="350"/>
+    <line x1="60" y1="400" x2="460" y2="400"/>
+  </g>
+  <path d="M 60 410 L 110 396 L 160 400 L 210 378 L 260 384 L 310 352 L 360 340 L 410 316 L 460 296 L 460 430 L 60 430 Z"
+    fill="#2b59f5" opacity="0.25"/>
+  <polyline points="60,410 110,396 160,400 210,378 260,384 310,352 360,340 410,316 460,296"
+    fill="none" stroke="#2b59f5" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="460" cy="296" r="6" fill="#c9a227"/>
+
+  <!-- segment bars -->
+  <rect x="500" y="220" width="260" height="230" rx="12" fill="#1a2350"/>
+  <text x="520" y="250" font-size="13" font-weight="700" fill="#ffffff">By Segment</text>
+  <g font-size="11" fill="#93b4ff">
+    <text x="520" y="286">Academia</text>
+    <text x="520" y="330">Corporate</text>
+    <text x="520" y="374">Government</text>
+    <text x="520" y="418">NGO</text>
+  </g>
+  <g>
+    <rect x="600" y="272" width="150" height="18" rx="9" fill="#2b59f5"/>
+    <rect x="600" y="316" width="112" height="18" rx="9" fill="#93b4ff"/>
+    <rect x="600" y="360" width="76" height="18" rx="9" fill="#c9a227"/>
+    <rect x="600" y="404" width="48" height="18" rx="9" fill="#4a5568"/>
+  </g>
+
+  <!-- footer note -->
+  <rect x="40" y="474" width="720" height="80" rx="12" fill="#1a2350"/>
+  <text x="65" y="506" font-size="13" font-weight="700" fill="#c9a227">Key insight</text>
+  <text x="65" y="530" font-size="12.5" fill="#dbe4fb">Academia remains the largest segment; corporate demand grew fastest this quarter.</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="800" height="600" fill="#ffffff"/>
+  <text x="40" y="52" font-size="22" font-weight="700" fill="#0d1330">Factor Analysis Visualization</text>
+  <text x="40" y="76" font-size="13" fill="#4a5568">Scree plot and rotated component loadings</text>
+
+  <!-- scree plot -->
+  <rect x="40" y="100" width="340" height="280" rx="12" fill="#eef1f8"/>
+  <text x="60" y="130" font-size="13" font-weight="700" fill="#0d1330">Scree Plot</text>
+  <line x1="80" y1="340" x2="360" y2="340" stroke="#93b4ff" stroke-width="1.5"/>
+  <line x1="80" y1="150" x2="80" y2="340" stroke="#93b4ff" stroke-width="1.5"/>
+  <polyline points="100,170 145,225 190,290 235,312 280,322 325,328"
+    fill="none" stroke="#2b59f5" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#0d1330">
+    <circle cx="100" cy="170" r="6"/>
+    <circle cx="145" cy="225" r="6"/>
+    <circle cx="190" cy="290" r="6" fill="#c9a227"/>
+    <circle cx="235" cy="312" r="5" fill="#93b4ff"/>
+    <circle cx="280" cy="322" r="5" fill="#93b4ff"/>
+    <circle cx="325" cy="328" r="5" fill="#93b4ff"/>
+  </g>
+  <line x1="80" y1="300" x2="360" y2="300" stroke="#c9a227" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="286" y="292" font-size="10.5" fill="#c9a227">Eigenvalue = 1</text>
+  <text x="150" y="368" font-size="11" fill="#4a5568">Component number</text>
+
+  <!-- loadings heatmap -->
+  <rect x="420" y="100" width="340" height="280" rx="12" fill="#eef1f8"/>
+  <text x="440" y="130" font-size="13" font-weight="700" fill="#0d1330">Rotated Loadings (Varimax)</text>
+  <g font-size="11" fill="#4a5568">
+    <text x="530" y="158" text-anchor="middle">F1</text>
+    <text x="600" y="158" text-anchor="middle">F2</text>
+    <text x="670" y="158" text-anchor="middle">F3</text>
+  </g>
+  <g font-size="11" fill="#0d1330">
+    <text x="450" y="188">Item 1</text><text x="450" y="223">Item 2</text>
+    <text x="450" y="258">Item 3</text><text x="450" y="293">Item 4</text>
+    <text x="450" y="328">Item 5</text><text x="450" y="363">Item 6</text>
+  </g>
+  <!-- cells: strong=navy, medium=blue, weak=pale -->
+  <g rx="4">
+    <rect x="505" y="172" width="50" height="24" rx="4" fill="#0d1330"/><text x="530" y="188" font-size="10.5" fill="#fff" text-anchor="middle">.88</text>
+    <rect x="575" y="172" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="600" y="188" font-size="10.5" fill="#4a5568" text-anchor="middle">.12</text>
+    <rect x="645" y="172" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="670" y="188" font-size="10.5" fill="#4a5568" text-anchor="middle">.08</text>
+    <rect x="505" y="207" width="50" height="24" rx="4" fill="#0d1330"/><text x="530" y="223" font-size="10.5" fill="#fff" text-anchor="middle">.84</text>
+    <rect x="575" y="207" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="600" y="223" font-size="10.5" fill="#4a5568" text-anchor="middle">.15</text>
+    <rect x="645" y="207" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="670" y="223" font-size="10.5" fill="#4a5568" text-anchor="middle">.11</text>
+    <rect x="505" y="242" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="530" y="258" font-size="10.5" fill="#4a5568" text-anchor="middle">.18</text>
+    <rect x="575" y="242" width="50" height="24" rx="4" fill="#2b59f5"/><text x="600" y="258" font-size="10.5" fill="#fff" text-anchor="middle">.81</text>
+    <rect x="645" y="242" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="670" y="258" font-size="10.5" fill="#4a5568" text-anchor="middle">.09</text>
+    <rect x="505" y="277" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="530" y="293" font-size="10.5" fill="#4a5568" text-anchor="middle">.14</text>
+    <rect x="575" y="277" width="50" height="24" rx="4" fill="#2b59f5"/><text x="600" y="293" font-size="10.5" fill="#fff" text-anchor="middle">.78</text>
+    <rect x="645" y="277" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="670" y="293" font-size="10.5" fill="#4a5568" text-anchor="middle">.16</text>
+    <rect x="505" y="312" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="530" y="328" font-size="10.5" fill="#4a5568" text-anchor="middle">.10</text>
+    <rect x="575" y="312" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="600" y="328" font-size="10.5" fill="#4a5568" text-anchor="middle">.13</text>
+    <rect x="645" y="312" width="50" height="24" rx="4" fill="#c9a227"/><text x="670" y="328" font-size="10.5" fill="#fff" text-anchor="middle">.86</text>
+    <rect x="505" y="347" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="530" y="363" font-size="10.5" fill="#4a5568" text-anchor="middle">.07</text>
+    <rect x="575" y="347" width="50" height="24" rx="4" fill="#dbe4fb"/><text x="600" y="363" font-size="10.5" fill="#4a5568" text-anchor="middle">.19</text>
+    <rect x="645" y="347" width="50" height="24" rx="4" fill="#c9a227"/><text x="670" y="363" font-size="10.5" fill="#fff" text-anchor="middle">.82</text>
+  </g>
+
+  <!-- summary -->
+  <rect x="40" y="420" width="720" height="120" rx="12" fill="#eef1f8"/>
+  <g font-size="13" fill="#4a5568">
+    <text x="65" y="452" font-weight="700" fill="#0d1330">Extraction Summary</text>
+    <text x="65" y="480">KMO = 0.874 &#183; Bartlett's test p &lt; 0.001</text>
+    <text x="65" y="504">3 components extracted &#183; 71.3% total variance explained</text>
+    <text x="65" y="528">All communalities &gt; 0.50 &#183; No significant cross-loadings</text>
+  </g>
+</svg>
