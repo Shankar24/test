@@ -94,7 +94,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/book"
-            className="focus-ring hidden rounded-full bg-cares-navy px-5 py-2 text-sm font-semibold text-white transition hover:bg-cares-teal sm:inline-flex"
+            className="focus-ring inline-flex rounded-full bg-cares-navy px-4 py-2 text-sm font-semibold text-white transition hover:bg-cares-teal sm:px-5"
           >
             Book Now
           </Link>

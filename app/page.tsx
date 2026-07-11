@@ -69,7 +69,7 @@ export default function HomePage() {
       <section className="relative z-10 -mt-10 px-4">
         <div
           data-reveal
-          className="mx-auto grid max-w-6xl gap-3 rounded-2xl border border-white/70 bg-white/85 p-4 shadow-lift backdrop-blur sm:grid-cols-5 sm:p-5"
+          className="mx-auto grid max-w-6xl grid-cols-2 gap-3 rounded-2xl border border-white/70 bg-white/85 p-4 shadow-lift backdrop-blur md:grid-cols-3 lg:grid-cols-5 sm:p-5"
         >
           {site.stats.map((s) => (
             <div key={s.label} className="rounded-xl bg-cares-cream/80 px-3 py-4 text-center">
@@ -94,6 +94,7 @@ export default function HomePage() {
         <div className="grid items-center gap-10 lg:grid-cols-2" data-reveal>
           <div>
             <SectionHeading
+              align="left"
               eyebrow="About CARES"
               title="A Bangalore centre for rigorous research support"
             />

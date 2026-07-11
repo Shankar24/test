@@ -4,13 +4,19 @@ export default function SectionHeading({
   eyebrow,
   title,
   subtitle,
+  align = "center",
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: ReactNode;
+  align?: "center" | "left";
 }) {
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <div
+      className={`max-w-2xl ${
+        align === "center" ? "mx-auto text-center" : "text-left"
+      }`}
+    >
       {eyebrow && (
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cares-gold">
           {eyebrow}
