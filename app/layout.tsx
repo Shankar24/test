@@ -1,43 +1,49 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-manrope",
+});
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.fullName}`,
-    template: `%s | ${site.name} India`,
+    default: "CARES | Applied Research, Analytics & Training",
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   keywords: [
     "research training India",
     "SPSS training",
     "R Studio workshop",
+    "PLS-SEM",
     "data analysis consultancy",
     "questionnaire design",
     "research methodology",
     "academic writing",
+    "dashboard development",
   ],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: site.url,
     siteName: `${site.name} India`,
-    title: `${site.name} — ${site.fullName}`,
+    title: "CARES | Applied Research, Analytics & Training",
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.fullName}`,
+    title: "CARES | Applied Research, Analytics & Training",
     description: site.description,
   },
   robots: { index: true, follow: true },
@@ -69,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
+        className={`${manrope.variable} ${cormorant.variable} font-sans antialiased`}
       >
         <a
           href="#main-content"

@@ -1,36 +1,26 @@
 import type { Metadata } from "next";
 import Button from "@/components/Button";
 import PageHero from "@/components/PageHero";
+import { trainingPrograms } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Training",
   description:
-    "Pan-India workshops on research methodology, SPSS, R Studio, academic writing, SEM, and more. 150+ trainings delivered to 20,000+ participants.",
+    "Pan-India workshops on research methodology, SPSS, R Studio, Jamovi, SmartPLS, academic writing, and data visualization.",
 };
-
-const workshops = [
-  "Research Methodology & Design",
-  "SPSS for Data Analysis",
-  "R Studio for Statistical Computing",
-  "Academic Writing & Publishing",
-  "Structural Equation Modeling (SEM)",
-  "Qualitative Research Methods",
-  "Data Visualization & Reporting",
-  "Questionnaire Design & Validation",
-];
 
 export default function TrainingPage() {
   return (
     <>
       <PageHero title="Training">
         <p>
-          Our training programmes draw from both academic and corporate
-          experience, delivered pan-India to universities, research institutions,
-          and industry.
+          Our training programmes draw from academic and corporate experience,
+          delivered pan-India to universities, research institutions, and
+          industry.
         </p>
         <p className="mt-3 font-medium text-cares-gold">
-          ★ 4.77 rated by 99 customers
+          ★ 4.77 average training rating
         </p>
       </PageHero>
 
@@ -39,33 +29,34 @@ export default function TrainingPage() {
           150+ trainings · 20,000+ participants · Customizable for your institution
         </p>
 
-        <h2 className="mt-10 text-center font-display text-3xl font-bold text-cares-navy">
-          Popular Workshops
+        <h2 className="mt-10 text-center font-display text-3xl font-semibold text-cares-navy">
+          Training programmes
         </h2>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {workshops.map((w) => (
-            <li
-              key={w}
-              className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
-            >
-              <span aria-hidden="true">📚</span>
-              <span className="text-sm font-medium text-cares-navy">{w}</span>
-            </li>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {trainingPrograms.map((w) => (
+            <div key={w.title} className="glass-card fx-lift p-6">
+              <h3 className="font-display text-xl font-semibold text-cares-navy">
+                {w.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-cares-slate">
+                {w.description}
+              </p>
+            </div>
           ))}
-        </ul>
+        </div>
 
-        <div className="mt-14 rounded-2xl bg-cares-cream p-8 text-center">
-          <h3 className="font-display text-2xl font-bold text-cares-navy">
-            Book a Training Seat
+        <div className="mt-14 rounded-3xl bg-cares-cream p-8 text-center">
+          <h3 className="font-display text-2xl font-semibold text-cares-navy">
+            Plan a workshop
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-sm text-cares-slate">
-            Individual seats available at ₹2,999. For institutional workshops (10+
-            participants), contact us for a custom quote.
+            Enquire for individual seats or institutional programmes. We tailor
+            content, duration, and tools to your cohort.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <Button href="/book/training-workshop">Book Online</Button>
+            <Button href="/book">Book Now</Button>
             <Button variant="outline" href={`tel:${site.phoneHref}`}>
-              Call for Institutional Quote
+              Call for institutional quote
             </Button>
           </div>
         </div>

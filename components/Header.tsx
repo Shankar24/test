@@ -7,21 +7,29 @@ import { site } from "@/lib/site";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
+  { href: "/about", label: "About" },
   { href: "/training", label: "Training" },
   { href: "/consultancy", label: "Consultancy" },
   { href: "/research", label: "Research" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Close the mobile menu whenever the route changes.
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   function linkCls(href: string, base: string, active: string, inactive: string) {
     const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -29,10 +37,19 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-cares-navy/10 bg-white/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 transition-shadow ${
+        scrolled
+          ? "border-b border-cares-navy/10 bg-white/90 shadow-sm backdrop-blur-xl"
+          : "border-b border-transparent bg-white/80 backdrop-blur-md"
+      }`}
+    >
       <div className="bg-cares-navy text-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-sm">
-          <a href={`tel:${site.phoneHref}`} className="focus-ring rounded hover:text-cares-gold">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-xs sm:text-sm">
+          <a
+            href={`tel:${site.phoneHref}`}
+            className="focus-ring rounded hover:text-cares-gold"
+          >
             For appointments: {site.phone}
           </a>
           <a
@@ -44,15 +61,20 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5">
         <Link href="/" className="focus-ring group rounded">
-          <span className="font-display text-2xl font-bold text-cares-navy">
+          <span className="font-display text-2xl font-semibold tracking-tight text-cares-navy sm:text-[1.7rem]">
             CARES
           </span>
-          <p className="hidden text-xs text-cares-slate sm:block">{site.fullName}</p>
+          <p className="hidden text-[11px] leading-tight text-cares-slate lg:block">
+            {site.fullName}
+          </p>
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-6 md:flex">
+        <nav
+          aria-label="Main navigation"
+          className="hidden items-center gap-1 xl:flex"
+        >
           {navLinks.map((l) => (
             <Link
               key={l.href}
@@ -60,7 +82,7 @@ export default function Header() {
               className={linkCls(
                 l.href,
                 "focus-ring rounded-full px-3 py-1.5 text-sm font-medium transition",
-                "bg-cares-cream text-cares-navy",
+                "bg-cares-soft text-cares-navy",
                 "text-cares-slate hover:text-cares-navy"
               )}
             >
@@ -72,9 +94,9 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/book"
-            className="focus-ring rounded-full bg-cares-teal px-5 py-2 text-sm font-semibold text-white transition hover:bg-cares-blue"
+            className="focus-ring inline-flex rounded-full bg-cares-navy px-4 py-2 text-sm font-semibold text-white transition hover:bg-cares-teal sm:px-5"
           >
-            Book &amp; Pay
+            Book Now
           </Link>
           <button
             type="button"
@@ -82,7 +104,7 @@ export default function Header() {
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="focus-ring rounded-lg p-2 text-cares-navy md:hidden"
+            className="focus-ring rounded-lg p-2 text-cares-navy xl:hidden"
           >
             <svg
               width="24"
@@ -108,7 +130,7 @@ export default function Header() {
         <nav
           id="mobile-menu"
           aria-label="Mobile navigation"
-          className="border-t border-gray-100 bg-white px-4 pb-4 pt-2 md:hidden"
+          className="border-t border-cares-navy/5 bg-white px-4 pb-4 pt-2 xl:hidden"
         >
           <ul className="space-y-1">
             {navLinks.map((l) => (
@@ -118,7 +140,7 @@ export default function Header() {
                   className={linkCls(
                     l.href,
                     "focus-ring block rounded-lg px-3 py-2.5 text-sm font-medium",
-                    "bg-cares-cream text-cares-teal",
+                    "bg-cares-soft text-cares-navy",
                     "text-cares-slate hover:bg-cares-cream"
                   )}
                 >
@@ -129,9 +151,9 @@ export default function Header() {
             <li>
               <Link
                 href="/book"
-                className="focus-ring block rounded-lg bg-cares-teal px-3 py-2.5 text-center text-sm font-semibold text-white"
+                className="focus-ring mt-1 block rounded-lg bg-cares-navy px-3 py-2.5 text-center text-sm font-semibold text-white"
               >
-                Book &amp; Pay
+                Book Now
               </Link>
             </li>
           </ul>
