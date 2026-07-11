@@ -19,54 +19,52 @@ export default function TermsPage() {
         </p>
 
         <div>
-          <h2 className="font-display text-xl font-bold text-cares-navy">
-            Bookings and payment
+          <h2 className="font-display text-xl font-semibold text-cares-navy">
+            Enquiries and engagements
           </h2>
           <p className="mt-2">
-            All services must be paid for in advance through our online payment
-            partner, Razorpay. A booking is confirmed once payment is verified and
-            our team contacts you, normally within 1 business day.
+            Submitting an enquiry through this website does not create a binding
+            service contract. Engagements begin once scope, timelines, and
+            commercial terms are agreed with our team.
           </p>
         </div>
 
         <div>
-          <h2 className="font-display text-xl font-bold text-cares-navy">
+          <h2 className="font-display text-xl font-semibold text-cares-navy">
             Service delivery
           </h2>
           <p className="mt-2">
-            Turnaround times shown on the website are indicative and start once we
-            have received all required inputs (datasets, questionnaires, project
-            briefs). Complex projects may require a revised timeline, which we
-            will agree with you before starting.
+            Timelines are indicative and start once we have received all required
+            inputs (datasets, questionnaires, project briefs). Complex projects may
+            require a revised timeline, which we will agree with you before
+            starting.
           </p>
         </div>
 
         <div>
-          <h2 className="font-display text-xl font-bold text-cares-navy">
-            Intellectual property and academic integrity
+          <h2 className="font-display text-xl font-semibold text-cares-navy">
+            Intellectual property
           </h2>
           <p className="mt-2">
             Deliverables are provided for your research use. Our analysis support
-            is intended to complement your own scholarship; you remain responsible
-            for how outputs are used in academic submissions.
+            does not replace academic integrity obligations or institutional
+            authorship policies.
           </p>
         </div>
 
         <div>
-          <h2 className="font-display text-xl font-bold text-cares-navy">
-            Refunds and cancellations
+          <h2 className="font-display text-xl font-semibold text-cares-navy">
+            Limitation of liability
           </h2>
           <p className="mt-2">
-            See our{" "}
-            <a href="/refunds" className="font-semibold text-cares-teal">
-              Refund &amp; Cancellation Policy
-            </a>{" "}
-            for details.
+            CARES provides professional research support in good faith. We are not
+            liable for academic outcomes, publication decisions, or third-party
+            interpretations of results beyond the agreed scope of work.
           </p>
         </div>
 
         <div>
-          <h2 className="font-display text-xl font-bold text-cares-navy">Contact</h2>
+          <h2 className="font-display text-xl font-semibold text-cares-navy">Contact</h2>
           <p className="mt-2">
             Questions about these terms? Email{" "}
             <a href={`mailto:${site.email}`} className="font-semibold text-cares-teal">

@@ -1,104 +1,48 @@
+/** Lightweight service catalogue for navigation and enquiry context (no pricing). */
+export type ServiceCategory =
+  | "Training"
+  | "Consultancy"
+  | "Research"
+  | "Analytics";
+
 export type Service = {
   id: string;
   name: string;
-  category: "Consultation" | "Data Analysis" | "Reporting" | "Training";
-  price: number;
-  turnaround: string;
+  category: ServiceCategory;
   description: string;
-  features: string[];
 };
 
 export const services: Service[] = [
   {
-    id: "consultation",
-    name: "Expert Consultation Call",
-    category: "Consultation",
-    price: 999,
-    turnaround: "45 minutes",
-    description:
-      "One-on-one session with a CARES analyst to discuss your research design, questionnaire, or data challenges.",
-    features: [
-      "Research design guidance",
-      "Methodology recommendations",
-      "Q&A on tools (SPSS, R, Excel)",
-    ],
-  },
-  {
-    id: "questionnaire-review",
-    name: "Questionnaire Design Review",
-    category: "Consultation",
-    price: 4999,
-    turnaround: "3–5 business days",
-    description:
-      "Professional review of your survey instrument for clarity, bias, scale reliability, and academic standards.",
-    features: [
-      "Item-by-item feedback",
-      "Scale & wording improvements",
-      "Reliability considerations",
-    ],
-  },
-  {
-    id: "data-analysis-basic",
-    name: "Data Analysis — Basic",
-    category: "Data Analysis",
-    price: 7999,
-    turnaround: "5–7 business days",
-    description:
-      "Descriptive statistics, reliability analysis (Cronbach's alpha), and basic visualizations for one dataset.",
-    features: [
-      "Descriptive statistics",
-      "Cronbach's alpha / reliability",
-      "Charts & tables",
-    ],
-  },
-  {
-    id: "data-analysis-advanced",
-    name: "Data Analysis — Advanced",
-    category: "Data Analysis",
-    price: 14999,
-    turnaround: "7–10 business days",
-    description:
-      "Inferential statistics, regression, factor analysis, group comparisons, and hypothesis testing.",
-    features: [
-      "T-tests, ANOVA, chi-square",
-      "Regression & correlation",
-      "Factor / dimension analysis",
-    ],
-  },
-  {
-    id: "dashboard-reporting",
-    name: "Dashboard & Reporting",
-    category: "Reporting",
-    price: 9999,
-    turnaround: "7–10 business days",
-    description:
-      "Interactive dashboard and publication-ready reports from your questionnaire data.",
-    features: ["Interactive dashboard", "Exportable charts", "Executive summary"],
-  },
-  {
-    id: "training-workshop",
-    name: "Training Workshop (Per Seat)",
+    id: "training",
+    name: "Training Programmes",
     category: "Training",
-    price: 2999,
-    turnaround: "1–3 days",
     description:
-      "Pan-India workshops on research methods, SPSS, R Studio, data analysis, and academic writing.",
-    features: [
-      "Hands-on practical sessions",
-      "Course materials included",
-      "Certificate of completion",
-    ],
+      "Workshops on research methodology, SPSS, R Studio, Jamovi, SmartPLS, academic writing, and more.",
+  },
+  {
+    id: "consultancy",
+    name: "Research Consultancy",
+    category: "Consultancy",
+    description:
+      "Questionnaire design, data analysis, SEM/PLS-SEM, reporting, and publication support.",
+  },
+  {
+    id: "research",
+    name: "Applied Research",
+    category: "Research",
+    description:
+      "Multidisciplinary research support from design through analysis and insight delivery.",
+  },
+  {
+    id: "dashboard",
+    name: "Dashboard Development",
+    category: "Analytics",
+    description:
+      "Interactive dashboards and visual analytics for academic and corporate research data.",
   },
 ];
 
 export function getService(id: string): Service | undefined {
   return services.find((s) => s.id === id);
-}
-
-export function formatINR(amount: number): string {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(amount);
 }

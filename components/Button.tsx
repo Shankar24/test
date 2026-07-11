@@ -2,11 +2,14 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 const variants = {
-  primary: "bg-cares-teal text-white hover:bg-cares-blue",
-  secondary: "bg-cares-gold text-cares-navy hover:bg-cares-cream",
+  primary:
+    "bg-cares-navy text-white hover:bg-cares-teal shadow-sm hover:shadow-md",
+  secondary:
+    "bg-cares-gold text-cares-navy hover:bg-[#d4b56e]",
   outline:
-    "border-2 border-cares-teal text-cares-teal hover:bg-cares-teal hover:text-white",
-  ghost: "text-white border-2 border-white/40 hover:border-white hover:bg-white/10",
+    "border border-cares-navy/20 bg-white/70 text-cares-navy hover:border-cares-navy/40 hover:bg-white",
+  ghost:
+    "text-white border border-white/35 hover:border-white hover:bg-white/10",
 } as const;
 
 type ButtonProps = {
@@ -23,7 +26,7 @@ export default function Button({
   className = "",
   ...rest
 }: ButtonProps) {
-  const cls = `focus-ring inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]} ${className}`;
+  const cls = `focus-ring inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]} ${className}`;
 
   if (href) {
     return (

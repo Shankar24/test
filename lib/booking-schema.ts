@@ -1,6 +1,7 @@
 import { z } from "zod";
+import { enquiryServices } from "@/lib/content";
 
-export const bookingSchema = z.object({
+export const enquirySchema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(120),
   email: z.string().trim().email("Please enter a valid email address").max(254),
   phone: z
@@ -14,25 +15,18 @@ export const bookingSchema = z.object({
     .trim()
     .min(2, "Please enter your institution or organization")
     .max(200),
-  projectTitle: z.string().trim().min(3, "Please enter a project title").max(200),
+  service: z.enum(
+    enquiryServices as unknown as [string, ...string[]],
+    {
+      errorMap: () => ({ message: "Please select a service" }),
+    }
+  ),
   description: z
     .string()
     .trim()
-    .min(10, "Please describe your project in at least a few words")
+    .min(10, "Please describe your requirement in at least a few words")
     .max(5000),
   deadline: z.string().trim().max(30).optional().or(z.literal("")),
 });
 
-export type Booking = z.infer<typeof bookingSchema>;
-
-export const createOrderSchema = z.object({
-  serviceId: z.string().min(1),
-  booking: bookingSchema,
-});
-
-export const verifyPaymentSchema = z.object({
-  orderId: z.string().min(1),
-  razorpayOrderId: z.string().min(1),
-  razorpayPaymentId: z.string().min(1),
-  razorpaySignature: z.string().min(1),
-});
+export type Enquiry = z.infer<typeof enquirySchema>;
