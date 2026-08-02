@@ -123,6 +123,16 @@ const SPECIES = {
   },
 };
 const SPECIES_ORDER = ["nova", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
+const TURNTABLE_FRAMES = 8;
+function turntableSrc(id, i) {
+  return `assets/turntable/${id}-${((i % TURNTABLE_FRAMES) + TURNTABLE_FRAMES) % TURNTABLE_FRAMES}.jpg`;
+}
+function preloadTurntable(id) {
+  for (let i = 0; i < TURNTABLE_FRAMES; i++) {
+    const img = new Image();
+    img.src = turntableSrc(id, i);
+  }
+}
 
 /* ============================================================
    TRAIT CATALOG — deltas: st stability / ad adaptation / en energy
@@ -379,30 +389,90 @@ function habitatCompat(draft, env) {
 }
 
 /* ============================================================
-   HERO MOTION — pseudo-3D
+   HERO FLOAT — gentle presence (turntable handles the 360°)
    ============================================================ */
 (function heroMotion() {
-  const stage = $("#heroStage");
   const render = $("#heroRender");
-  if (!stage || !render) return;
-  let px = 0, py = 0, tx = 0, ty = 0;
-  window.addEventListener("pointermove", (e) => {
-    tx = (e.clientX / window.innerWidth - 0.5) * 2;
-    ty = (e.clientY / window.innerHeight - 0.5) * 2;
-  }, { passive: true });
+  if (!render) return;
   function frame(t) {
     if (reduceMotion.matches) { render.style.transform = ""; requestAnimationFrame(frame); return; }
-    px += (tx - px) * 0.04;
-    py += (ty - py) * 0.04;
-    const turn = Math.sin(t * 0.00035) * 5 + px * 3.4;
-    const tilt = Math.sin(t * 0.00021) * 1.2 - py * 1.8;
-    const float = Math.sin(t * 0.0006) * 8;
-    const breathe = 1 + Math.sin(t * 0.0011) * 0.008;
-    render.style.transform = `translateY(${float.toFixed(2)}px) rotateY(${turn.toFixed(2)}deg) rotateX(${tilt.toFixed(2)}deg) scale(${breathe.toFixed(4)})`;
+    const float = Math.sin(t * 0.00055) * 6;
+    const breathe = 1 + Math.sin(t * 0.001) * 0.006;
+    render.style.transform = `translateY(${float.toFixed(2)}px) scale(${breathe.toFixed(4)})`;
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 })();
+
+/* ============================================================
+   CONTINUOUS TURNTABLE — real multi-angle creature spin
+   Uses 8 photoreal angle frames per species and crossfades
+   between them so the animal itself turns — not the image card.
+   ============================================================ */
+function createTurntable({ a, b, periodMs = 16000 }) {
+  let speciesId = "nova";
+  let angle = 0;
+  let last = 0;
+  let heldFloor = -1;
+  let running = true;
+
+  function setSpecies(id, { reset = true } = {}) {
+    speciesId = id;
+    preloadTurntable(id);
+    if (reset) angle = 0;
+    heldFloor = -1;
+    a.src = turntableSrc(id, 0);
+    b.src = turntableSrc(id, 1);
+    a.style.opacity = "1";
+    b.style.opacity = "0";
+    a.classList.add("is-front");
+    b.classList.remove("is-front");
+  }
+
+  function paint(t) {
+    if (!running) return;
+    if (!last) last = t;
+    const dt = Math.min(50, t - last);
+    last = t;
+
+    if (!reduceMotion.matches) {
+      angle = (angle + (dt / periodMs) * TURNTABLE_FRAMES) % TURNTABLE_FRAMES;
+    }
+
+    const floor = Math.floor(angle);
+    const next = (floor + 1) % TURNTABLE_FRAMES;
+    const blend = angle - floor;
+
+    if (floor !== heldFloor) {
+      a.src = turntableSrc(speciesId, floor);
+      b.src = turntableSrc(speciesId, next);
+      heldFloor = floor;
+    }
+
+    // Smooth ease across the blend so motion feels continuous
+    const eased = blend * blend * (3 - 2 * blend);
+    a.style.opacity = String(1 - eased);
+    b.style.opacity = String(eased);
+
+    requestAnimationFrame(paint);
+  }
+
+  setSpecies("nova");
+  requestAnimationFrame(paint);
+  return { setSpecies, stop() { running = false; } };
+}
+
+const showcaseTurntable = createTurntable({
+  a: $("#showImgA"),
+  b: $("#showImgB"),
+  periodMs: 16000,
+});
+const heroTurntable = createTurntable({
+  a: $("#heroImgA"),
+  b: $("#heroImgB"),
+  periodMs: 18000,
+});
+SPECIES_ORDER.forEach(preloadTurntable);
 
 /* magnetic buttons */
 (function magnetic() {
@@ -448,7 +518,9 @@ function renderShowcase() {
   applyTheme(sp);
   $("#showGhost").textContent = sp.ghost;
   $("#showName").textContent = sp.painted;
-  swapImage($("#showImg"), sp.img, sp.alt);
+  if (showcaseTurntable) showcaseTurntable.setSpecies(sp.id);
+  const showA = $("#showImgA");
+  if (showA) showA.alt = sp.alt;
   swapImage($("#showCardImg"), sp.img, "");
   $("#showCardName").textContent = sp.name.toUpperCase();
   $("#showCardBlurb").textContent = sp.blurb;
@@ -470,37 +542,8 @@ function renderShowcase() {
   $$("#showThumbs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.id === sp.id)));
 }
 
-let specimenSpinning = false;
-function spinSpecimen({ delay = 0 } = {}) {
-  const stage = $("#showStage");
-  if (!stage || specimenSpinning) return;
-  const run = () => {
-    if (specimenSpinning) return;
-    specimenSpinning = true;
-    stage.classList.remove("is-spinning");
-    // Force restart so repeated clicks retrigger the animation
-    void stage.offsetWidth;
-    stage.classList.add("is-spinning");
-    const done = () => {
-      stage.classList.remove("is-spinning");
-      specimenSpinning = false;
-      stage.removeEventListener("animationend", onEnd);
-    };
-    const onEnd = (e) => {
-      if (e.target !== $("#showRender")) return;
-      done();
-    };
-    stage.addEventListener("animationend", onEnd);
-    // Fallback in case animationend is swallowed
-    setTimeout(done, reduceMotion.matches ? 420 : 2000);
-  };
-  if (delay) setTimeout(run, delay);
-  else run();
-}
-
-function selectSpecimen(id, { retheme = true, spin = true } = {}) {
+function selectSpecimen(id) {
   if (!SPECIES[id]) return;
-  const changed = state.specimen !== id;
   state.specimen = id;
   state.draft.base = id;
   renderShowcase();
@@ -508,7 +551,6 @@ function selectSpecimen(id, { retheme = true, spin = true } = {}) {
   renderPreview();
   renderLab(`SPECIMEN ${SPECIES[id].specimen} LOADED \u2014 PHENOTYPE UPDATED`);
   renderHabitatPanel();
-  if (spin) spinSpecimen({ delay: changed && !reduceMotion.matches ? 280 : 0 });
 }
 
 (function buildThumbs() {
@@ -521,19 +563,6 @@ function selectSpecimen(id, { retheme = true, spin = true } = {}) {
   wrap.addEventListener("click", (e) => {
     const b = e.target.closest("button[data-id]");
     if (b) selectSpecimen(b.dataset.id);
-  });
-})();
-
-(function wireSpecimenSpin() {
-  const render = $("#showRender");
-  if (!render) return;
-  const trigger = () => spinSpecimen();
-  render.addEventListener("click", trigger);
-  render.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      trigger();
-    }
   });
 })();
 
