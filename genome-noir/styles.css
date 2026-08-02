@@ -256,16 +256,19 @@ figure { margin: 0; }
 
 .hero-spec {
   position: absolute; left: 34px; bottom: 132px; z-index: 4;
-  color: var(--grey); line-height: 2;
+  color: var(--ac); line-height: 2;
+  transition: color 0.7s var(--ease);
 }
 .hero-spec p:first-child { color: var(--ink); }
 .hero-tag {
   position: absolute; right: 34px; bottom: 132px; z-index: 4;
-  color: var(--grey); text-align: right; line-height: 2;
+  color: var(--ac); text-align: right; line-height: 2;
+  transition: color 0.7s var(--ease);
 }
 .hero-scroll {
   position: absolute; left: 50%; transform: translateX(-50%);
-  bottom: 58px; z-index: 4; color: var(--grey);
+  bottom: 58px; z-index: 4; color: var(--ac);
+  transition: color 0.7s var(--ease);
 }
 .hero-footer {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
