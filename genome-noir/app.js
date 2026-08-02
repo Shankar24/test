@@ -530,7 +530,7 @@ function setMode(mode) {
   } else if (mode === "hybrid" && !state.draft.hybridWith) {
     state.draft.hybridWith = rand(SPECIES_ORDER.filter((s) => s !== state.draft.base));
   }
-  if (mode !== "hybrid") state.draft.hybridWith = null;
+  if (mode === "species" || mode === "describe") state.draft.hybridWith = null;
   renderCreate();
   renderPreview();
   renderLab("PHENOTYPE UPDATED");
