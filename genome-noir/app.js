@@ -415,6 +415,7 @@ function createTurntable({ a, b, periodMs = 16000 }) {
   let last = 0;
   let heldFloor = -1;
   let running = true;
+  let paused = false;
 
   function setSpecies(id, { reset = true } = {}) {
     speciesId = id;
@@ -431,6 +432,7 @@ function createTurntable({ a, b, periodMs = 16000 }) {
 
   function paint(t) {
     if (!running) return;
+    if (paused) { last = t; requestAnimationFrame(paint); return; }
     if (!last) last = t;
     const dt = Math.min(50, t - last);
     last = t;
@@ -459,7 +461,11 @@ function createTurntable({ a, b, periodMs = 16000 }) {
 
   setSpecies("nova");
   requestAnimationFrame(paint);
-  return { setSpecies, stop() { running = false; } };
+  return {
+    setSpecies,
+    setPaused(v) { paused = v; },
+    stop() { running = false; },
+  };
 }
 
 const showcaseTurntable = createTurntable({
@@ -473,6 +479,42 @@ const heroTurntable = createTurntable({
   periodMs: 18000,
 });
 SPECIES_ORDER.forEach(preloadTurntable);
+
+/* Pause turntables while off-screen — saves battery and keeps scroll smooth */
+(function pauseOffscreenTurntables() {
+  if (!("IntersectionObserver" in window)) return;
+  const map = new Map([
+    [$("#heroRender"), heroTurntable],
+    [$("#showRender"), showcaseTurntable],
+  ]);
+  const io = new IntersectionObserver((entries) => {
+    for (const en of entries) {
+      const tt = map.get(en.target);
+      if (tt) tt.setPaused(!en.isIntersecting);
+    }
+  }, { rootMargin: "160px" });
+  for (const el of map.keys()) if (el) io.observe(el);
+})();
+
+/* Genome Lab CTA lives under the creature on desktop, at the end on phones */
+(function relocateLabCta() {
+  const btn = $("#labIncubateBtn");
+  const slot = $("#labCtaMobile");
+  const stage = $(".lab-stage");
+  if (!btn || !slot || !stage) return;
+  const mq = window.matchMedia("(max-width: 860px)");
+  const apply = () => {
+    if (mq.matches) {
+      slot.appendChild(btn);
+      slot.hidden = false;
+    } else {
+      stage.appendChild(btn);
+      slot.hidden = true;
+    }
+  };
+  mq.addEventListener?.("change", apply);
+  apply();
+})();
 
 /* magnetic buttons */
 (function magnetic() {
@@ -488,15 +530,21 @@ SPECIES_ORDER.forEach(preloadTurntable);
   });
 })();
 
-/* explore parallax */
+/* explore parallax — desktop pointer devices only */
 (function exploreParallax() {
   const canvas = $("#exploreCanvas");
   if (!canvas) return;
   const cards = $$(".xcard", canvas);
+  const wide = window.matchMedia("(min-width: 1181px)");
+  const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const active = () => wide.matches && fine.matches && !reduceMotion.matches;
   let ticking = false;
   function update() {
     ticking = false;
-    if (reduceMotion.matches) return;
+    if (!active()) {
+      cards.forEach((c) => { c.style.transform = ""; });
+      return;
+    }
     const r = canvas.getBoundingClientRect();
     const mid = r.top + r.height / 2 - window.innerHeight / 2;
     cards.forEach((c) => {
@@ -507,6 +555,7 @@ SPECIES_ORDER.forEach(preloadTurntable);
   window.addEventListener("scroll", () => {
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }, { passive: true });
+  wide.addEventListener?.("change", update);
   update();
 })();
 
