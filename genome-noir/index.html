@@ -99,12 +99,14 @@
       <div class="show-thumbs" id="showThumbs" role="tablist" aria-label="Select a specimen"></div>
     </div>
 
-    <div class="show-stage">
+    <div class="show-stage" id="showStage">
       <div class="show-glow" aria-hidden="true"></div>
-      <figure class="render-slot show-render" id="showRender" data-render-slot="showcase">
+      <div class="show-orbit" aria-hidden="true"></div>
+      <figure class="render-slot show-render" id="showRender" data-render-slot="showcase" role="button" tabindex="0" aria-label="Spin specimen 360 degrees">
         <img src="assets/nova.jpg" alt="" id="showImg" />
         <div class="render-vignette" aria-hidden="true"></div>
       </figure>
+      <p class="show-spin-hint mono" aria-hidden="true">CLICK TO SPIN 360°</p>
     </div>
 
     <aside class="show-card panel" aria-live="polite">

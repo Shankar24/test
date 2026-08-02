@@ -470,8 +470,37 @@ function renderShowcase() {
   $$("#showThumbs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.id === sp.id)));
 }
 
-function selectSpecimen(id, { retheme = true } = {}) {
+let specimenSpinning = false;
+function spinSpecimen({ delay = 0 } = {}) {
+  const stage = $("#showStage");
+  if (!stage || specimenSpinning) return;
+  const run = () => {
+    if (specimenSpinning) return;
+    specimenSpinning = true;
+    stage.classList.remove("is-spinning");
+    // Force restart so repeated clicks retrigger the animation
+    void stage.offsetWidth;
+    stage.classList.add("is-spinning");
+    const done = () => {
+      stage.classList.remove("is-spinning");
+      specimenSpinning = false;
+      stage.removeEventListener("animationend", onEnd);
+    };
+    const onEnd = (e) => {
+      if (e.target !== $("#showRender")) return;
+      done();
+    };
+    stage.addEventListener("animationend", onEnd);
+    // Fallback in case animationend is swallowed
+    setTimeout(done, reduceMotion.matches ? 420 : 2000);
+  };
+  if (delay) setTimeout(run, delay);
+  else run();
+}
+
+function selectSpecimen(id, { retheme = true, spin = true } = {}) {
   if (!SPECIES[id]) return;
+  const changed = state.specimen !== id;
   state.specimen = id;
   state.draft.base = id;
   renderShowcase();
@@ -479,6 +508,7 @@ function selectSpecimen(id, { retheme = true } = {}) {
   renderPreview();
   renderLab(`SPECIMEN ${SPECIES[id].specimen} LOADED \u2014 PHENOTYPE UPDATED`);
   renderHabitatPanel();
+  if (spin) spinSpecimen({ delay: changed && !reduceMotion.matches ? 280 : 0 });
 }
 
 (function buildThumbs() {
@@ -491,6 +521,19 @@ function selectSpecimen(id, { retheme = true } = {}) {
   wrap.addEventListener("click", (e) => {
     const b = e.target.closest("button[data-id]");
     if (b) selectSpecimen(b.dataset.id);
+  });
+})();
+
+(function wireSpecimenSpin() {
+  const render = $("#showRender");
+  if (!render) return;
+  const trigger = () => spinSpecimen();
+  render.addEventListener("click", trigger);
+  render.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      trigger();
+    }
   });
 })();
 
