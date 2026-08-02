@@ -848,7 +848,7 @@ figure { margin: 0; }
     opacity: 0; pointer-events: none; transition: opacity 0.35s var(--ease);
     z-index: -1; overscroll-behavior: contain;
   }
-  .nav-links a { font-size: 18px; padding: 12px 20px; min-height: 44px; display: inline-flex; align-items: center; }
+  .nav-links a { font-size: 18px; padding: 12px 20px; min-height: 44px; display: inline-flex; align-items: center; color: var(--ink); }
   .nav-open .nav-links { opacity: 1; pointer-events: auto; z-index: 130; }
   .nav-open .nav-burger { position: relative; z-index: 131; }
   .nav-open .brand { position: relative; z-index: 131; }
